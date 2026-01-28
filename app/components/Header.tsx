@@ -15,7 +15,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header 
+      className="bg-white border-b border-gray-200 sticky top-0 z-50 relative bg-cover bg-center"
+      style={{ 
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('/images/header-banner.jpg')"
+      }}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-gray-900">

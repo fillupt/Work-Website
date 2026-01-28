@@ -14,8 +14,7 @@ export default function Home() {
           <div className="bg-blue-700 rounded-lg p-6 mb-6 hover:bg-blue-800 transition-colors">
             <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold mb-2">🏥 Virtual Patient</h2>
-                <p className="text-blue-100">Explore our innovative virtual patient simulation platform</p>
+                <p className="text-blue-100">Looking for the Virtual Patient? </p>
               </div>
               <ExternalLink className="w-8 h-8" />
             </Link>
@@ -30,7 +29,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-shrink-0">
               <Image 
-                src="/images/profile.jpg" 
+                src="/images/profile-photo.jpg" 
                 alt="Associate Professor Philip Turnbull"
                 width={200}
                 height={200}
@@ -39,26 +38,10 @@ export default function Home() {
               />
             </div>
             <div className="flex-1">
-              <p className="text-xl text-gray-600 mb-4">
-                School of Optometry and Vision Science
-              </p>
-              <p className="text-lg text-gray-700 mb-6">
-                University of Auckland, New Zealand
-              </p>
               <p className="text-gray-700 mb-6">
-                Board-registered optometrist specialising in virtual patients, eye tracking, 
-                artificial intelligence, and digital health innovation. Research focuses on 
+                A/Prof Turnbull is a Board-registered optometrist specialising in 
                 leveraging technology to improve healthcare education and clinical practice.
               </p>
-              <Link
-                href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                <GraduationCap className="w-5 h-5" />
-                Google Scholar
-              </Link>
             </div>
           </div>
         </section>
