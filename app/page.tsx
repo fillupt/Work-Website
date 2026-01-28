@@ -34,11 +34,24 @@ export default function Home() {
               />
             </div>
             <div className="flex-1">
-              <p className="text-xl text-gray-600 mb-4">
-                School of Optometry and Vision Science
-              </p>
-              <p className="text-lg text-gray-700 mb-6">
-                University of Auckland, New Zealand
+              <p className="text-lg text-gray-700 mb-4">
+                <a 
+                  href="https://www.auckland.ac.nz/en/science/about-the-faculty/school-of-optometry-and-vision-science.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 hover:underline"
+                >
+                  School of Optometry and Vision Science
+                </a>
+                <br/>
+                <a 
+                  href="https://www.auckland.ac.nz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 hover:underline"
+                >
+                  University of Auckland
+                </a>, New Zealand
               </p>
               <p className="text-gray-700 mb-4">
                 A/Prof Turnbull is a Board-registered optometrist specialising in 
