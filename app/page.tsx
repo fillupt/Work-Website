@@ -4,7 +4,7 @@ import { BookOpen, GraduationCap, Users, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <main className="bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section with Virtual Patient Banner */}
       <section 
         className="bg-blue-600 text-white py-3 relative bg-cover bg-center"
@@ -51,14 +51,14 @@ export default function Home() {
                   className="text-blue-600 hover:text-blue-800 hover:underline"
                 >
                   University of Auckland
-                </a>, New Zealand
+                </a><br /> Auckland, New Zealand
               </p>
               <p className="text-gray-700 mb-4">
                 A/Prof Turnbull is a Board-registered optometrist specialising in 
                 leveraging technology to improve healthcare education and clinical practice.
               </p>
               <p className="text-gray-700 mb-6">
-                His research focuses on virtual patients, eye tracking, artificial intelligence, 
+                His research focuses on virtual reality, eye tracking, artificial intelligence, 
                 and digital health innovation. He co-founded the Auckland Myopia Control Clinic 
                 and has developed national standards for optometry practice in New Zealand.
               </p>
