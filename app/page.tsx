@@ -34,10 +34,30 @@ export default function Home() {
               />
             </div>
             <div className="flex-1">
-              <p className="text-gray-700 mb-6">
+              <p className="text-xl text-gray-600 mb-4">
+                School of Optometry and Vision Science
+              </p>
+              <p className="text-lg text-gray-700 mb-6">
+                University of Auckland, New Zealand
+              </p>
+              <p className="text-gray-700 mb-4">
                 A/Prof Turnbull is a Board-registered optometrist specialising in 
                 leveraging technology to improve healthcare education and clinical practice.
               </p>
+              <p className="text-gray-700 mb-6">
+                His research focuses on virtual patients, eye tracking, artificial intelligence, 
+                and digital health innovation. He co-founded the Auckland Myopia Control Clinic 
+                and has developed national standards for optometry practice in New Zealand.
+              </p>
+              <Link
+                href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+              >
+                <GraduationCap className="w-5 h-5" />
+                Google Scholar
+              </Link>
             </div>
           </div>
         </section>
