@@ -49,15 +49,6 @@ export default function Home() {
                 and digital health innovation. He co-founded the Auckland Myopia Control Clinic 
                 and has developed national standards for optometry practice in New Zealand.
               </p>
-              <Link
-                href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                <GraduationCap className="w-5 h-5" />
-                Google Scholar
-              </Link>
             </div>
           </div>
         </section>
