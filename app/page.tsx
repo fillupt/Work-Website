@@ -1,11 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BookOpen, GraduationCap, Users, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section with Virtual Patient Banner */}
-      <section className="bg-blue-600 text-white py-12">
+      <section 
+        className="bg-blue-600 text-white py-12 relative bg-cover bg-center"
+        style={{ backgroundImage: "linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.85)), url('/images/banner1.jpg')" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-blue-700 rounded-lg p-6 mb-6 hover:bg-blue-800 transition-colors">
             <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
@@ -23,26 +27,40 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Introduction */}
         <section className="mb-16">
-          <p className="text-xl text-gray-600 mb-4">
-            School of Optometry and Vision Science
-          </p>
-          <p className="text-lg text-gray-700 mb-6">
-            University of Auckland, New Zealand
-          </p>
-          <p className="text-gray-700 mb-6">
-            Board-registered optometrist specialising in virtual patients, eye tracking, 
-            artificial intelligence, and digital health innovation. Research focuses on 
-            leveraging technology to improve healthcare education and clinical practice.
-          </p>
-          <Link
-            href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-          >
-            <GraduationCap className="w-5 h-5" />
-            Google Scholar
-          </Link>
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="flex-shrink-0">
+              <Image 
+                src="/images/profile.jpg" 
+                alt="Associate Professor Philip Turnbull"
+                width={200}
+                height={200}
+                className="rounded-full shadow-lg"
+                priority
+              />
+            </div>
+            <div className="flex-1">
+              <p className="text-xl text-gray-600 mb-4">
+                School of Optometry and Vision Science
+              </p>
+              <p className="text-lg text-gray-700 mb-6">
+                University of Auckland, New Zealand
+              </p>
+              <p className="text-gray-700 mb-6">
+                Board-registered optometrist specialising in virtual patients, eye tracking, 
+                artificial intelligence, and digital health innovation. Research focuses on 
+                leveraging technology to improve healthcare education and clinical practice.
+              </p>
+              <Link
+                href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+              >
+                <GraduationCap className="w-5 h-5" />
+                Google Scholar
+              </Link>
+            </div>
+          </div>
         </section>
 
         {/* Research, Teaching, Advisory Sections */}
