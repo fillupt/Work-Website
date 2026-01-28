@@ -1,0 +1,22 @@
+// This file contains all publications - will be used to generate the final version
+export const knownJournalArticles = [
+  'Extended screen time and dry eye in youth',
+  'Additive effect of atropine eye drops',
+  'The effect of atropine on human global flash mfERG',
+  'Repeatability of arterial spin labeling MRI',
+  'Randomised trial of the clinical utility of an eyelid massage device',
+  'Effect of virtual reality headset wear on the tear film',
+  'Comparison of treatment effect across varying severities',
+  'Comparing the in vitro effects of MGO',
+  'Ocular effects of virtual reality headset wear in young adults',
+  'Ocular surface microbiome in meibomian gland dysfunction',
+  'Origins of Pupillary Hippus in the Autonomic Nervous System',
+  'Contact lens methods for clinical myopia control',
+  'Similar contrast sensitivity functions',
+  'Prospective Trial of Intense Pulsed Light',
+  'Visually guided eye growth in the squid',
+  'The effect of cellphone position on driving',
+  'The effect of refractive error on optokinetic nystagmus',
+  'The effect of simulated visual field loss on optokinetic nystagmus',
+  'Diagnosis of colour vision deficits using eye movements',
+];

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { publications, Publication } from '../data/publications';
 import { ExternalLink, FileText, Calendar, Users } from 'lucide-react';
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 10;
 
 export default function PublicationsPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,14 +74,14 @@ export default function PublicationsPage() {
             Journal Articles ({publications.filter(p => p.type === 'journal').length})
           </button>
           <button
-            onClick={() => handleTypeChange('conference')}
+            onClick={() => handleTypeChange('report')}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              selectedType === 'conference'
+              selectedType === 'report'
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
-            Conference Papers ({publications.filter(p => p.type === 'conference').length})
+            Reports ({publications.filter(p => p.type === 'report').length})
           </button>
         </div>
 
