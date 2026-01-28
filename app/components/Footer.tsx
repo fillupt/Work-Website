@@ -16,12 +16,8 @@ export default function Footer() {
           </div>
           
           <div className="text-sm text-gray-400">
-            Last updated: January 28, 2025
+            Last updated: January 28, 2026
           </div>
-        </div>
-        
-        <div className="mt-4 pt-4 border-t border-gray-800 text-center text-sm text-gray-400">
-          © {new Date().getFullYear()} Associate Professor Philip Turnbull
         </div>
       </div>
     </footer>
