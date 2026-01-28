@@ -19,7 +19,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-gray-900">
-            A/Prof Philip Turnbull
+            Associate Professor Philip Turnbull
           </Link>
           <div className="flex space-x-8">
             {navItems.map((item) => (

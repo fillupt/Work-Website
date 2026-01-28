@@ -23,38 +23,26 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Introduction */}
         <section className="mb-16">
-          <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="flex-1">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                Associate Professor Philip Turnbull
-              </h1>
-              <p className="text-xl text-gray-600 mb-6">
-                School of Optometry and Vision Science
-              </p>
-              <p className="text-lg text-gray-700 mb-4">
-                University of Auckland, New Zealand
-              </p>
-              <div className="prose prose-lg text-gray-600 mb-6">
-                <p>
-                  Associate Professor Philip Turnbull is a New Zealand Board-registered optometrist at the 
-                  School of Optometry and Vision Science (SOVS), University of Auckland. His work focuses on 
-                  leveraging technology to improve healthcare education and clinical practice, with expertise 
-                  in virtual patients, clinical decision support systems, and digital health innovation.
-                </p>
-              </div>
-              <div className="flex gap-4">
-                <Link
-                  href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-                >
-                  <GraduationCap className="w-5 h-5" />
-                  Google Scholar
-                </Link>
-              </div>
-            </div>
-          </div>
+          <p className="text-xl text-gray-600 mb-4">
+            School of Optometry and Vision Science
+          </p>
+          <p className="text-lg text-gray-700 mb-6">
+            University of Auckland, New Zealand
+          </p>
+          <p className="text-gray-700 mb-6">
+            Board-registered optometrist specialising in virtual patients, eye tracking, 
+            artificial intelligence, and digital health innovation. Research focuses on 
+            leveraging technology to improve healthcare education and clinical practice.
+          </p>
+          <Link
+            href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            <GraduationCap className="w-5 h-5" />
+            Google Scholar
+          </Link>
         </section>
 
         {/* Research, Teaching, Advisory Sections */}
