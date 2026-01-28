@@ -7,18 +7,14 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section with Virtual Patient Banner */}
       <section 
-        className="bg-blue-600 text-white py-12 relative bg-cover bg-center"
+        className="bg-blue-600 text-white py-3 relative bg-cover bg-center"
         style={{ backgroundImage: "linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.85)), url('/images/banner1.jpg')" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-blue-700 rounded-lg p-6 mb-6 hover:bg-blue-800 transition-colors">
-            <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
-              <div>
-                <p className="text-blue-100">Looking for the Virtual Patient? </p>
-              </div>
-              <ExternalLink className="w-8 h-8" />
-            </Link>
-          </div>
+          <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+            <span className="text-lg">Looking for the Virtual Patient?</span>
+            <ExternalLink className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 
