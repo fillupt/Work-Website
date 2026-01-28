@@ -99,7 +99,7 @@ export default function ResearchPage() {
           </Link>
 
           <a
-            href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
+            href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow"

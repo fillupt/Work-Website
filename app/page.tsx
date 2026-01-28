@@ -8,7 +8,7 @@ export default function Home() {
       <section className="bg-blue-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-blue-700 rounded-lg p-6 mb-6 hover:bg-blue-800 transition-colors">
-            <Link href="https://virtualpat.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
+            <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">🏥 Virtual Patient</h2>
                 <p className="text-blue-100">Explore our innovative virtual patient simulation platform</p>
@@ -44,7 +44,7 @@ export default function Home() {
               </div>
               <div className="flex gap-4">
                 <Link
-                  href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
+                  href="https://scholar.google.com/citations?user=x8jeZnwAAAAJ&hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
