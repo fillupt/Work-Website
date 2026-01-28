@@ -26,19 +26,20 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-1">
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                Dr Philip Turnbull
+                Associate Professor Philip Turnbull
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                Senior Lecturer in Biomedical Informatics
+                School of Optometry and Vision Science
               </p>
               <p className="text-lg text-gray-700 mb-4">
                 University of Auckland, New Zealand
               </p>
               <div className="prose prose-lg text-gray-600 mb-6">
                 <p>
-                  I am a Senior Lecturer at the University of Auckland, specialising in biomedical informatics, 
-                  virtual patients, and clinical decision support systems. My work focuses on leveraging technology 
-                  to improve healthcare education and clinical practice.
+                  Associate Professor Philip Turnbull is a New Zealand Board-registered optometrist at the 
+                  School of Optometry and Vision Science (SOVS), University of Auckland. His work focuses on 
+                  leveraging technology to improve healthcare education and clinical practice, with expertise 
+                  in virtual patients, clinical decision support systems, and digital health innovation.
                 </p>
               </div>
               <div className="flex gap-4">
@@ -58,38 +59,38 @@ export default function Home() {
 
         {/* Research, Teaching, Advisory Sections */}
         <section className="grid md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+          <Link href="/research" className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
             <BookOpen className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-bold text-gray-900 mb-3">Research</h3>
             <ul className="text-gray-600 space-y-2">
-              <li>• Biomedical Informatics</li>
-              <li>• Virtual Patient Systems</li>
-              <li>• Clinical Decision Support</li>
-              <li>• Healthcare AI Applications</li>
+              <li>• Virtual Reality Applications</li>
+              <li>• Eye Tracking Systems</li>
+              <li>• Artificial Intelligence</li>
+              <li>• Myopia Control Research</li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+          <Link href="/teaching" className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
             <GraduationCap className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-bold text-gray-900 mb-3">Teaching</h3>
             <ul className="text-gray-600 space-y-2">
-              <li>• Medical Informatics Courses</li>
-              <li>• Healthcare Technology</li>
-              <li>• Clinical Systems Design</li>
-              <li>• Digital Health Innovation</li>
+              <li>• Undergraduate Optometry</li>
+              <li>• Postgraduate Programs</li>
+              <li>• Clinical Decision-Making</li>
+              <li>• Virtual Patient Platform</li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+          <Link href="/advisory" className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all">
             <Users className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-bold text-gray-900 mb-3">Advisory</h3>
             <ul className="text-gray-600 space-y-2">
-              <li>• Healthcare IT Strategy</li>
-              <li>• Clinical System Implementation</li>
-              <li>• Educational Technology</li>
-              <li>• Research Consultation</li>
+              <li>• ODOB Advisor & Researcher</li>
+              <li>• CAA Vision Standards</li>
+              <li>• Expert Witness Services</li>
+              <li>• Policy Development</li>
             </ul>
-          </div>
+          </Link>
         </section>
 
         {/* Publications Link */}

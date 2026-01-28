@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dr Philip Turnbull - Biomedical Informatics",
-  description: "Senior Lecturer at the University of Auckland, specialising in biomedical informatics, virtual patients, and clinical decision support.",
+  title: "Associate Professor Philip Turnbull - Optometry and Vision Science",
+  description: "Associate Professor at the School of Optometry and Vision Science, University of Auckland, specialising in virtual patients, eye tracking, and digital health innovation.",
 };
 
 export default function RootLayout({

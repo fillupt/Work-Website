@@ -8,6 +8,9 @@ export default function Header() {
 
   const navItems = [
     { href: '/', label: 'Home' },
+    { href: '/research', label: 'Research' },
+    { href: '/teaching', label: 'Teaching' },
+    { href: '/advisory', label: 'Advisory' },
     { href: '/publications', label: 'Publications' },
   ];
 
@@ -16,7 +19,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-gray-900">
-            Dr Philip Turnbull
+            A/Prof Philip Turnbull
           </Link>
           <div className="flex space-x-8">
             {navItems.map((item) => (
