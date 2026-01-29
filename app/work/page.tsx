@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, ExternalLink, BookOpen, GraduationCap, Users } from 'lucide-react';
 
 const WorkPage = () => {
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
@@ -41,40 +42,67 @@ const WorkPage = () => {
     <div className="relative min-h-screen">
       <TextureBackground />
 
+      {/* Hero Section with Virtual Patient Banner */}
+      <section 
+        className="bg-blue-600 dark:bg-blue-700 text-white py-3 relative bg-cover bg-center"
+        style={{ backgroundImage: "linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.85)), url('/images/banner1.jpg')" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+            <span className="text-lg">Looking for the Virtual Patient?</span>
+            <ExternalLink className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
       {/* About Me Section */}
-      <section className="relative w-full bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="relative z-10 bg-white dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 items-start">
             {/* Profile Image */}
-            <div className="flex justify-center md:justify-start">
-              <div className="relative w-72 h-72 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/profile-photo.jpg"
-                  alt="Philip Turnbull"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+            <div className="flex-shrink-0">
+              <Image 
+                src="/images/profile-photo.jpg" 
+                alt="Associate Professor Philip Turnbull"
+                width={200}
+                height={200}
+                className="rounded-full shadow-lg"
+                priority
+              />
             </div>
 
             {/* Bio */}
-            <div className="space-y-6">
-              <div>
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  Associate Professor Philip Turnbull
-                </h1>
-                <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">
+            <div className="flex-1">
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Associate Professor Philip Turnbull
+              </h1>
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                <a 
+                  href="https://www.auckland.ac.nz/en/science/about-the-faculty/school-of-optometry-and-vision-science.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline"
+                >
+                  School of Optometry and Vision Science
+                </a>
+                <br/>
+                <a 
+                  href="https://www.auckland.ac.nz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline"
+                >
                   University of Auckland
-                </p>
-              </div>
-
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                I am an Associate Professor in the Department of Computer Science at the University of Auckland. My research interests include software engineering, program analysis, and empirical software engineering. I am particularly interested in how developers use tools and how tools can better support developers.
+                </a><br /> Auckland, New Zealand
               </p>
-
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                I teach courses in software engineering, programming, and computer science fundamentals. I am passionate about creating engaging learning experiences and mentoring the next generation of computer scientists.
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                A/Prof Turnbull is a Board-registered optometrist specialising in 
+                leveraging technology to improve healthcare education and clinical practice.
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                His research focuses on virtual reality, eye tracking, artificial intelligence, 
+                and digital health innovation. He co-founded the Auckland Myopia Control Clinic 
+                and has developed national standards for optometry practice in New Zealand.
               </p>
 
               <div className="flex gap-4 pt-4">
@@ -101,7 +129,7 @@ const WorkPage = () => {
       </section>
 
       {/* Tabs Section */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Tab Navigation */}
         <div className="flex gap-4 mb-12 border-b border-gray-200 dark:border-gray-800">
           {tabs.map((tab) => (
@@ -134,28 +162,37 @@ const WorkPage = () => {
                 <div className="space-y-6">
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                      Software Engineering
+                      Virtual Reality in Healthcare
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      My research in software engineering focuses on understanding how developers work and how tools can better support their practices. I investigate program analysis techniques, software testing strategies, and developer productivity.
+                      Developing and evaluating virtual reality applications for optometry education and clinical training. These immersive environments enhance learning outcomes and prepare students for real-world practice.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                      Empirical Software Engineering
+                      Eye Tracking & Gaze Analysis
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      I conduct empirical studies with real developers to understand software development practices. These studies inform the design of better tools and processes that practitioners actually need.
+                      Exploring eye tracking technology to understand visual behavior, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                      Program Analysis
+                      Artificial Intelligence in Optometry
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      I develop and evaluate program analysis techniques that help developers understand code behavior, detect bugs, and optimize performance. My work bridges the gap between analysis theory and practical developer needs.
+                      Applying AI and machine learning to retinal imaging, disease prediction, and clinical decision support systems to improve diagnostic accuracy and patient outcomes.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                      Myopia Control Research
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Researching effective myopia management strategies and co-founding the Auckland Myopia Control Clinic to address the growing global myopia epidemic.
                     </p>
                   </div>
                 </div>
@@ -167,17 +204,15 @@ const WorkPage = () => {
                 </h2>
                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8 border border-blue-200 dark:border-blue-800">
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    For a complete list of my publications, please visit my profile on the University website or contact me directly.
+                    For a complete list of my publications, please visit the Publications page.
                   </p>
-                  <a
-                    href="https://www.auckland.ac.nz"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/publications"
                     className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold"
                   >
                     View Full Publication List
                     <ExternalLink size={18} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -188,42 +223,51 @@ const WorkPage = () => {
             <div className="space-y-12 animate-fadeIn">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                  Teaching
+                  Teaching & Education
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 text-lg mb-8">
-                  I am passionate about teaching and mentoring students in computer science. My courses emphasize both theoretical foundations and practical skills.
+                  I am passionate about educating the next generation of optometrists and healthcare professionals. My teaching emphasizes both theoretical knowledge and practical clinical skills, with a focus on technology-enhanced learning.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                  Current Courses
+                  Teaching Areas
                 </h3>
                 <div className="space-y-4">
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Software Engineering
+                      Undergraduate Optometry
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Advanced course covering software design, testing, and project management practices used in professional software development.
+                      Teaching core optometry courses covering clinical examination techniques, pathology, and patient management to undergraduate students.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Programming Fundamentals
+                      Postgraduate Programs
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Introduction to computer programming for first-year students, focusing on problem-solving and coding practices.
+                      Supervising advanced clinical training and research programs for students pursuing specializations in optometry.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Data Structures and Algorithms
+                      Clinical Decision-Making
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Core course on fundamental data structures and algorithmic thinking essential for computer science.
+                      Developing courses and simulations to enhance students' clinical decision-making and diagnostic reasoning skills.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      Virtual Patient Platform
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Developing and teaching with the Virtual Patient platform to provide immersive, interactive learning experiences for optometry students.
                     </p>
                   </div>
                 </div>
@@ -234,7 +278,7 @@ const WorkPage = () => {
                   Student Supervision
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
-                  I actively supervise Honours and Masters students on research projects related to software engineering and program analysis. If you're interested in working with me, please get in touch!
+                  I actively supervise Honours and Masters students on research projects. If you're interested in working with me on topics related to technology in optometry, healthcare education, or myopia management, please get in touch!
                 </p>
               </div>
             </div>
@@ -245,51 +289,51 @@ const WorkPage = () => {
             <div className="space-y-12 animate-fadeIn">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                  Consulting & Advisory
+                  Advisory & Professional Service
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 text-lg">
-                  Beyond my academic work, I provide consulting and advisory services to help organizations improve their software development practices and processes.
+                  Beyond my academic role, I provide advisory services to professional organizations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                  Services
+                  Advisory Roles
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      Process Improvement
+                      ODOB Advisor & Researcher
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Help teams optimize their software development processes, from requirements through deployment and maintenance.
+                      Advising the Optometrists and Dispensing Opticians Board on standards, education requirements, and professional development.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      Tool Evaluation & Selection
+                      CAA Vision Standards
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Evaluate and recommend software tools that fit your team's specific needs and workflow.
+                      Contributing to Civil Aviation Authority standards for vision requirements and assessments in aviation safety.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      Team Training & Workshops
+                      Expert Witness Services
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Conduct training sessions and workshops on software engineering best practices for your development team.
+                      Providing expert opinion on optometry-related matters in legal cases and professional disputes.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      Research Collaboration
+                      Policy Development
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Collaborate on research projects that combine academic rigor with practical industry insights.
+                      Helping develop policy and best practice guidelines for optometry education and clinical practice in New Zealand and internationally.
                     </p>
                   </div>
                 </div>
@@ -297,7 +341,7 @@ const WorkPage = () => {
 
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-8 border border-blue-200 dark:border-blue-800">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                  Interested in Working Together?
+                  Interested in Collaborating?
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-6">
                   I'm always interested in discussing how my expertise can help your organization or research initiatives. Let's connect!
@@ -307,7 +351,7 @@ const WorkPage = () => {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-colors"
                 >
                   <Mail size={20} />
-                  Contact Phil
+                  Contact Philip
                 </a>
               </div>
             </div>
@@ -319,3 +363,4 @@ const WorkPage = () => {
 };
 
 export default WorkPage;
+

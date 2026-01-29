@@ -12,7 +12,6 @@ export default function Header() {
   const { theme, setTheme, isDark } = useTheme();
 
   const navItems = [
-    { href: '/', label: 'Home' },
     { href: '/work', label: 'Work' },
     { href: '/publications', label: 'Publications' },
   ];
