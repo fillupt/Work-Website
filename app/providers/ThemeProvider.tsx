@@ -19,16 +19,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize theme from localStorage and system preference
   useEffect(() => {
-    // Get saved theme preference or default to 'system'
+    // Apply theme immediately from localStorage to avoid flash
     const savedTheme = (localStorage.getItem('theme') as Theme) || 'system';
-    setThemeState(savedTheme);
-
-    // Determine if we should use dark mode
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const shouldBeDark = savedTheme === 'dark' || (savedTheme === 'system' && prefersDark);
-
+    
+    // Apply immediately before React renders
+    const htmlElement = document.documentElement;
+    if (shouldBeDark) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+    htmlElement.setAttribute('color-scheme', shouldBeDark ? 'dark' : 'light');
+    
+    setThemeState(savedTheme);
     setIsDark(shouldBeDark);
-    applyTheme(savedTheme, shouldBeDark);
     setMounted(true);
   }, []);
 
