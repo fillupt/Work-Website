@@ -43,3 +43,15 @@ a {
 a:not(.no-hover-effect) {
   @apply hover:text-blue-600 dark:hover:text-blue-400;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
