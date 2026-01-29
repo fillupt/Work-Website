@@ -40,12 +40,12 @@ export default function PublicationsPage() {
   };
 
   return (
-    <main className="bg-gradient-to-b from-gray-50 to-white">
+    <main className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Publications</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Publications</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">
             Research publications, articles, and conference papers on biomedical informatics, 
             virtual patients, and healthcare technology.
           </p>
@@ -57,8 +57,8 @@ export default function PublicationsPage() {
             onClick={() => handleTypeChange('all')}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedType === 'all'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-blue-600 dark:bg-blue-500 text-white'
+                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
             }`}
           >
             All ({publications.length})
@@ -67,8 +67,8 @@ export default function PublicationsPage() {
             onClick={() => handleTypeChange('journal')}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedType === 'journal'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-blue-600 dark:bg-blue-500 text-white'
+                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
             }`}
           >
             Journal Articles ({publications.filter(p => p.type === 'journal').length})
@@ -77,8 +77,8 @@ export default function PublicationsPage() {
             onClick={() => handleTypeChange('report')}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedType === 'report'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-blue-600 dark:bg-blue-500 text-white'
+                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
             }`}
           >
             Reports ({publications.filter(p => p.type === 'report').length})
@@ -90,7 +90,7 @@ export default function PublicationsPage() {
           {currentPublications.map((pub) => (
             <article
               key={pub.id}
-              className="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
@@ -98,24 +98,35 @@ export default function PublicationsPage() {
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getTypeColor(pub.type)}`}>
                       {pub.type.replace('-', ' ').toUpperCase()}
                     </span>
-                    <span className="flex items-center text-sm text-gray-600">
+                    <span className="flex items-center text-sm text-gray-600 dark:text-gray-400">
                       <Calendar className="w-4 h-4 mr-1" />
                       {pub.year}
                     </span>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-2">
-                    {pub.title}
-                  </h2>
+                  {(pub.doi || pub.url) ? (
+                    <a
+                      href={pub.doi ? `https://doi.org/${pub.doi}` : pub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 mb-2 block transition-colors"
+                    >
+                      {pub.title}
+                    </a>
+                  ) : (
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      {pub.title}
+                    </h2>
+                  )}
                 </div>
               </div>
 
-              <div className="flex items-center text-sm text-gray-600 mb-3">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
                 <Users className="w-4 h-4 mr-2" />
                 <span>{pub.authors.join(', ')}</span>
               </div>
 
               {pub.journal && (
-                <div className="flex items-center text-sm text-gray-700 mb-3">
+                <div className="flex items-center text-sm text-gray-700 dark:text-gray-300 mb-3">
                   <FileText className="w-4 h-4 mr-2" />
                   <span className="italic">
                     {pub.journal}
@@ -126,7 +137,7 @@ export default function PublicationsPage() {
               )}
 
               {pub.conference && (
-                <div className="flex items-center text-sm text-gray-700 mb-3">
+                <div className="flex items-center text-sm text-gray-700 dark:text-gray-300 mb-3">
                   <FileText className="w-4 h-4 mr-2" />
                   <span className="italic">
                     {pub.conference}
@@ -135,9 +146,9 @@ export default function PublicationsPage() {
                 </div>
               )}
 
-              <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                <h3 className="text-sm font-semibold text-gray-700 mb-2">Summary</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+              <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 mb-4">
+                <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Summary</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                   {pub.summary}
                 </p>
               </div>
@@ -189,8 +200,8 @@ export default function PublicationsPage() {
                   onClick={() => setCurrentPage(page)}
                   className={`px-4 py-2 rounded-lg font-medium ${
                     currentPage === page
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      ? 'bg-blue-600 dark:bg-blue-500 text-white'
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                   }`}
                 >
                   {page}
