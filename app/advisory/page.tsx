@@ -110,16 +110,16 @@ export default function AdvisoryPage() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-8 bg-gray-900 dark:bg-gray-800 text-white rounded-lg shadow-md p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Interested in Consulting Services?</h2>
-          <p className="text-gray-300 dark:text-gray-400 mb-6">
+        <div className="mt-8 bg-blue-50 dark:bg-gray-900 rounded-lg shadow-md border border-blue-200 dark:border-gray-700 p-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Interested in Consulting Services?</h2>
+          <p className="text-gray-700 dark:text-gray-300 mb-6">
             For inquiries about advisory or expert witness services, please get in touch.
           </p>
           <a
             href="mailto:p.turnbull@auckland.ac.nz"
             className="inline-block bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors font-medium"
           >
-            Contact A/Prof Turnbull
+            Contact Phil
           </a>
         </div>
       </div>
