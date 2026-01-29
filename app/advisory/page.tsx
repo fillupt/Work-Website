@@ -88,15 +88,15 @@ export default function AdvisoryPage() {
         </div>
 
         {/* Services Offered */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-md border border-blue-200 p-8">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg shadow-md border border-blue-200 dark:border-indigo-800/50 p-8">
           <div className="flex items-start gap-4">
-            <Briefcase className="w-12 h-12 text-blue-600 flex-shrink-0" />
+            <Briefcase className="w-12 h-12 text-blue-600 dark:text-blue-400 flex-shrink-0" />
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Consulting Services</h2>
-              <p className="text-gray-700 mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Consulting Services</h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
                 A/Prof Turnbull is available for consulting on:
               </p>
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Professional standards and regulatory compliance</li>
                 <li>• Vision standards for safety-critical industries</li>
                 <li>• Expert witness testimony in legal proceedings</li>
@@ -110,14 +110,14 @@ export default function AdvisoryPage() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-8 bg-gray-900 text-white rounded-lg shadow-md p-8 text-center">
+        <div className="mt-8 bg-gray-900 dark:bg-gray-800 text-white rounded-lg shadow-md p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">Interested in Consulting Services?</h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-gray-300 dark:text-gray-400 mb-6">
             For inquiries about advisory or expert witness services, please get in touch.
           </p>
           <a
             href="mailto:p.turnbull@auckland.ac.nz"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            className="inline-block bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors font-medium"
           >
             Contact A/Prof Turnbull
           </a>
