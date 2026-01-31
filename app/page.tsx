@@ -394,32 +394,39 @@ export default function Home() {
 
                   <div>
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Alumni</h4>
-                    <div className="grid md:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300 text-sm">
+                    <div className="space-y-4 text-gray-700 dark:text-gray-300">
                       <div>
-                        <p className="font-medium mb-1">PhD Graduates:</p>
-                        <ul className="space-y-1">
-                          <li>• Dr Samuel Chiang</li>
-                          <li>• Dr Safal Khanal</li>
-                          <li>• Dr Soheil Doustkouhi</li>
-                          <li>• Dr Alice Cade</li>
-                          <li>• Dr Aryaman Taore</li>
+                        <p className="font-semibold mb-2">PhD Graduates:</p>
+                        <ul className="space-y-2 text-sm">
+                          <li>• <strong>Dr Samuel Chiang</strong> - The effect of optical defocus on choroidal thickness</li>
+                          <li>• <strong>Dr Safal Khanal</strong> - The effect of changes in choroidal perfusion on visual function</li>
+                          <li>• <strong>Dr Soheil Doustkouhi</strong> - Development of objective techniques of the optometric examination</li>
+                          <li>• <strong>Dr Alice Cade</strong> - Eye movements and postural stability following traumatic brain injury</li>
+                          <li>• <strong>Dr Aryaman Taore</strong> - Developing Eye Tracking Technology using a mobile device for the use of optokinetic assessment</li>
                         </ul>
                       </div>
                       <div>
-                        <p className="font-medium mb-1">Masters Graduates:</p>
-                        <ul className="space-y-1">
-                          <li>• Bhavna Patel</li>
-                          <li>• Richard Johnson</li>
-                          <li>• Sabrina Ju</li>
+                        <p className="font-semibold mb-2">Masters Graduates:</p>
+                        <ul className="space-y-2 text-sm">
+                          <li>• <strong>Bhavna Patel</strong> - Dry eye in younger populations</li>
+                          <li>• <strong>Richard Johnson</strong> - Maritime visual standards</li>
+                          <li>• <strong>Sabrina Ju</strong> - Treatments for AMD</li>
                         </ul>
                       </div>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-indigo-200 dark:border-indigo-700">
-                    <p className="text-gray-700 dark:text-gray-300 text-lg">
-                      Interested in working on topics related to technology in optometry, healthcare education, or myopia management? Get in touch!
+                    <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
+                      Interested in undertaking research in the Virtual Eyes Lab?
                     </p>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                    >
+                      <Mail size={20} />
+                      Contact Phil
+                    </Link>
                   </div>
                 </div>
               </div>
