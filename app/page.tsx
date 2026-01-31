@@ -2,11 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BookOpen, GraduationCap, Users, ExternalLink, Mail, ChevronDown } from "lucide-react";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollIndicator(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // SVG Texture Pattern
   const TextureBackground = () => (
@@ -37,10 +49,12 @@ export default function Home() {
       <TextureBackground />
 
       {/* Scroll Indicator */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 animate-bounce">
-        <span>Scroll</span>
-        <ChevronDown className="w-4 h-4" />
-      </div>
+      {showScrollIndicator && (
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 animate-bounce transition-opacity duration-500">
+          <span>Scroll</span>
+          <ChevronDown className="w-4 h-4" />
+        </div>
+      )}
 
       {/* Hero Section with Virtual Patient Banner */}
       <section 
