@@ -137,7 +137,7 @@ export default function ContactPage() {
                       href="tel:+6493737599"
                       className="text-blue-600 dark:text-blue-400 hover:underline"
                     >
-                      +64 9 373 7599 ext. 86839
+                      +64 9 373 7599 Ext. 82352
                     </a>
                   </div>
                 </div>

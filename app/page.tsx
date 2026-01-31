@@ -91,8 +91,8 @@ export default function Home() {
             {/* Bio Content */}
             <div className="flex-1 space-y-6 text-center md:text-left">
               <div>
-                <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
-                  Associate Professor<br/>Philip Turnbull
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
+                  Associate Professor Philip Turnbull
                 </h1>
                 <div className="text-lg text-gray-600 dark:text-gray-400 space-y-1">
                   <a 
@@ -113,6 +113,15 @@ export default function Home() {
                     University of Auckland
                   </a>
                   <span className="text-gray-500 dark:text-gray-500"> • Auckland, New Zealand</span>
+                  <br/>
+                  <a 
+                    href="https://orcid.org/0000-0002-9892-2964"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline"
+                  >
+                    ORCiD: 0000-0002-9892-2964
+                  </a>
                 </div>
               </div>
 
@@ -313,56 +322,106 @@ export default function Home() {
                 <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Teaching & Education
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300 text-xl mb-10 leading-relaxed">
-                  Educating the next generation of optometrists and healthcare professionals with a focus on technology-enhanced learning and practical clinical skills.
-                </p>
+                <div className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                  <p>
+                    As an educator, I teach and examine both undergraduate and postgraduate optometry students. I am the Part II coordinator for the Bachelor of Optometry programme, and course director of OPTOM216 – Introduction to Optometry. I also act as both a clinical and oral examiner for Part V students, and teach statistics and research skills as part of the OPTOM783 – Research Project in Vision Science.
+                  </p>
+                  <p>
+                    Each year I supervise many Honours, Masters, and PhD students, in a broad range of research areas.
+                  </p>
+                </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Undergraduate Optometry
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Teaching core optometry courses covering clinical examination techniques, pathology, and patient management to undergraduate students.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                  Teaching Roles
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                      Part II Coordinator
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Coordinating the Bachelor of Optometry Part II programme and directing OPTOM216 – Introduction to Optometry.
+                    </p>
+                  </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Postgraduate Programs
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Supervising advanced clinical training and research programs for students pursuing specializations in optometry.
-                  </p>
-                </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                      Clinical Examiner
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Acting as clinical and oral examiner for Part V optometry students in their final year assessments.
+                    </p>
+                  </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Clinical Decision-Making
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Developing courses and simulations to enhance students' clinical decision-making and diagnostic reasoning skills.
-                  </p>
-                </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                      Research Methods
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Teaching statistics and research skills in OPTOM783 – Research Project in Vision Science for postgraduate students.
+                    </p>
+                  </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Virtual Patient Platform
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Developing and teaching with the Virtual Patient platform to provide immersive, interactive learning experiences for optometry students.
-                  </p>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                      Virtual Patient Platform
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Developing and teaching with the Virtual Patient platform to provide immersive, interactive learning experiences.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-10 border border-indigo-200 dark:border-indigo-800 shadow-xl">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                  Student Supervision
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                  Postgraduate Supervision
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-lg">
-                  Actively supervising Honours and Masters students on research projects. Interested in working on topics related to technology in optometry, healthcare education, or myopia management? Get in touch!
-                </p>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Current PhD Students</h4>
+                    <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                      <li>• <strong>Jasmine Zoest</strong> - Measurement of eye movements in three-dimensional space</li>
+                      <li>• <strong>Balaje Vivekanandan</strong> - Oculomotor Function, Attentional Function, Trans-Saccadic Processing and Visual Perception in Mild Cognitive Impairment and Alzheimer's Disease</li>
+                      <li>• <strong>Maggie Xu</strong> - The Effect of Blue Light on Myopia Progression in Young Smartphone Users</li>
+                      <li>• <strong>Tony Han</strong> - Home-Based Monitoring of Visual Function in Age-Related Macular Degeneration</li>
+                      <li>• <strong>Jordan Cooper</strong> - Exploring the influence of eyelid and blink characteristics on dry eye development</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Alumni</h4>
+                    <div className="grid md:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300 text-sm">
+                      <div>
+                        <p className="font-medium mb-1">PhD Graduates:</p>
+                        <ul className="space-y-1">
+                          <li>• Dr Samuel Chiang</li>
+                          <li>• Dr Safal Khanal</li>
+                          <li>• Dr Soheil Doustkouhi</li>
+                          <li>• Dr Alice Cade</li>
+                          <li>• Dr Aryaman Taore</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-medium mb-1">Masters Graduates:</p>
+                        <ul className="space-y-1">
+                          <li>• Bhavna Patel</li>
+                          <li>• Richard Johnson</li>
+                          <li>• Sabrina Ju</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-indigo-200 dark:border-indigo-700">
+                    <p className="text-gray-700 dark:text-gray-300 text-lg">
+                      Interested in working on topics related to technology in optometry, healthcare education, or myopia management? Get in touch!
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           )}

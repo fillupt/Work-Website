@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import buildInfo from '@/app/build-info.json';
 
 export default function Footer() {
   return (
@@ -16,7 +17,7 @@ export default function Footer() {
           </div>
           
           <div className="text-sm text-gray-600 dark:text-gray-400">
-            Last updated: January 29, 2026
+            Last updated: {buildInfo.lastUpdated}
           </div>
         </div>
       </div>

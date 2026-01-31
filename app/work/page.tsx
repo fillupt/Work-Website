@@ -92,13 +92,21 @@ const WorkPage = () => {
                 </a>
                 <br/>
                 <a 
-                  href="https://www.auckland.ac.nz/"
+                  href="https://profiles.auckland.ac.nz/p-turnbull"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline"
                 >
-                  University of Auckland
-                </a><br /> Auckland, New Zealand
+                  University of Auckland Profile Profile
+                </a><br /> Auckland, New Zealand<br />
+                <a 
+                  href="https://orcid.org/0000-0002-9892-2964"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline"
+                >
+                  ORCiD: 0000-0002-9892-2964
+                </a>
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 A/Prof Turnbull is a Board-registered optometrist specialising in 
