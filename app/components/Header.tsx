@@ -13,6 +13,7 @@ export default function Header() {
 
   const navItems = [
     { href: '/publications', label: 'Publications' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   const getNextTheme = () => {

@@ -129,13 +129,13 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4 pt-4 justify-center md:justify-start">
-                <a
-                  href="mailto:p.turnbull@auckland.ac.nz"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                 >
                   <Mail size={20} />
                   Contact Me
-                </a>
+                </Link>
                 <a
                   href="https://www.auckland.ac.nz"
                   target="_blank"
@@ -421,13 +421,13 @@ export default function Home() {
                 <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
                   I'm always interested in discussing how my expertise can help your organization or research initiatives. Let's connect!
                 </p>
-                <a
-                  href="mailto:p.turnbull@auckland.ac.nz"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                 >
                   <Mail size={20} />
                   Contact Philip
-                </a>
+                </Link>
               </div>
             </div>
           )}
