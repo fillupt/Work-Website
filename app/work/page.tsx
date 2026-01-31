@@ -42,6 +42,11 @@ const WorkPage = () => {
     <div className="relative min-h-screen">
       <TextureBackground />
 
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+        <span>Scroll</span>
+        <span className="h-6 w-px bg-gray-400/70 dark:bg-gray-500/70 animate-bounce" />
+      </div>
+
       {/* Hero Section with Virtual Patient Banner */}
       <section 
         className="bg-blue-600 dark:bg-blue-700 text-white py-3 relative bg-cover bg-center"
