@@ -245,9 +245,12 @@ export default function Home() {
           {activeTab === 'research' && (
             <div className="space-y-12">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                   Research Areas
                 </h2>
+                <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                  Leading the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
+                </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">

@@ -161,9 +161,12 @@ const WorkPage = () => {
           {activeTab === 'research' && (
             <div className="space-y-12 animate-fadeIn">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                   Research Areas
                 </h2>
+                <p className="text-gray-600 dark:text-gray-400 text-lg mb-6">
+                  Leading the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
+                </p>
                 <div className="space-y-6">
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">

@@ -120,7 +120,7 @@ export default function ContactPage() {
                       Faculty of Medical and Health Sciences<br />
                       School of Optometry and Vision Science<br />
                       University of Auckland<br />
-                      Grafton Campus<br />
+                      85 Park Road, Grafton<br />
                       Auckland, New Zealand
                     </p>
                   </div>
@@ -151,7 +151,7 @@ export default function ContactPage() {
               </h3>
               <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.434058788659!2d174.7677!3d-36.8576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47f32e5c6c8f%3A0x5b8c3e8e3e8e3e8e!2sUniversity%20of%20Auckland%20-%20Grafton%20Campus!5e0!3m2!1sen!2snz!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.4340587886594!2d174.76532831531485!3d-36.857631579934676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fb5a9ce6fb%3A0x4b1f6c1c6d0e8b8e!2s85%20Park%20Road%2C%20Grafton%2C%20Auckland%201023!5e0!3m2!1sen!2snz!4v1709280000000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
