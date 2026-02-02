@@ -2,23 +2,43 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BookOpen, GraduationCap, Users, ExternalLink, Mail, ChevronDown } from "lucide-react";
+import { useDesign } from '@/app/providers/DesignProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import {
+  getBannerClasses,
+  getBioSectionClasses,
+  getCardClasses,
+  getPanelClasses,
+  getTileClasses,
+  getTileOverlayClasses,
+  getTileIconClasses,
+  getTileTitleClasses,
+  getAnimationDelay,
+} from '@/app/design/variants';
 
 export default function Home() {
+  const { variant } = useDesign();
+  const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  const bioSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowScrollIndicator(false);
+      setShowScrollIndicator(window.scrollY < 100);
+      
+      // Parallax effect
+      if (variant !== 'flat') {
+        setParallaxOffset(window.scrollY * 0.5);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [variant]);
 
   // SVG Texture Pattern
   const TextureBackground = () => (
@@ -44,6 +64,18 @@ export default function Home() {
     </svg>
   );
 
+  const bannerClasses = getBannerClasses(variant, isDark);
+  const bioClasses = getBioSectionClasses(variant, isDark);
+  const researchTile = getTileClasses(variant, isDark, activeTab === 'research');
+  const teachingTile = getTileClasses(variant, isDark, activeTab === 'teaching');
+  const advisoryTile = getTileClasses(variant, isDark, activeTab === 'advisory');
+  const researchOverlay = getTileOverlayClasses(variant, isDark, activeTab === 'research');
+  const teachingOverlay = getTileOverlayClasses(variant, isDark, activeTab === 'teaching');
+  const advisoryOverlay = getTileOverlayClasses(variant, isDark, activeTab === 'advisory');
+  const cardBase = getCardClasses(variant, isDark);
+  const panelPrimary = getPanelClasses(variant, isDark, 'primary');
+  const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
+
   return (
     <main className="relative min-h-screen bg-white dark:bg-gray-950">
       <TextureBackground />
@@ -58,30 +90,44 @@ export default function Home() {
 
       {/* Hero Section with Virtual Patient Banner */}
       <section 
-        className="relative bg-blue-600 dark:bg-blue-700 text-white py-3 bg-cover bg-center z-10"
-        style={{ backgroundImage: "linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.85)), url('/images/banner1.jpg')" }}
+        className={`relative text-white py-3 bg-cover bg-center z-10 overflow-hidden ${bannerClasses.className}`}
+        style={{
+          ...bannerClasses.style,
+          transform: variant !== 'flat' ? `translateY(${parallaxOffset * 0.3}px)` : 'none',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:opacity-95 transition-opacity">
-            <span className="text-base">Looking for the Virtual Patient?</span>
-            <ExternalLink className="w-5 h-5" />
+        <div 
+          className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${bannerClasses.animationClass}`}
+        >
+          <Link 
+            href="https://virtualpatient.co.nz" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-300 group"
+          >
+            <span className="text-base group-hover:scale-105 transition-transform">{variant === 'flat' ? 'Looking for the Virtual Patient?' : '✨ Virtual Patient Platform ✨'}</span>
+            <ExternalLink className={`w-5 h-5 group-hover:translate-x-1 transition-transform`} />
           </Link>
         </div>
       </section>
 
       {/* Bio Section */}
-      <section className="relative z-10 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 py-20 px-4 sm:px-6 lg:px-8">
+      <section 
+        ref={bioSectionRef}
+        className={`relative z-10 ${bioClasses.className}`}
+        style={bioClasses.style}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Profile Image */}
-            <div className="flex-shrink-0">
+            <div className={`flex-shrink-0 ${bioClasses.animationClass}`} style={{ animationDelay: '0ms' }}>
               <div className="relative">
                 <Image 
                   src="/images/profile-photo.jpg" 
                   alt="Associate Professor Philip Turnbull"
                   width={240}
                   height={240}
-                  className="rounded-2xl shadow-2xl"
+                  className={`rounded-2xl shadow-2xl transition-all duration-300 ${variant !== 'flat' ? 'hover:scale-105 cursor-pointer' : ''}`}
                   priority
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 dark:ring-white/10" />
@@ -89,7 +135,7 @@ export default function Home() {
             </div>
 
             {/* Bio Content */}
-            <div className="flex-1 space-y-6 text-center md:text-left">
+            <div className={`flex-1 space-y-6 text-center md:text-left ${bioClasses.animationClass}`} style={{ animationDelay: '50ms' }}>
               <div>
                 <h1 className="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-4 tracking-tight">
                   <b>Philip Turnbull</b> B Optom (Hons), PhD
@@ -146,7 +192,7 @@ export default function Home() {
               <div className="flex gap-4 pt-4 justify-center md:justify-start">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                 >
                   <Mail size={20} />
                   Contact Me
@@ -172,23 +218,20 @@ export default function Home() {
           {/* Research Tile */}
           <button
             onClick={() => setActiveTab('research')}
-            className={`group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-2 transition-all text-left overflow-hidden ${
-              activeTab === 'research'
-                ? 'border-blue-500 dark:border-blue-400 scale-105 shadow-2xl'
-                : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-xl'
-            }`}
+            className={`${researchTile.className} ${researchTile.animationClass}`}
+            style={{
+              ...researchTile.style,
+              animationDelay: getAnimationDelay(0, variant),
+            }}
           >
-            <div className={`absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 transition-opacity ${
-              activeTab === 'research' ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
-            }`} />
+            <div
+              className={`${researchOverlay.className} ${activeTab === 'research' ? 'opacity-90' : 'opacity-0 group-hover:opacity-40'}`}
+              style={researchOverlay.style}
+            />
             <div className="relative z-10">
-              <BookOpen className={`w-14 h-14 mb-4 transition-colors ${
-                activeTab === 'research' 
-                  ? 'text-blue-600 dark:text-blue-400' 
-                  : 'text-gray-400 dark:text-gray-500 group-hover:text-blue-500'
-              }`} />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Research</h3>
-              <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+              <BookOpen className={`w-14 h-14 mb-4 transition-colors ${getTileIconClasses(variant, activeTab === 'research')}`} />
+              <h3 className={`${getTileTitleClasses(variant, isDark, activeTab === 'research')} mb-3`}>Research</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
                 <li>• Virtual Reality Applications</li>
                 <li>• Eye Tracking Systems</li>
                 <li>• Artificial Intelligence</li>
@@ -200,23 +243,20 @@ export default function Home() {
           {/* Teaching Tile */}
           <button
             onClick={() => setActiveTab('teaching')}
-            className={`group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-2 transition-all text-left overflow-hidden ${
-              activeTab === 'teaching'
-                ? 'border-blue-500 dark:border-blue-400 scale-105 shadow-2xl'
-                : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-xl'
-            }`}
+            className={`${teachingTile.className} ${teachingTile.animationClass}`}
+            style={{
+              ...teachingTile.style,
+              animationDelay: getAnimationDelay(1, variant),
+            }}
           >
-            <div className={`absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 transition-opacity ${
-              activeTab === 'teaching' ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
-            }`} />
+            <div
+              className={`${teachingOverlay.className} ${activeTab === 'teaching' ? 'opacity-90' : 'opacity-0 group-hover:opacity-40'}`}
+              style={teachingOverlay.style}
+            />
             <div className="relative z-10">
-              <GraduationCap className={`w-14 h-14 mb-4 transition-colors ${
-                activeTab === 'teaching' 
-                  ? 'text-blue-600 dark:text-blue-400' 
-                  : 'text-gray-400 dark:text-gray-500 group-hover:text-blue-500'
-              }`} />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Teaching</h3>
-              <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+              <GraduationCap className={`w-14 h-14 mb-4 transition-colors ${getTileIconClasses(variant, activeTab === 'teaching')}`} />
+              <h3 className={`${getTileTitleClasses(variant, isDark, activeTab === 'teaching')} mb-3`}>Teaching</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
                 <li>• Undergraduate Optometry</li>
                 <li>• Postgraduate Programs</li>
                 <li>• Clinical Decision-Making</li>
@@ -228,23 +268,20 @@ export default function Home() {
           {/* Advisory Tile */}
           <button
             onClick={() => setActiveTab('advisory')}
-            className={`group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-2 transition-all text-left overflow-hidden ${
-              activeTab === 'advisory'
-                ? 'border-blue-500 dark:border-blue-400 scale-105 shadow-2xl'
-                : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-xl'
-            }`}
+            className={`${advisoryTile.className} ${advisoryTile.animationClass}`}
+            style={{
+              ...advisoryTile.style,
+              animationDelay: getAnimationDelay(2, variant),
+            }}
           >
-            <div className={`absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 transition-opacity ${
-              activeTab === 'advisory' ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
-            }`} />
+            <div
+              className={`${advisoryOverlay.className} ${activeTab === 'advisory' ? 'opacity-90' : 'opacity-0 group-hover:opacity-40'}`}
+              style={advisoryOverlay.style}
+            />
             <div className="relative z-10">
-              <Users className={`w-14 h-14 mb-4 transition-colors ${
-                activeTab === 'advisory' 
-                  ? 'text-blue-600 dark:text-blue-400' 
-                  : 'text-gray-400 dark:text-gray-500 group-hover:text-blue-500'
-              }`} />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Advisory</h3>
-              <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+              <Users className={`w-14 h-14 mb-4 transition-colors ${getTileIconClasses(variant, activeTab === 'advisory')}`} />
+              <h3 className={`${getTileTitleClasses(variant, isDark, activeTab === 'advisory')} mb-3`}>Advisory</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
                 <li>• ODOB Advisor & Researcher</li>
                 <li>• CAA Vision Standards</li>
                 <li>• Expert Witness Services</li>
@@ -267,7 +304,13 @@ export default function Home() {
                   Leading the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(0, variant),
+                    }}
+                  >
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Virtual Reality in Healthcare
                     </h3>
@@ -276,16 +319,28 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(1, variant),
+                    }}
+                  >
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Eye Tracking & Gaze Analysis
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Exploring eye tracking technology to understand visual behavior, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
+                      Exploring eye tracking technology to understand visual behaviour, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
                     </p>
                   </div>
 
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(2, variant),
+                    }}
+                  >
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Artificial Intelligence in Optometry
                     </h3>
@@ -294,7 +349,13 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(3, variant),
+                    }}
+                  >
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Myopia Control Research
                     </h3>
@@ -305,14 +366,20 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-10 border border-blue-200 dark:border-blue-800 shadow-xl">
+              <div
+                className={`${panelPrimary.className} ${panelPrimary.animationClass}`}
+                style={{
+                  ...panelPrimary.style,
+                  animationDelay: getAnimationDelay(4, variant),
+                }}
+              >
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Publications</h2>
                 <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
                   Explore my research publications, including journal articles, conference papers, and collaborative works.
                 </p>
                 <Link
                   href="/publications"
-                  className="inline-flex items-center gap-2 bg-blue-600 dark:bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all font-semibold shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 bg-blue-600 dark:bg-blue-500 text-white hover:text-white px-8 py-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all font-semibold shadow-lg hover:shadow-xl"
                 >
                   View Publications
                   <ExternalLink className="w-5 h-5" />
@@ -328,7 +395,7 @@ export default function Home() {
                 <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Teaching & Education
                 </h2>
-                <div className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                <div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg leading-relaxed">
                   <p>
                     As an educator, I teach and examine both undergraduate and postgraduate optometry students. I am the Part II coordinator for the Bachelor of Optometry programme, and course director of OPTOM216 – Introduction to Optometry. I also act as both a clinical and oral examiner for Part V students, and teach statistics and research skills as part of the OPTOM783 – Research Project in Vision Science.
                   </p>
@@ -343,7 +410,13 @@ export default function Home() {
                   Teaching Roles
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(0, variant),
+                    }}
+                  >
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Part II Coordinator
                     </h4>
@@ -352,7 +425,13 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(1, variant),
+                    }}
+                  >
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Clinical Examiner
                     </h4>
@@ -361,7 +440,13 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(2, variant),
+                    }}
+                  >
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Research Methods
                     </h4>
@@ -370,7 +455,13 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <div
+                    className={`${cardBase.className} ${cardBase.animationClass}`}
+                    style={{
+                      ...cardBase.style,
+                      animationDelay: getAnimationDelay(3, variant),
+                    }}
+                  >
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       Virtual Patient Platform
                     </h4>
@@ -381,7 +472,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-10 border border-indigo-200 dark:border-indigo-800 shadow-xl">
+              <div
+                className={`${panelSecondary.className} ${panelSecondary.animationClass}`}
+                style={{
+                  ...panelSecondary.style,
+                  animationDelay: getAnimationDelay(4, variant),
+                }}
+              >
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                   Postgraduate Supervision
                 </h3>
@@ -428,7 +525,7 @@ export default function Home() {
                     </p>
                     <Link
                       href="/contact"
-                      className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                      className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                     >
                       <Mail size={20} />
                       Contact Phil
@@ -447,12 +544,18 @@ export default function Home() {
                   Advisory & Professional Service
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
-                  Providing advisory services to professional organizations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
+                  Providing advisory services to professional organisations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                <div
+                  className={`${cardBase.className} ${cardBase.animationClass}`}
+                  style={{
+                    ...cardBase.style,
+                    animationDelay: getAnimationDelay(0, variant),
+                  }}
+                >
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     ODOB Advisor & Researcher
                   </h4>
@@ -461,7 +564,13 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                <div
+                  className={`${cardBase.className} ${cardBase.animationClass}`}
+                  style={{
+                    ...cardBase.style,
+                    animationDelay: getAnimationDelay(1, variant),
+                  }}
+                >
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     CAA Vision Standards
                   </h4>
@@ -470,7 +579,13 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                <div
+                  className={`${cardBase.className} ${cardBase.animationClass}`}
+                  style={{
+                    ...cardBase.style,
+                    animationDelay: getAnimationDelay(2, variant),
+                  }}
+                >
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Expert Witness Services
                   </h4>
@@ -479,7 +594,13 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                <div
+                  className={`${cardBase.className} ${cardBase.animationClass}`}
+                  style={{
+                    ...cardBase.style,
+                    animationDelay: getAnimationDelay(3, variant),
+                  }}
+                >
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Policy Development
                   </h4>
@@ -489,16 +610,22 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-10 border border-blue-200 dark:border-blue-800 shadow-xl">
+              <div
+                className={`${panelPrimary.className} ${panelPrimary.animationClass}`}
+                style={{
+                  ...panelPrimary.style,
+                  animationDelay: getAnimationDelay(4, variant),
+                }}
+              >
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                   Interested in Collaborating?
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-                  I'm always interested in discussing how my expertise can help your organization or research initiatives. Let's connect!
+                  I'm always interested in discussing how my expertise can help your organisation or research initiatives. Let's connect!
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                 >
                   <Mail size={20} />
                   Contact Philip

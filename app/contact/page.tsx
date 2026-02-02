@@ -2,8 +2,13 @@
 
 import { useState } from 'react';
 import { Mail, MapPin, Phone, Send, CheckCircle } from 'lucide-react';
+import { useDesign } from '@/app/providers/DesignProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { getCardClasses, getPanelClasses, getAnimationDelay } from '@/app/design/variants';
 
 export default function ContactPage() {
+  const { variant } = useDesign();
+  const { isDark } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +17,8 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const cardBase = getCardClasses(variant, isDark);
+  const panelPrimary = getPanelClasses(variant, isDark, 'primary');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,12 +80,18 @@ export default function ContactPage() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div
+          className={`${panelPrimary.className} ${panelPrimary.animationClass} text-center mb-16`}
+          style={{
+            ...panelPrimary.style,
+            animationDelay: getAnimationDelay(0, variant),
+          }}
+        >
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Get in Touch
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-           Whether you have a question, collaboration opportunity, 
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Whether you have a question, collaboration opportunity,
             or just want to connect, feel free to reach out.
           </p>
         </div>
@@ -87,7 +100,13 @@ export default function ContactPage() {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Cards */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
+            <div
+              className={`${cardBase.className} ${cardBase.animationClass}`}
+              style={{
+                ...cardBase.style,
+                animationDelay: getAnimationDelay(1, variant),
+              }}
+            >
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Contact Information
               </h2>
@@ -175,7 +194,13 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
+            <div
+              className={`${cardBase.className} ${cardBase.animationClass}`}
+              style={{
+                ...cardBase.style,
+                animationDelay: getAnimationDelay(2, variant),
+              }}
+            >
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send a Message
             </h2>

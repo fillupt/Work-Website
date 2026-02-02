@@ -43,6 +43,8 @@ a {
 a:not(.no-hover-effect) {
   @apply hover:text-blue-600 dark:hover:text-blue-400;
 }
+
+/* Animation Keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -52,6 +54,98 @@ a:not(.no-hover-effect) {
   }
 }
 
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes patternPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Animation Utilities */
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in;
+}
+
+.animate-fadeInSlide {
+  animation: fadeInSlide 0.6s ease-out backwards;
+  animation-fill-mode: both;
+}
+
+.animate-fadeInSlide:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.animate-fadeInSlide:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.animate-fadeInSlide:nth-child(3) {
+  animation-delay: 100ms;
+}
+
+.animate-fadeInSlide:nth-child(4) {
+  animation-delay: 150ms;
+}
+
+.animate-fadeInSlide:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.animate-subtleFloat {
+  animation: subtleFloat 3s ease-in-out infinite;
+}
+
+.animate-gradientShift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+.animate-patternPulse {
+  animation: patternPulse 4s ease-in-out infinite;
+}
+
+/* Scroll-triggered animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }

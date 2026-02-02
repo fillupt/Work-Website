@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import { DesignProvider } from "./providers/DesignProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,11 +47,13 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors`}>
         <ThemeProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <DesignProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </DesignProvider>
         </ThemeProvider>
       </body>
     </html>
