@@ -48,7 +48,7 @@ export default function Header() {
                   pathname === item.href
                     ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400'
                     : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                } px-3 py-2 text-sm font-medium transition-colors`}
+                } px-3 py-2 text-base font-medium transition-colors`}
               >
                 {item.label}
               </Link>

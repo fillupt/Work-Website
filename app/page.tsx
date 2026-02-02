@@ -62,8 +62,8 @@ export default function Home() {
         style={{ backgroundImage: "linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.85)), url('/images/banner1.jpg')" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
-            <span className="text-lg">Looking for the Virtual Patient?</span>
+          <Link href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:opacity-95 transition-opacity">
+            <span className="text-base">Looking for the Virtual Patient?</span>
             <ExternalLink className="w-5 h-5" />
           </Link>
         </div>
@@ -91,18 +91,11 @@ export default function Home() {
             {/* Bio Content */}
             <div className="flex-1 space-y-6 text-center md:text-left">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
-                  Associate Professor Philip Turnbull
+                <h1 className="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-4 tracking-tight">
+                  <b>Philip Turnbull</b> B Optom (Hons), PhD
                 </h1>
                 <div className="text-lg text-gray-600 dark:text-gray-400 space-y-1">
-                  <a 
-                    href="https://www.auckland.ac.nz/en/science/about-the-faculty/school-of-optometry-and-vision-science.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-medium"
-                  >
-                    School of Optometry and Vision Science
-                  </a>
+                  <p><b>Associate Professor in Optometry</b></p>
                   <br/>
                   <a 
                     href="https://www.auckland.ac.nz/"
@@ -120,6 +113,20 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline"
                   >
+                    <span className="inline-flex items-center justify-center w-4 h-4">
+                      <svg
+                        viewBox="0 0 256 256"
+                        className="w-4 h-4"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <circle cx="128" cy="128" r="128" fill="#A6CE39" />
+                        <path
+                          d="M86 78h18v100H86zM94.8 54.5c6.9 0 12.5 5.6 12.5 12.5S101.7 79.5 94.8 79.5 82.3 73.9 82.3 67s5.6-12.5 12.5-12.5zM121 78h30.4c29.2 0 49.6 19.8 49.6 50s-20.4 50-49.6 50H121V78zm30.4 83.5c18.6 0 31.4-12.5 31.4-33.5s-12.8-33.5-31.4-33.5H139v67h12.4z"
+                          fill="#FFFFFF"
+                        />
+                      </svg>
+                    </span>
                     ORCiD: 0000-0002-9892-2964
                   </a>
                 </div>
@@ -127,13 +134,12 @@ export default function Home() {
 
               <div className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                 <p>
-                  Board-registered optometrist specialising in leveraging technology to improve 
-                  healthcare education and clinical practice.
-                </p>
-                <p>
-                  Research focuses on virtual reality, eye tracking, artificial intelligence, 
-                  and digital health innovation. Co-founder of the Auckland Myopia Control Clinic 
-                  and developer of national standards for optometry practice in New Zealand.
+                  I'm an optometrist passionate about using technology and other available resources 
+                  to make eye care better for patients and students. I co-founded the translational 
+                  Auckland Myopia Control Clinic, and now work on developing and advising on standards 
+                  for optometry practice in New Zealand. My research explores virtual reality, 
+                  eye tracking, and AI applications in healthcare, alongside broader interests in 
+                  mental wellbeing, equity, and access to eye health care. 
                 </p>
               </div>
 
@@ -146,7 +152,7 @@ export default function Home() {
                   Contact Me
                 </Link>
                 <a
-                  href="https://www.auckland.ac.nz"
+                  href="https://profiles.auckland.ac.nz/p-turnbull/about"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all"
