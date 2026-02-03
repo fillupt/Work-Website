@@ -17,11 +17,11 @@ export function getHeaderClasses(variant: DesignVariant, isDark: boolean): Varia
   const isFlat = variant === 'flat';
 
   let className = 'relative bg-cover bg-center transition-all duration-300';
-  const style: React.CSSProperties = {
-    backgroundColor: colors.background,
-  };
+  const style: React.CSSProperties = {};
 
-  if (!isFlat) {
+  if (isFlat) {
+    style.backgroundColor = colors.background;
+  } else {
     style.background = `${tokens.gradients.banner}, linear-gradient(135deg, ${colors.background} 0%, ${colors.secondary} 100%)`;
     style.boxShadow = `0 4px 12px ${colors.shadow}`;
   }
@@ -42,11 +42,11 @@ export function getBannerClasses(variant: DesignVariant, isDark: boolean): Varia
   const isFlat = variant === 'flat';
 
   let className = 'relative bg-blue-600 dark:bg-blue-700 text-white py-3 bg-cover bg-center overflow-hidden';
-  const style: React.CSSProperties = {
-    backgroundColor: colors.primary,
-  };
+  const style: React.CSSProperties = {};
 
-  if (!isFlat) {
+  if (isFlat) {
+    style.backgroundColor = colors.primary;
+  } else {
     style.background = tokens.gradients.banner;
     const patternUrl = getPatternUrl(tokens.patterns.name, colors.primaryLight, tokens.patterns.opacity);
     style.backgroundImage = `${tokens.gradients.banner}, ${patternUrl}`;
@@ -68,11 +68,10 @@ export function getBioSectionClasses(variant: DesignVariant, isDark: boolean): V
   const isFlat = variant === 'flat';
 
   let className = 'relative z-10 bg-gradient-to-b py-20 px-4 sm:px-6 lg:px-8 transition-all duration-300';
-  const style: React.CSSProperties = {
-    backgroundColor: colors.background,
-  };
+  const style: React.CSSProperties = {};
 
   if (isFlat) {
+    style.backgroundColor = colors.background;
     className += ' from-white to-gray-50 dark:from-gray-900 dark:to-gray-950';
   } else {
     const gradient = isDark
@@ -100,11 +99,12 @@ export function getCardClasses(variant: DesignVariant, isDark: boolean): Variant
 
   let className = 'bg-white dark:bg-gray-800 rounded-2xl p-8 border transition-all duration-300';
   const style: React.CSSProperties = {
-    backgroundColor: colors.background,
     borderColor: colors.border,
   };
 
-  if (!isFlat) {
+  if (isFlat) {
+    style.backgroundColor = colors.background;
+  } else {
     const gradient = isDark
       ? `linear-gradient(145deg, ${colors.background} 0%, ${colors.secondary} 65%, ${colors.border} 100%)`
       : tokens.gradients.card;
@@ -134,11 +134,12 @@ export function getClickableCardClasses(variant: DesignVariant, isDark: boolean)
 
   let className = 'bg-white dark:bg-gray-800 rounded-2xl p-8 border transition-all duration-300';
   const style: React.CSSProperties = {
-    backgroundColor: colors.background,
     borderColor: colors.border,
   };
 
-  if (!isFlat) {
+  if (isFlat) {
+    style.backgroundColor = colors.background;
+  } else {
     const gradient = isDark
       ? `linear-gradient(145deg, ${colors.background} 0%, ${colors.secondary} 65%, ${colors.border} 100%)`
       : tokens.gradients.card;
@@ -172,11 +173,12 @@ export function getPanelClasses(
 
   let className = 'rounded-2xl p-10 border transition-all duration-300';
   const style: React.CSSProperties = {
-    backgroundColor: colors.secondary,
     borderColor: colors.border,
   };
 
-  if (!isFlat) {
+  if (isFlat) {
+    style.backgroundColor = colors.secondary;
+  } else {
     const baseGradient = tone === 'primary' ? tokens.gradients.panelPrimary : tokens.gradients.panelSecondary;
     const gradient = isDark
       ? `linear-gradient(145deg, ${colors.background} 0%, ${colors.secondary} 60%, ${colors.border} 100%)`
@@ -284,11 +286,12 @@ export function getTileClasses(variant: DesignVariant, isDark: boolean, isActive
 
   let className = `group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-2 transition-all duration-300 text-left overflow-hidden`;
   const style: React.CSSProperties = {
-    backgroundColor: colors.background,
     borderColor: isActive ? colors.primary : colors.border,
   };
 
-  if (!isFlat) {
+  if (isFlat) {
+    style.backgroundColor = colors.background;
+  } else {
     style.boxShadow = isActive ? tokens.shadows.lg : tokens.shadows.md;
     if (isActive) {
       style.transform = `scale(1.05)`;
