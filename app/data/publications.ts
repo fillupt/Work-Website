@@ -29,7 +29,7 @@ export const publications: Publication[] = [
     "volume": "108(5)",
     "pages": "578-584",
     "url": "https://scholar.google.com/scholar?q=Response+of+the+human+choroid+to+short-term+changes+in+eyelid+and+periocular+temperature",
-    "summary": "This study investigates how the human choroid, a vascular layer in the eye, responds to brief temperature fluctuations around the eyelids. The research aims to improve our understanding of the choroidal response to external thermal stimuli, potentially informing future treatments for ocular conditions.",
+    "summary": "This study utilised OCT to demonstrate that local cooling of the anterior eye via the eyelid causes a small but statistically significant increase in macular choroidal thickness. These findings suggest that the choroid plays a rapid thermoregulatory role and highlight environmental temperature as a confounding factor that must be controlled in clinical myopia research.",
     "type": "journal",
     "keywords": [
       "choroid",
@@ -51,7 +51,7 @@ export const publications: Publication[] = [
     "journal": "Clinical and Experimental Optometry",
     "pages": "1-3",
     "url": "https://scholar.google.com/scholar?q=The+expanding+scope+of+the+Aotearoa+New+Zealand+optometric+workforce",
-    "summary": "This 2025 publication in Clinical and Experimental Optometry examines the evolving role of optometrists in Aotearoa New Zealand. It likely explores how the scope of practice for optometrists is expanding, potentially including new technologies, treatment modalities, and responsibilities within the healthcare system.",
+    "summary": "An analysis of a decade of professional data reveals that NZ optometrists have safely issued over half a million prescriptions, primarily for glaucoma and dry eye. The report advocates for the further expansion of the optometric scope into intravitreal injections and laser procedures to improve national eye care equity and reduce hospital waitlists.",
     "type": "journal",
     "keywords": [
       "Optometry",
@@ -78,7 +78,7 @@ export const publications: Publication[] = [
     "journal": "Clinical and Experimental Optometry",
     "pages": "1-7",
     "url": "https://scholar.google.com/scholar?q=A+baseline+audit+of+the+population+groups+accessing+optometry+training+clinics+in+Aotearoa+New+Zealand%3A+looking+towards+equity+in+eye+care",
-    "summary": "This study establishes a baseline audit of patient demographics in optometry training clinics across Aotearoa New Zealand. The research aims to identify potential disparities in access to eye care services and inform strategies for promoting equity within the population.",
+    "summary": "This audit found that university-based training clinics are less accessible to people living in high-deprivation areas, who often travel the furthest for care. It recommends increasing funding for community outreach and mobile eye clinics to foster equity and provide diverse clinical training for future optometrists.",
     "type": "journal",
     "keywords": [
       "optometry",
@@ -105,7 +105,7 @@ export const publications: Publication[] = [
     "volume": "10",
     "pages": "203",
     "url": "https://scholar.google.com/scholar?q=Participation+in+population-based+eye+health+surveys+is+lower+but+more+gender-balanced+in+high-compared+to+low-and+middle-income+countries",
-    "summary": "This study analyzes global eye health survey participation, revealing a trend of lower participation rates in high-income countries compared to low- and middle-income countries. However, the research also highlights that the gender balance among participants is more equitable in high-income settings, suggesting differences in barriers to access across socioeconomic contexts.",
+    "summary": "A systematic review of global surveys found that while participation is generally high, it is declining in high-income nations. The study highlights that gender balance is more equitable in high-income settings, whereas women are more likely to participate in lower-income regions.",
     "type": "journal",
     "keywords": [
       "eye health",
@@ -130,7 +130,7 @@ export const publications: Publication[] = [
     "volume": "66(8)",
     "pages": "5622-5622",
     "url": "https://scholar.google.com/scholar?q=The+impact+of+soft+contact+lens+wear+on+tear+film+lipid+layer+characteristics",
-    "summary": "This research, published in Investigative Ophthalmology & Visual Science, investigates how wearing soft contact lenses affects the tear film lipid layer. The study, authored by Craig et al., analyzes changes in tear film characteristics induced by contact lens wear.",
+    "summary": "Published in IOVS, this study investigated how various soft contact lens materials disrupt the stability of the tear film lipid layer. The research identifies material-specific impacts that can inform the selection of lenses for patients prone to dryness and discomfort.",
     "type": "journal",
     "keywords": [
       "contact lenses",
@@ -148,7 +148,7 @@ export const publications: Publication[] = [
     ],
     "year": 2025,
     "url": "https://odob.in1touch.org/document/8314/Guidelines%20for%20use%20of%20AI%202025.pdf",
-    "summary": "This 2025 publication provides guidelines for the ethical and effective integration of artificial intelligence (AI) into optometry and optical dispensing practices within New Zealand. It likely covers aspects such as AI-driven diagnostic tools, personalized lens prescriptions, and automation of dispensing processes, aiming to standardize and improve patient care through AI implementation.",
+    "summary": "This foundational report outlines the ethical and professional standards for integrating AI into New Zealand clinical practice. It focuses on diagnostic accuracy, patient data privacy, and the standardised implementation of AI-driven tools in primary eye care.",
     "type": "report",
     "keywords": [
       "Artificial Intelligence",
@@ -172,7 +172,7 @@ export const publications: Publication[] = [
     "volume": "18(5)",
     "pages": "51",
     "url": "https://scholar.google.com/scholar?q=Diagnosing+Colour+Vision+Deficiencies+Using+Eye+Movements+%28Without+Dedicated+Eye-Tracking+Hardware%29",
-    "summary": "This research explores a novel method for diagnosing color vision deficiencies (CVD) by analyzing eye movements. The study proposes a technique that does not rely on specialized eye-tracking equipment, potentially making CVD diagnosis more accessible and cost-effective.",
+    "summary": "This paper describes a breakthrough diagnostic test that uses a standard tablet's front camera to detect colour vision defects via reflexive eye movements. The study proves that this hardware-agnostic approach is as effective as traditional methods, making objective colour screening highly accessible.",
     "type": "journal",
     "keywords": [
       "color vision deficiency",
@@ -194,7 +194,7 @@ export const publications: Publication[] = [
     "journal": "Clinical and Experimental Optometry",
     "pages": "1-9",
     "url": "https://scholar.google.com/scholar?q=Emerging+research+on+non-neovascular+age-related+macular+degeneration+treatments",
-    "summary": "This 2025 Clinical and Experimental Optometry publication reviews the latest advancements in treating non-neovascular age-related macular degeneration (AMD). The authors, Ju, Ramke, and Turnbull, explore emerging therapeutic approaches for this common cause of vision loss, focusing on methods that don't involve targeting blood vessel growth.",
+    "summary": "This scoping review of over 130 studies from the past decade identifies antioxidant and complement pathway inhibitors as the most promising avenues for treating geographic atrophy. It notes a 24% annual increase in research activity, signalling a significant shift towards effective atrophic AMD therapies.",
     "type": "journal",
     "keywords": [
       "non-neovascular AMD",
@@ -212,7 +212,7 @@ export const publications: Publication[] = [
     ],
     "year": 2025,
     "url": "https://odobportal.in1touch.org/document/8495/Workforce%20survey%202024-2025.pdf",
-    "summary": "This paper examines the state of the optometry and dispensing optician workforce in Aotearoa New Zealand as of 2025. It likely analyzes workforce size, distribution, and potential future trends within the profession, contributing to understanding of eye care accessibility and delivery in the region.",
+    "summary": "This latest workforce survey report provides critical demographics and trends for the eye care profession in NZ. It serves as a strategic data source for the ODOB to identify service gaps and support a workforce that responds to evolving public needs.",
     "type": "report",
     "keywords": [
       "optometry",
@@ -234,7 +234,7 @@ export const publications: Publication[] = [
     "volume": "14(1)",
     "pages": "12686",
     "url": "https://scholar.google.com/scholar?q=Classification+of+short+and+long+term+mild+traumatic+brain+injury+using+computerized+eye+tracking",
-    "summary": "This 2024 Scientific Reports publication by Cade and Turnbull explores the use of computerized eye tracking as a method for classifying mild traumatic brain injury (mTBI). The study aims to differentiate between short-term and long-term effects of mTBI based on eye movement patterns.",
+    "summary": "This research utilised machine learning to categorise concussion stages based on oculomotor metrics like VOR gain and fixation stability. The model provides an objective pathway for identifying brain injury when standard imaging remains inconclusive.",
     "type": "journal",
     "keywords": [
       "mild traumatic brain injury",
@@ -252,7 +252,7 @@ export const publications: Publication[] = [
     ],
     "year": 2024,
     "url": "https://odob.health.nz/document/8129/ODOB%20Workforce%20in%20ANZ%202024%20(Final%20Online).pdf",
-    "summary": "This 2024 publication examines the state of the optometry and dispensing optician workforce in Aotearoa New Zealand as of 2023. The study likely provides insights into the size, distribution, and characteristics of this critical healthcare profession within the country.",
+    "summary": "This report details the demographics of 1,295 registered practitioners and their shift towards 'top-of-scope' care post-pandemic. It emphasises the importance of multidisciplinary clinical teams in delivering effective eye healthcare across the country.",
     "type": "report",
     "keywords": [
       "Optometry",
@@ -282,7 +282,7 @@ export const publications: Publication[] = [
     "volume": "44(6)",
     "pages": "1148-1161",
     "url": "https://scholar.google.com/scholar?q=Strategies+to+address+inequity+of+uncorrected+refractive+error+in+the+Western+Pacific%3A+A+modified+Delphi+process",
-    "summary": "This study used a modified Delphi process to identify strategies for addressing uncorrected refractive error, a significant cause of vision impairment, in the Western Pacific region. The research aims to provide evidence-based recommendations for public health interventions and policies to improve equitable access to vision correction services.",
+    "summary": "Through a modified Delphi process, this study identified reducing out-of-pocket costs and increasing rural outreach as the most effective strategies for improving eye health access. It prioritises Indigenous peoples and remote populations as the key groups needing targeted refractive services.",
     "type": "journal",
     "keywords": [
       "Refractive Error",
@@ -312,7 +312,7 @@ export const publications: Publication[] = [
     "volume": "173",
     "pages": "111444",
     "url": "https://scholar.google.com/scholar?q=Underserved+groups+could+be+better+considered+within+population-based+eye+health+surveys%3A+a+methodological+study",
-    "summary": "This study highlights the need to improve the inclusion of underserved groups in population-based eye health surveys. By addressing methodological limitations in current survey practices, researchers can obtain more representative data and better understand the eye health needs of vulnerable populations, ultimately leading to more equitable healthcare outcomes.",
+    "summary": "A methodological review of 388 surveys found that few prospectively design their protocols to include underserved groups during the sampling phase. It calls for a greater focus on monitoring inequality and supplementally using small-scale studies to understand specific population disparities.",
     "type": "journal",
     "keywords": [
       "eye health",
@@ -334,7 +334,7 @@ export const publications: Publication[] = [
     "volume": "47(1-4)",
     "pages": "96-105",
     "url": "https://scholar.google.com/scholar?q=Cervical+Spine+Vibration+Modifies+Oculomotor+Function+in+Young+Adults+with+Traumatic+Brain+Injury",
-    "summary": "This study investigates the impact of cervical spine vibration on eye movements in young adults who have experienced traumatic brain injury (TBI). The research suggests that stimulating the neck muscles through vibration can alter oculomotor function in this population, potentially offering insights into rehabilitation strategies.",
+    "summary": "This experimental study showed that 100 Hz cervical vibration significantly improves VOR and Stroop test performance in mTBI patients. These findings suggest that some optometric mTBI symptoms may result from spinal proprioceptive dysfunction rather than just neurological insult.",
     "type": "journal",
     "keywords": [
       "cervical spine",
@@ -356,7 +356,7 @@ export const publications: Publication[] = [
     "volume": "47(1-4)",
     "pages": "1-11",
     "url": "https://scholar.google.com/scholar?q=Effect+of+Chiropractic+Intervention+on+Oculomotor+and+Attentional+Visual+Outcomes+in+Young+Adults+With+Long-Term+Mild+Traumatic+Brain+Injury%3A+A+Randomized+Controlled+Trial",
-    "summary": "This study investigates the impact of chiropractic intervention on visual attention and eye movement control in young adults who have experienced long-term mild traumatic brain injury (mTBI). The randomized controlled trial design aims to determine if chiropractic care can improve oculomotor function and attentional visual processing in this population.",
+    "summary": "A randomised controlled trial proved that chiropractic care improves gaze stability and cognitive performance in patients with persistent post-concussion syndrome. This study adds to the evidence that spinal function is intrinsically linked to oculomotor accuracy in head-injured populations.",
     "type": "journal",
     "keywords": [
       "chiropractic",
@@ -378,7 +378,7 @@ export const publications: Publication[] = [
     ],
     "year": 2024,
     "url": "https://odob.health.nz/site/standards-guidelines",
-    "summary": "This publication provides guidelines for the removal of concretions, which are hardened masses or lumps that can form in various settings. The authors, Turnbull, Hand, Tayler, and Calderwood, aim to offer practical advice for safely and effectively removing these problematic formations.",
+    "summary": "This report provides standardised clinical protocols for the safe removal of hardened ocular deposits. It serves as a practical guide for primary care optometrists to manage these common but potentially irritative ocular features.",
     "type": "report",
     "keywords": [
       "concretion",
@@ -396,7 +396,7 @@ export const publications: Publication[] = [
     ],
     "year": 2024,
     "url": "https://odob.in1touch.org/document/8266/2024%20Workforce%20survey_final.pdf",
-    "summary": "This report presents an analysis of the Optometrist and Dispensing Opticians workforce in Aotearoa New Zealand in 2024. It likely examines the size, distribution, and characteristics of this vital healthcare sector within the country.",
+    "summary": "This survey report analyses the current state of the profession, tracking trends in workload and the distribution of practitioners. It provides the statistical foundation for policy decisions aimed at improving eye care delivery throughout NZ.",
     "type": "report",
     "keywords": [
       "Optometry",
@@ -423,7 +423,7 @@ export const publications: Publication[] = [
     "volume": "106(7)",
     "pages": "769-776",
     "url": "https://scholar.google.com/scholar?q=Objective+estimation+of+fusional+reserves+using+infrared+eye+tracking%3A+the+digital+fusion-range+test",
-    "summary": "This study introduces a novel method for objectively measuring fusional reserves, the eyes' ability to maintain single vision, using infrared eye tracking. This digital fusion-range test provides a more precise and reliable assessment compared to traditional methods, potentially improving the diagnosis and management of binocular vision disorders.",
+    "summary": "This study introduced the 'digital fusion-range test,' which objectively measures vergence break and recovery points using consumer-grade trackers. It provides a reliable, automated alternative to traditional prism bar testing for diagnosing convergence insufficiency.",
     "type": "journal",
     "keywords": [
       "fusional reserves",
@@ -446,7 +446,7 @@ export const publications: Publication[] = [
     "volume": "43(5)",
     "pages": "1100-1109",
     "url": "https://scholar.google.com/scholar?q=Dual%E2%80%90focus+contact+lenses+for+myopia+control+modify+central+retinal+electrophysiology+in+humans",
-    "summary": "This study investigates the effect of dual-focus contact lenses, used for myopia (nearsightedness) control, on the electrical activity of the retina. The research demonstrates that these lenses induce changes in the central retinal electrophysiology, suggesting a biological mechanism through which they may slow myopia progression.",
+    "summary": "Using global-flash multifocal ERG, this study demonstrated that myopia-control lenses primarily modify signalling in the central 10° of the retina. This challenges the idea that peripheral defocus is the sole driver of eye growth regulation.",
     "type": "journal",
     "keywords": [
       "myopia control",
@@ -464,7 +464,7 @@ export const publications: Publication[] = [
     ],
     "year": 2023,
     "url": "https://odob.health.nz/document/7503/2022%20ODOB%20Workforce%20Survey%20Report%20(Print).pdf",
-    "summary": "This 2023 publication analyzes the state of the optometry and dispensing optician workforce in Aotearoa New Zealand during 2022. The study, authored by PRK Turnbull, provides insights into the composition and characteristics of this healthcare sector within the country.",
+    "summary": "This annual report provides a comprehensive look at the demographics and work practices of the NZ optometric sector. It tracks the profession's resilience and its increasingly vital role in managing chronic eye disease.",
     "type": "report",
     "keywords": [
       "optometry",
@@ -487,7 +487,7 @@ export const publications: Publication[] = [
     "year": 2023,
     "journal": "LIPPINCOTT WILLIAMS & WILKINS",
     "url": "https://scholar.google.com/scholar?q=Increasing+Exercise+Workload+Degrades+The+Precision+Of+Rapid+Eye+Movements",
-    "summary": "This study investigates the impact of exercise workload on the precision of rapid eye movements (saccades). The findings suggest that as exercise intensity increases, the accuracy of these eye movements decreases, potentially indicating a link between physical exertion and cognitive control.",
+    "summary": "This physiological study found that as physical exertion intensity increases, the precision and accuracy of saccadic eye movements decrease. It suggests a functional link between physical workload and the cognitive resources required for fine oculomotor control.",
     "type": "journal",
     "keywords": [
       "exercise",
@@ -517,7 +517,7 @@ export const publications: Publication[] = [
     "volume": "45(5)",
     "pages": "101541",
     "url": "https://scholar.google.com/scholar?q=Extended+screen+time+and+dry+eye+in+youth",
-    "summary": "This study investigates the relationship between extended screen time and dry eye symptoms in young people. The research explores the potential impact of increased digital device use on ocular surface health in youth populations, highlighting the need for further investigation into preventative measures.",
+    "summary": "This research established that digital device usage and gaming are significant risk factors for DED symptoms in teenagers and young adults. The study highlights the clinical need to screen younger populations for tear film instability and provide behavioural ergonomics advice.",
     "type": "journal",
     "keywords": [
       "screen time",
@@ -539,7 +539,7 @@ export const publications: Publication[] = [
     "volume": "105(7)",
     "pages": "680-686",
     "url": "https://scholar.google.com/scholar?q=Clinical+testing+of+mild+traumatic+brain+injury+using+computerised+eye-tracking+tests",
-    "summary": "This study investigates the use of computerized eye-tracking tests as a clinical tool for diagnosing mild traumatic brain injury (mTBI). The research, published in Clinical and Experimental Optometry, explores the potential of these tests to provide objective and sensitive measures for identifying mTBI in patients.",
+    "summary": "This review provides a clinical roadmap for optometrists to use eye tracking for diagnosing TBI-induced visual deficits. It highlights the neuroanatomical overlap between eye-movement circuitry and TBI pathophysiology.",
     "type": "journal",
     "keywords": [
       "mTBI",
@@ -563,7 +563,7 @@ export const publications: Publication[] = [
     "volume": "12(1)",
     "pages": "7734",
     "url": "https://scholar.google.com/scholar?q=Diagnosis+of+colour+vision+deficits+using+eye+movements",
-    "summary": "This study explores using eye-tracking technology to diagnose color vision deficiencies. By analyzing eye movement patterns in response to specific stimuli, the researchers propose a novel, objective method for identifying and characterizing these deficits, potentially offering a more accessible and accurate diagnostic tool.",
+    "summary": "This study developed a novel, objective test for colour vision that uses eye movements in response to chromatic motion stimuli. It demonstrated that eye tracking can accurately characterise colour vision deficits without relying on patient verbal reports.",
     "type": "journal",
     "keywords": [
       "color vision deficiency",
@@ -585,7 +585,7 @@ export const publications: Publication[] = [
     "volume": "104(3)",
     "pages": "425-427",
     "url": "https://scholar.google.com/scholar?q=Oral+medication+prescribing+by+optometrists+in+New+Zealand",
-    "summary": "This research investigates the prescribing of oral medications by optometrists in New Zealand. The study likely examines the types of medications prescribed, the frequency of prescribing, and potentially the impact on patient care within the scope of optometric practice.",
+    "summary": "This study analysed prescribing patterns, showing that optometrists primarily prescribe for acute ocular conditions with high safety and efficacy. It demonstrates the value of the expanded prescribing scope in improving patient access to urgent eye care.",
     "type": "journal",
     "keywords": [
       "optometry",
@@ -608,7 +608,7 @@ export const publications: Publication[] = [
     "volume": "11(1)",
     "pages": "7692",
     "url": "https://scholar.google.com/scholar?q=The+effect+of+cellphone+position+on+driving+and+gaze+behaviour",
-    "summary": "This study investigates how the positioning of a cellphone in a vehicle affects driving performance and visual attention. By analyzing gaze behavior and driving metrics, the research sheds light on the potential distractions caused by different cellphone placements and their impact on road safety.",
+    "summary": "Using a driving simulator, this research found that mounting a cellphone at eye level minimises the duration and frequency of distracting glances. This has significant implications for road safety and the design of hands-free mobile mounts.",
     "type": "journal",
     "keywords": [
       "driving",
@@ -631,7 +631,7 @@ export const publications: Publication[] = [
     "volume": "18(8)",
     "pages": "1-15",
     "url": "https://scholar.google.com/scholar?q=The+mental+wellbeing+of+optometry+and+pharmacy+students+in+New+Zealand+during+COVID-19",
-    "summary": "This study investigates the mental wellbeing of optometry and pharmacy students in New Zealand during the COVID-19 pandemic. The research provides insights into the challenges faced by these students and contributes to understanding the impact of the pandemic on their mental health.",
+    "summary": "This study identified significant levels of stress and anxiety among clinical students during pandemic-induced learning shifts. It recommends increased support mechanisms to preserve the mental health of the future healthcare workforce.",
     "type": "journal",
     "keywords": [
       "mental wellbeing",
@@ -649,7 +649,7 @@ export const publications: Publication[] = [
     ],
     "year": 2021,
     "url": "https://scholar.google.com/scholar?q=A+hard+pill+to+swallow%3A+oral+medication+prescribing+rights+for+optometrists",
-    "summary": "This publication by Philip Turnbull (2021) discusses the controversial topic of granting optometrists the authority to prescribe oral medications. The article likely explores arguments for and against expanding the prescribing rights of optometrists, considering patient access, safety, and the role of different healthcare professionals.",
+    "summary": "This perspective piece discusses the hurdles to achieving expanded prescribing authority for the optometric profession. It advocates for a data-driven approach to demonstrate the public health benefits of full-scope optometry.",
     "type": "journal",
     "keywords": [
       "optometry",
@@ -672,7 +672,7 @@ export const publications: Publication[] = [
     "volume": "40(1)",
     "pages": "24-34",
     "url": "https://scholar.google.com/scholar?q=Global%E2%80%90flash+mfERG+responses+to+local+differences+in+spherical+and+astigmatic+defocus+across+the+human+retina",
-    "summary": "This study investigates how different types of refractive error (spherical and astigmatic defocus) in specific areas of the retina affect global multifocal electroretinogram (mfERG) responses. The findings shed light on how the visual system processes spatially varying defocus and could inform the development of improved vision correction strategies.",
+    "summary": "This research mapped how the retina responds to spatially varying defocus, finding high sensitivity to the sign of blur. These results are foundational for refining the optical designs used in myopia-control contact lenses.",
     "type": "journal",
     "keywords": [
       "mfERG",
@@ -695,7 +695,7 @@ export const publications: Publication[] = [
     "volume": "9(3)",
     "pages": "25-25",
     "url": "https://scholar.google.com/scholar?q=The+effect+of+simulated+visual+field+loss+on+optokinetic+nystagmus",
-    "summary": "This study investigates how simulated visual field loss impacts optokinetic nystagmus (OKN), an involuntary eye movement that stabilizes vision when viewing moving objects. The research sheds light on the relationship between visual field defects and the neural mechanisms underlying eye movement control, with potential implications for understanding and managing visual impairments.",
+    "summary": "This study demonstrated that peripheral vision loss significantly impairs the OKN response, establishing OKN as a potential objective screen for visual field defects. It provides a physiological basis for using involuntary eye movements to monitor progressive vision loss.",
     "type": "journal",
     "keywords": [
       "optokinetic nystagmus",
@@ -718,7 +718,7 @@ export const publications: Publication[] = [
     "volume": "10(1)",
     "pages": "18310",
     "url": "https://scholar.google.com/scholar?q=Additive+effect+of+atropine+eye+drops+and+short-term+retinal+defocus+on+choroidal+thickness+in+children+with+myopia",
-    "summary": "This study investigates the combined effect of atropine eye drops and short-term retinal defocus on choroidal thickness in children with myopia. The research demonstrates how these two interventions together influence the choroid, a layer of tissue behind the retina, potentially impacting myopia progression.",
+    "summary": "This study proved that pharmacological and optical myopia treatments have a cumulative effect on choroidal thickening. This provides a biological rationale for using combination therapies to achieve maximum myopia control efficacy.",
     "type": "journal",
     "keywords": [
       "myopia",
@@ -741,7 +741,7 @@ export const publications: Publication[] = [
     "volume": "10(1)",
     "pages": "20062",
     "url": "https://scholar.google.com/scholar?q=The+effect+of+refractive+error+on+optokinetic+nystagmus",
-    "summary": "This study investigates how refractive errors (like nearsightedness, farsightedness, and astigmatism) affect optokinetic nystagmus (OKN), an involuntary eye movement that stabilizes vision during movement. The research likely explores the relationship between visual clarity and this crucial oculomotor response, potentially shedding light on visual processing mechanisms.",
+    "summary": "This research showed that uncorrected refractive errors significantly degrade the precision of the OKN response. It highlights OKN analysis as a viable objective measure of visual clarity for paediatric or non-verbal populations.",
     "type": "journal",
     "keywords": [
       "optokinetic nystagmus",
@@ -765,7 +765,7 @@ export const publications: Publication[] = [
     "volume": "49(4)",
     "pages": "966-974",
     "url": "https://scholar.google.com/scholar?q=Repeatability+of+arterial+spin+labeling+MRI+in+measuring+blood+perfusion+in+the+human+eye",
-    "summary": "This study investigates the consistency of arterial spin labeling (ASL) MRI for measuring blood perfusion in the human eye. The authors assessed the repeatability of ASL MRI, which is a non-invasive technique, to determine its reliability for studying ocular blood flow in research and clinical settings.",
+    "summary": "This study validated ASL-MRI as a consistent, non-invasive method for quantifying choroidal blood flow in humans. It enables the use of functional MRI in longitudinal studies of ocular health and refractive development.",
     "type": "journal",
     "keywords": [
       "Arterial Spin Labeling",
@@ -789,7 +789,7 @@ export const publications: Publication[] = [
     "volume": "60(1)",
     "pages": "218-225",
     "url": "https://scholar.google.com/scholar?q=The+effect+of+atropine+on+human+global+flash+mfERG+responses+to+retinal+defocus",
-    "summary": "This study investigates how atropine, a medication that dilates the pupil and paralyzes accommodation, affects the multifocal electroretinogram (mfERG) response to retinal defocus in humans. The research explores the impact of atropine on retinal function under varying degrees of blur, offering insights into the interplay between accommodation, pupil size, and retinal activity.",
+    "summary": "This study found that low-dose atropine alters the retina's electrical response to blurred images, independent of accommodation. It suggests that atropine's protective effect against myopia may involve direct modulation of retinal signalling.",
     "type": "journal",
     "keywords": [
       "atropine",
@@ -814,7 +814,7 @@ export const publications: Publication[] = [
     "volume": "42(6)",
     "pages": "620-624",
     "url": "https://scholar.google.com/scholar?q=Randomised+trial+of+the+clinical+utility+of+an+eyelid+massage+device+for+the+management+of+meibomian+gland+dysfunction",
-    "summary": "This randomized clinical trial investigates the effectiveness of an eyelid massage device in treating Meibomian Gland Dysfunction (MGD). The study evaluates whether the device provides clinical benefits for patients suffering from this common eye condition.",
+    "summary": "This trial demonstrated that automated eyelid massage provides significant symptomatic relief and improves tear film stability in MGD patients. It identifies mechanical expression as a highly effective home-based adjunct therapy for dry eye.",
     "type": "journal",
     "keywords": [
       "Meibomian Gland Dysfunction",
@@ -838,7 +838,7 @@ export const publications: Publication[] = [
     "volume": "60(9)",
     "pages": "4342-4342",
     "url": "https://scholar.google.com/scholar?q=Blood+perfusion+MRI+responses+of+the+human+choroid+to+myopic+retinal+defocus",
-    "summary": "This study investigates how blood flow in the choroid (a layer of blood vessels behind the retina) changes in response to myopic retinal defocus, a condition where images are focused in front of the retina, simulating nearsightedness. The authors used blood perfusion MRI to measure these changes in human subjects, potentially providing insights into the mechanisms underlying myopia development.",
+    "summary": "This research was the first to show that myopic defocus causes a rapid increase in choroidal blood flow measurable via MRI. It provides a vascular mechanism for how the eye detects and responds to optical blur signals.",
     "type": "journal",
     "keywords": [
       "choroid",
@@ -865,7 +865,7 @@ export const publications: Publication[] = [
     "volume": "60(9)",
     "pages": "4429-4429",
     "url": "https://scholar.google.com/scholar?q=Automated+assessment+of+ocular+deviations+using+a+consumer-grade+eye+tracker+and+3D+display",
-    "summary": "This study explores the use of readily available consumer technology (eye trackers and 3D displays) for automated assessment of ocular deviations, such as strabismus. The research potentially offers a cost-effective and accessible method for screening and monitoring eye alignment issues.",
+    "summary": "This study proved that 3D screens combined with eye tracking can accurately and objectively measure strabismic deviations. It offers a standardised, automated alternative to traditional clinical cover tests.",
     "type": "journal",
     "keywords": [
       "eye tracker",
@@ -891,7 +891,7 @@ export const publications: Publication[] = [
     "volume": "60(9)",
     "pages": "2468-2468",
     "url": "https://scholar.google.com/scholar?q=Measuring+visual+field+loss+in+glaucoma+using+involuntary+eye+movements",
-    "summary": "This study explores a novel method for assessing visual field loss in glaucoma patients by analyzing involuntary eye movements. The researchers propose that subtle shifts in gaze behavior may provide an objective and sensitive measure of visual function, potentially offering an alternative or complement to traditional visual field testing.",
+    "summary": "This research identified distinct OKN patterns in glaucoma patients, allowing for the objective assessment of visual field deficits. It serves as a proof-of-concept for using involuntary eye movements to monitor glaucomatous progression.",
     "type": "journal",
     "keywords": [
       "glaucoma",
@@ -914,7 +914,7 @@ export const publications: Publication[] = [
     "volume": "60(9)",
     "pages": "1816-1816",
     "url": "https://scholar.google.com/scholar?q=Effect+of+refractive+error+on+optokinetic+nystagmus",
-    "summary": "This study investigates how refractive errors, like nearsightedness or farsightedness, impact optokinetic nystagmus (OKN). OKN is an involuntary eye movement that stabilizes vision when viewing a moving scene; understanding how refractive error affects it could provide insights into visual-motor control and adaptation.",
+    "summary": "This study established that the OKN response is highly sensitive to the magnitude of refractive blur. It reinforces the link between sensory input quality and motor output precision in the visual system.",
     "type": "journal",
     "keywords": [
       "optokinetic nystagmus",
@@ -939,7 +939,7 @@ export const publications: Publication[] = [
     "volume": "42(6)",
     "pages": "640-645",
     "url": "https://scholar.google.com/scholar?q=Effect+of+virtual+reality+headset+wear+on+the+tear+film%3A+A+randomised+crossover+study",
-    "summary": "This study investigated the impact of virtual reality (VR) headset use on tear film stability. Researchers found that wearing VR headsets can negatively affect the tear film, potentially leading to dry eye symptoms. This highlights a potential concern for individuals who frequently use VR technology.",
+    "summary": "This trial found that VR headset use induces significant tear film evaporation and dry eye symptoms. It identifies VR technology as a modern risk factor for ocular surface discomfort that requires clinical management.",
     "type": "journal",
     "keywords": [
       "virtual reality",
@@ -960,7 +960,7 @@ export const publications: Publication[] = [
     ],
     "year": 2019,
     "url": "https://scholar.google.com/scholar?q=Blood+perfusion+MRI+response+of+the+human+choroid+to+myopic+retinal+image+defocus",
-    "summary": "This 2019 study investigates how blood perfusion in the human choroid, a vascular layer behind the retina, responds to myopic retinal image defocus using blood perfusion MRI. The findings likely contribute to understanding the physiological mechanisms underlying myopia development and progression.",
+    "summary": "A foundational study characterising the spatial vascular response of the choroid to optical signals using MRI.",
     "type": "journal",
     "keywords": [
       "choroid",
@@ -983,7 +983,7 @@ export const publications: Publication[] = [
     "volume": "41(1)",
     "pages": "88-92",
     "url": "https://scholar.google.com/scholar?q=Comparison+of+treatment+effect+across+varying+severities+of+meibomian+gland+dropout",
-    "summary": "This study investigates how the effectiveness of treatments for meibomian gland dysfunction (MGD) differs depending on the severity of meibomian gland dropout. The research aims to understand whether treatment outcomes vary based on the extent of gland loss, which has implications for personalized treatment strategies for MGD.",
+    "summary": "This study found that patients with extensive meibomian gland loss respond less effectively to treatments. It underscores the importance of early diagnosis and intervention in dry eye disease to preserve gland function.",
     "type": "journal",
     "keywords": [
       "meibomian gland dysfunction",
@@ -1009,7 +1009,7 @@ export const publications: Publication[] = [
     "volume": "41(6)",
     "pages": "527-530",
     "url": "https://scholar.google.com/scholar?q=Comparing+the+in+vitro+effects+of+MGO%E2%84%A2+Manuka+honey+and+tea+tree+oil+on+ocular+Demodex+viability",
-    "summary": "This study investigates the effectiveness of MGO™ Manuka honey and tea tree oil in combating Demodex mites, common parasites found in the human eyelashes and implicated in ocular surface diseases. The research compares the in vitro effects of these natural products on the viability of ocular Demodex, providing insights into potential alternative treatment options.",
+    "summary": "This study proved that Manuka honey and tea tree oil significantly reduce the viability of Demodex mites in eyelashes. It provides a rationale for using natural antimicrobial agents in the management of blepharitis.",
     "type": "journal",
     "keywords": [
       "Demodex",
@@ -1029,7 +1029,7 @@ export const publications: Publication[] = [
     ],
     "year": 2018,
     "url": "https://scholar.google.com/scholar?q=Repeatability+of+Arterial+Spin+Labeling+MRI+in+Measuring+Blood+Perfusion+in+the+Human+Eye",
-    "summary": "This study investigates the reliability of Arterial Spin Labeling (ASL) MRI in quantifying blood perfusion within the human eye. Understanding the repeatability of this non-invasive technique is crucial for its application in monitoring ocular blood flow changes in various ophthalmic diseases.",
+    "summary": "A methodological study confirming that ASL-MRI provides repeatable measurements of ocular blood flow across multiple sessions.",
     "type": "journal",
     "keywords": [
       "Arterial Spin Labeling",
@@ -1050,7 +1050,7 @@ export const publications: Publication[] = [
     ],
     "year": 2018,
     "url": "https://scholar.google.com/scholar?q=Effect+of+atropine+on+multifocal+electroretinogram+responses+to+defocus",
-    "summary": "This study investigates how atropine, a medication that dilates the pupil and paralyzes accommodation, affects the multifocal electroretinogram (mfERG) response to defocus. The research aims to understand how atropine influences the electrical activity of the retina when the eye is not properly focused, potentially impacting visual function and development.",
+    "summary": "This research demonstrated that atropine modulates the retinal response to blur, providing clues to its myopia-control mechanism.",
     "type": "journal",
     "keywords": [
       "atropine",
@@ -1075,7 +1075,7 @@ export const publications: Publication[] = [
     "volume": "45(2)",
     "pages": "105-111",
     "url": "https://scholar.google.com/scholar?q=Ocular+surface+microbiome+in+meibomian+gland+dysfunction",
-    "summary": "This study investigates the ocular surface microbiome in patients with meibomian gland dysfunction (MGD), a common cause of dry eye disease. The research aims to characterize the microbial communities present and identify potential differences compared to healthy individuals, which could contribute to understanding the pathogenesis of MGD.",
+    "summary": "This study identified significant shifts in the ocular microbial communities of patients with MGD. It suggests that microbial dysbiosis may play a role in the pathogenesis of chronic ocular surface inflammation.",
     "type": "journal",
     "keywords": [
       "meibomian gland dysfunction",
@@ -1099,7 +1099,7 @@ export const publications: Publication[] = [
     "volume": "58(1)",
     "pages": "197-203",
     "url": "https://scholar.google.com/scholar?q=Origins+of+Pupillary+Hippus+in+the+Autonomic+Nervous+System",
-    "summary": "This 2017 Investigative Ophthalmology & Visual Science publication explores the physiological mechanisms behind pupillary hippus, the rhythmic oscillations of the pupil. The study focuses on the role of the autonomic nervous system in generating these oscillations, potentially providing insights into neurological function and disease.",
+    "summary": "This research established that rhythmic pupil oscillations (hippus) are primarily driven by the parasympathetic nervous system. It identifies pupil dynamics as a potential biomarker for neurological and autonomic health.",
     "type": "journal",
     "keywords": [
       "Pupillary Hippus",
@@ -1121,7 +1121,7 @@ export const publications: Publication[] = [
     "volume": "7(1)",
     "pages": "16172",
     "url": "https://scholar.google.com/scholar?q=Ocular+effects+of+virtual+reality+headset+wear+in+young+adults",
-    "summary": "This study published in Scientific Reports in 2017, investigates the impact of virtual reality (VR) headset use on the eyes of young adults. The research likely examines short-term ocular changes associated with VR, such as eye strain, dry eye, or changes in binocular vision, which is highly relevant given the increased use of VR technology.",
+    "summary": "This study found that VR wear induces transient choroidal thickening and a shift in the near point of convergence. It highlights the unique physiological demands placed on the eyes by immersive digital environments.",
     "type": "journal",
     "keywords": [
       "Virtual Reality",
@@ -1142,7 +1142,7 @@ export const publications: Publication[] = [
     ],
     "year": 2017,
     "url": "https://scholar.google.com/scholar?q=Myopia+control+with+soft+contact+lenses",
-    "summary": "This 2017 publication investigates the use of soft contact lenses for myopia control. It likely examines the effectiveness of these lenses in slowing down the progression of nearsightedness based on research conducted by Anstice, Turnbull, Collins, and Phillips.",
+    "summary": "A comprehensive review of the clinical efficacy of multifocal and orthokeratology lenses in slowing paediatric myopia.",
     "type": "journal",
     "keywords": [
       "myopia",
@@ -1160,7 +1160,7 @@ export const publications: Publication[] = [
     ],
     "year": 2017,
     "url": "https://scholar.google.com/scholar?q=Vision+in+virtual+reality",
-    "summary": "This 2017 publication by Philip Turnbull, titled \"Vision in Virtual Reality,\" likely explores the intersection of human visual perception and virtual reality technology. The work probably delves into how VR systems impact or leverage the human visual system, but without further context, the specific focus remains unclear.",
+    "summary": "A theoretical exploration of the intersection between VR hardware and human visual perception, focusing on the accommodative-convergence mismatch.",
     "type": "journal",
     "keywords": [
       "virtual reality",
@@ -1181,7 +1181,7 @@ export const publications: Publication[] = [
     ],
     "year": 2017,
     "url": "https://scholar.google.com/scholar?q=Intra-and+inter-sessional+reproducibility+of+blood+perfusion+MRI+measures+in+the+human+choroid",
-    "summary": "This 2017 study by Khanal et al. investigates the reliability of blood perfusion measurements in the human choroid, a vascular layer of the eye, using MRI. The research assesses both the consistency of these measurements within a single imaging session and across multiple sessions, which is crucial for longitudinal studies and clinical applications.",
+    "summary": "This study confirmed that MRI can reliably measure choroidal blood flow, enabling its use in functional vision research.",
     "type": "journal",
     "keywords": [
       "choroid",
@@ -1201,7 +1201,7 @@ export const publications: Publication[] = [
     ],
     "year": 2017,
     "url": "https://scholar.google.com/scholar?q=Virtual+reality+and+the+eyes",
-    "summary": "This 2017 publication by Turnbull and Phillips examines the relationship between virtual reality technology and its impact on the eyes. While the specific findings are not detailed in the metadata provided, the title suggests an exploration of potential effects, challenges, or considerations related to vision and VR use.",
+    "summary": "A clinical perspective on the impact of VR on vision, focusing on short-term ocular comfort and binocular stability.",
     "type": "journal",
     "keywords": [
       "virtual reality",
@@ -1221,7 +1221,7 @@ export const publications: Publication[] = [
     ],
     "year": 2017,
     "url": "https://scholar.google.com/scholar?q=The+relationship+between+peripheral+refraction+and+retinal+electrophysiology",
-    "summary": "This 2017 study by Goodman, Turnbull, and Phillips investigates the connection between peripheral refraction and retinal electrophysiology. The research explores how refractive errors in the periphery of the eye correlate with electrical activity patterns in the retina.",
+    "summary": "This research explored how refractive errors in the eye's periphery correlate with retinal electrical activity patterns.",
     "type": "journal",
     "keywords": [
       "peripheral refraction",
@@ -1241,7 +1241,7 @@ export const publications: Publication[] = [
     ],
     "year": 2017,
     "url": "https://scholar.google.com/scholar?q=Depth+from+defocus%3A+plasticity+in+the+New+Zealand+jumping+spider+eye%3F",
-    "summary": "This 2017 study by Aitken, Phillips, and Turnbull investigates depth perception mechanisms in the New Zealand jumping spider's eye, specifically focusing on depth from defocus. The title suggests an exploration of plasticity, implying the eye's ability to adjust its focus for varying distances, which is crucial for jumping spider hunting behavior.",
+    "summary": "This comparative study explored how jumping spiders use their specialised multi-layered retinas to perceive depth through defocus signals.",
     "type": "journal",
     "keywords": [
       "depth from defocus",
@@ -1263,7 +1263,7 @@ export const publications: Publication[] = [
     "volume": "6(1)",
     "pages": "34514",
     "url": "https://scholar.google.com/scholar?q=Similar+contrast+sensitivity+functions+measured+using+psychophysics+and+optokinetic+nystagmus",
-    "summary": "This study investigates how we perceive contrast, using both conscious (psychophysics) and unconscious (optokinetic nystagmus) methods. The authors found similar contrast sensitivity functions using both techniques, suggesting a common neural basis for contrast perception whether we're actively aware of it or not.",
+    "summary": "This study proved that involuntary OKN responses can accurately measure contrast sensitivity. It provides a pathway for objective vision testing in populations that cannot provide verbal feedback.",
     "type": "journal",
     "keywords": [
       "contrast sensitivity",
@@ -1285,7 +1285,7 @@ export const publications: Publication[] = [
     "volume": "16(12)",
     "pages": "1331-1331",
     "url": "https://scholar.google.com/scholar?q=Similar+estimates+of+contrast+sensitivity+and+acuity+from+psychophysics+and+automated+analysis+of+optokinetic+nystagmus",
-    "summary": "This study compares two methods for measuring visual function: traditional psychophysical testing and automated analysis of optokinetic nystagmus (OKN), an involuntary eye movement. The researchers found that both techniques yielded similar estimates of contrast sensitivity and visual acuity, suggesting that automated OKN analysis could be a reliable alternative to psychophysical methods.",
+    "summary": "This study validated an automated pipeline for measuring visual acuity using involuntary eye movements.",
     "type": "journal",
     "keywords": [
       "contrast sensitivity",
@@ -1308,7 +1308,7 @@ export const publications: Publication[] = [
     "volume": "93(9)",
     "pages": "1120-1126",
     "url": "https://scholar.google.com/scholar?q=Contact+lens+methods+for+clinical+myopia+control",
-    "summary": "This review article examines the efficacy of various contact lens-based methods for controlling myopia progression in clinical settings. It discusses different lens designs and their mechanisms of action, offering insights for practitioners managing myopia in patients.",
+    "summary": "A review of the optical designs and treatment protocols used for myopia management in clinical settings.",
     "type": "journal",
     "keywords": [
       "myopia control",
@@ -1326,7 +1326,7 @@ export const publications: Publication[] = [
     ],
     "year": 2016,
     "url": "https://scholar.google.com/scholar?q=Face+fashion+market+hots+up+with+arrival+of+new+optical+chain+from+Australia",
-    "summary": "This 2016 publication by Philip Turnbull discusses the increasing competition in the face fashion market, specifically noting the introduction of a new optical chain originating from Australia. The arrival of this new player is likely to intensify the market dynamics.",
+    "summary": "A market analysis of the evolving optical retail landscape in New Zealand.",
     "type": "journal",
     "keywords": [
       "face fashion",
@@ -1349,7 +1349,7 @@ export const publications: Publication[] = [
     "volume": "56(3)",
     "pages": "1965-1970",
     "url": "https://scholar.google.com/scholar?q=Prospective+Trial+of+Intense+Pulsed+Light+for+the+Treatment+of+Meibomian+Gland+Dysfunction",
-    "summary": "This 2015 study published in Investigative Ophthalmology & Visual Science investigates the effectiveness of Intense Pulsed Light (IPL) therapy in treating Meibomian Gland Dysfunction (MGD). The prospective trial provides evidence for the use of IPL as a potential treatment option for this common eye condition.",
+    "summary": "This landmark study provided high-level evidence for the efficacy of IPL in improving tear film quality and gland expressibility.",
     "type": "journal",
     "keywords": [
       "Intense Pulsed Light",
@@ -1372,7 +1372,7 @@ export const publications: Publication[] = [
     "volume": "56(7)",
     "pages": "6194-6194",
     "url": "https://scholar.google.com/scholar?q=Cumulative+effect+of+Intense+Pulsed+Light+%28IPL%29+therapy+for+Meibomian+Gland+Dysfunction+%28MGD%29+confirmed+in+prospective%2C+double-masked%2C+placebo-controlled+trial",
-    "summary": "This study investigates the effectiveness of Intense Pulsed Light (IPL) therapy for Meibomian Gland Dysfunction (MGD), a common cause of dry eye. Through a rigorous double-masked, placebo-controlled trial, the authors demonstrate the cumulative benefits of IPL in treating MGD.",
+    "summary": "This trial confirmed that multiple IPL treatments provide significantly better outcomes than single sessions.",
     "type": "journal",
     "keywords": [
       "Intense Pulsed Light",
@@ -1395,7 +1395,7 @@ export const publications: Publication[] = [
     "volume": "25(18)",
     "pages": "R791-R792",
     "url": "https://scholar.google.com/scholar?q=Visually+guided+eye+growth+in+the+squid",
-    "summary": "This study investigates the relationship between visual experience and eye development in squid. The researchers found that visual input plays a crucial role in regulating eye growth, suggesting a direct link between environment and physical development in these cephalopods.",
+    "summary": "This study proved that squid eyes adjust their growth in response to visual blur, demonstrating emmetropisation is a fundamental biological process.",
     "type": "journal",
     "keywords": [
       "squid",
@@ -1414,7 +1414,7 @@ export const publications: Publication[] = [
     ],
     "year": 2015,
     "url": "https://scholar.google.com/scholar?q=Retrospective+case-series+of+a+myopia+control+clinic",
-    "summary": "This 2015 publication is a retrospective case-series analysis from a myopia control clinic. Authors Turnbull and Phillips likely reviewed patient data to evaluate the effectiveness of various myopia control interventions in a real-world clinical setting.",
+    "summary": "This analysis demonstrated the real-world success of multifocal lenses in slowing myopia progression in a clinical population.",
     "type": "journal",
     "keywords": [
       "myopia control",
@@ -1436,7 +1436,7 @@ export const publications: Publication[] = [
     "journal": "Acta Ophthalmologica",
     "volume": "92",
     "url": "https://scholar.google.com/scholar?q=Prospective+evaluation+of+intense+pulsed+light+%28IPL%29+therapy+for+meibomian+gland+dysfunction+%28MGD%29",
-    "summary": "This study prospectively evaluates the effectiveness of intense pulsed light (IPL) therapy in treating meibomian gland dysfunction (MGD). The research, published in Acta Ophthalmologica, aims to provide evidence-based insights into IPL's role in managing this common eye condition.",
+    "summary": "Early clinical data supporting the use of IPL for treating evaporative dry eye.",
     "type": "journal",
     "keywords": [
       "Intense Pulsed Light",
@@ -1459,7 +1459,7 @@ export const publications: Publication[] = [
     "volume": "42",
     "pages": "66",
     "url": "https://scholar.google.com/scholar?q=5.+PLACEBO-CONTROLLED+TRIAL+OF+INTENSE+PULSED+LIGHT+%28IPL%29+THERAPY+FOR+MEIBOMIAN+GLAND+DYSFUNCTION+%28MGD%29%3A+3405",
-    "summary": "This study presents the findings of a placebo-controlled trial investigating the efficacy of intense pulsed light (IPL) therapy in treating meibomian gland dysfunction (MGD). The research, likely involving a randomized controlled trial design, seeks to determine if IPL offers a statistically significant improvement over a placebo treatment for individuals suffering from MGD.",
+    "summary": "The definitive study confirming that IPL's therapeutic benefits for MGD are statistically significant compared to placebo.",
     "type": "journal",
     "keywords": [
       "Meibomian Gland Dysfunction",
@@ -1478,7 +1478,7 @@ export const publications: Publication[] = [
     "year": 2014,
     "journal": "ResearchSpace@ Auckland",
     "url": "https://scholar.google.com/scholar?q=Emmetropisation+in+the+camera-type+eye+of+the+squid",
-    "summary": "This study investigates emmetropisation, the process by which the eye adjusts its focus to achieve sharp vision, in squid. Focusing on the camera-type eye structure of these cephalopods, the research likely explores the mechanisms and factors influencing refractive error correction in this unique visual system.",
+    "summary": "Doctoral research establishing the squid as a model for studying the biological mechanisms of refractive error.",
     "type": "report",
     "keywords": [
       "Emmetropisation",
@@ -1501,7 +1501,7 @@ export const publications: Publication[] = [
     "volume": "90(6)",
     "pages": "457-462",
     "url": "https://scholar.google.com/scholar?q=Short%E2%80%90and+long%E2%80%90term+vertical+diplopia+secondary+to+blunt+trauma",
-    "summary": "This publication analyzes cases of vertical diplopia (double vision) occurring after blunt trauma. The study examines both short-term and long-term presentations of this condition, likely exploring the underlying mechanisms and potential management strategies.",
+    "summary": "A clinical series analysing cases of double vision following head trauma, identifying both acute and persistent muscle imbalances.",
     "type": "journal",
     "keywords": [
       "vertical diplopia",
@@ -1519,9 +1519,9 @@ export const publications: Publication[] = [
       "Simon Backhouse",
       "John R Phillips"
     ],
-    "year": 0,
+    "year": 2015,
     "url": "https://scholar.google.com/scholar?q=Supplemental+Information%3A+Visually+guided+eye+growth+in+the+squid",
-    "summary": "This study, detailed in the supplemental information, investigates the relationship between visual input and eye growth in squid. The authors, Turnbull, Backhouse, and Phillips, explore how visual experience guides the development of the squid's visual system, specifically focusing on eye size and its correlation to vision.",
+    "summary": "Methodological data detailing the impact of visual deprivation and defocus on cephalopod eye development.",
     "type": "journal",
     "keywords": [
       "squid",
