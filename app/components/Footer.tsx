@@ -1,7 +1,18 @@
+'use client';
+
 import { Mail } from 'lucide-react';
-import buildInfo from '@/app/build-info.json';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
+  const [lastUpdated, setLastUpdated] = useState<string>('');
+
+  useEffect(() => {
+    // Get the current date in ISO format (YYYY-MM-DD)
+    const now = new Date();
+    const isoDate = now.toISOString().split('T')[0];
+    setLastUpdated(isoDate);
+  }, []);
+
   return (
     <footer className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-t border-gray-200 dark:border-gray-800 mt-auto transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -17,7 +28,7 @@ export default function Footer() {
           </div>
           
           <div className="text-sm text-gray-600 dark:text-gray-400">
-            Last updated: {buildInfo.lastUpdated}
+            Last updated: {lastUpdated}
           </div>
         </div>
       </div>

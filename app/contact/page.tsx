@@ -92,7 +92,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Whether you have a question, collaboration opportunity,
-            or just want to connect, feel free to reach out.
+            or just want to connect, please feel free to reach out.
           </p>
         </div>
 

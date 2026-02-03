@@ -69,8 +69,8 @@ const WorkPage = () => {
               <Image 
                 src="/images/profile-photo.jpg" 
                 alt="Associate Professor Philip Turnbull"
-                width={200}
-                height={200}
+                width={250}
+                height={250}
                 className="rounded-full shadow-lg"
                 priority
               />

@@ -23,6 +23,7 @@ export default function Home() {
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [showDarkModeHint, setShowDarkModeHint] = useState(true);
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const bioSectionRef = useRef<HTMLDivElement>(null);
 
@@ -39,6 +40,14 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [variant]);
+
+  // Hide dark mode hint after 8 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowDarkModeHint(false);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // SVG Texture Pattern
   const TextureBackground = () => (
@@ -88,6 +97,15 @@ export default function Home() {
         </div>
       )}
 
+      {/* Dark Mode Hint */}
+      {showDarkModeHint && (
+        <div className="fixed top-20 right-6 z-40 transition-opacity duration-500">
+          <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">
+            Prefer dark mode? Click the {isDark ? '☀️' : '🌙'} icon
+          </div>
+        </div>
+      )}
+
       {/* Hero Section with Virtual Patient Banner */}
       <section 
         className={`relative text-white py-3 bg-cover bg-center z-10 overflow-hidden ${bannerClasses.className}`}
@@ -105,7 +123,7 @@ export default function Home() {
             rel="noopener noreferrer" 
             className="flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-300 group"
           >
-            <span className="text-base group-hover:scale-105 transition-transform">{variant === 'flat' ? 'Looking for the Virtual Patient?' : '✨ Virtual Patient Platform ✨'}</span>
+            <span className="text-base group-hover:scale-105 transition-transform">Looking for the Virtual Patient?</span>
             <ExternalLink className={`w-5 h-5 group-hover:translate-x-1 transition-transform`} />
           </Link>
         </div>
@@ -185,7 +203,8 @@ export default function Home() {
                   Auckland Myopia Control Clinic, and now work on developing and advising on standards 
                   for optometry practice in New Zealand. My research explores virtual reality, 
                   eye tracking, and AI applications in healthcare, alongside broader interests in 
-                  mental wellbeing, equity, and access to eye health care. 
+                  mental wellbeing, equity, and improving access to eye health care for those in 
+                  Aotearoa New Zealand. 
                 </p>
               </div>
 
@@ -500,7 +519,7 @@ export default function Home() {
                     <div className="space-y-4 text-gray-700 dark:text-gray-300">
                       <div>
                         <p className="font-semibold mb-2">PhD Graduates:</p>
-                        <ul className="space-y-2 text-sm">
+                        <ul className="space-y-2 text-base">
                           <li>• <strong>Dr Samuel Chiang</strong> - The effect of optical defocus on choroidal thickness</li>
                           <li>• <strong>Dr Safal Khanal</strong> - The effect of changes in choroidal perfusion on visual function</li>
                           <li>• <strong>Dr Soheil Doustkouhi</strong> - Development of objective techniques of the optometric examination</li>
@@ -510,7 +529,7 @@ export default function Home() {
                       </div>
                       <div>
                         <p className="font-semibold mb-2">Masters Graduates:</p>
-                        <ul className="space-y-2 text-sm">
+                        <ul className="space-y-2 text-base">
                           <li>• <strong>Bhavna Patel</strong> - Dry eye in younger populations</li>
                           <li>• <strong>Richard Johnson</strong> - Maritime visual standards</li>
                           <li>• <strong>Sabrina Ju</strong> - Treatments for AMD</li>
