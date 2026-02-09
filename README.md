@@ -1,6 +1,7 @@
 # Associate Professor Philip Turnbull's Academic Website
 
 A modern, responsive personal website built with Next.js, TypeScript, and Tailwind CSS.
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/013c694a-c9ea-450f-af68-545ea1bd63b1/deploy-status)](https://app.netlify.com/projects/professorphil/deploys)
 
 ## Features
