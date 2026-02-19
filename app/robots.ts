@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.philipturnbull.com/sitemap.xml',
+    sitemap: 'https://philipturnbull.com/sitemap.xml',
   }
 }

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Work - Associate Professor Philip Turnbull",
     description: "Research, teaching, and advisory roles of Associate Professor Philip Turnbull at the School of Optometry and Vision Science.",
-    url: 'https://www.philipturnbull.com/work',
+    url: 'https://philipturnbull.com/work',
   },
 };
 
