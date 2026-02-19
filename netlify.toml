@@ -4,3 +4,16 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Force HTTPS and www
+[[redirects]]
+  from = "http://philipturnbull.com/*"
+  to = "https://www.philipturnbull.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://philipturnbull.com/*"
+  to = "https://www.philipturnbull.com/:splat"
+  status = 301
+  force = true

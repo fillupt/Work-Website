@@ -14,6 +14,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Associate Professor Philip Turnbull - Optometry and Vision Science",
   description: "Associate Professor at the School of Optometry and Vision Science, University of Auckland, specialising in virtual patients, eye tracking, and digital health innovation.",
+  metadataBase: new URL('https://www.philipturnbull.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_NZ',
+    url: 'https://www.philipturnbull.com',
+    siteName: 'Associate Professor Philip Turnbull',
+  },
 };
 
 export const viewport: Viewport = {
