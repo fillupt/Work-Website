@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from 'react';
-import { BookOpen, GraduationCap, Users, ExternalLink, Mail, ChevronDown } from "lucide-react";
+import { BookOpen, GraduationCap, Users, ExternalLink, Mail } from "lucide-react";
 import { useDesign } from '@/app/providers/DesignProvider';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import {
@@ -24,14 +24,11 @@ export default function Home() {
   const { variant } = useDesign();
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const bioSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollIndicator(window.scrollY < 100);
-      
       // Parallax effect
       if (variant !== 'flat') {
         setParallaxOffset(window.scrollY * 0.5);
@@ -75,14 +72,6 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-white dark:bg-gray-950">
       <TextureBackground />
-
-      {/* Scroll Indicator */}
-      {showScrollIndicator && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 animate-bounce transition-opacity duration-500">
-          <span>Scroll</span>
-          <ChevronDown className="w-4 h-4" />
-        </div>
-      )}
 
       {/* Hero Section with Virtual Patient Banner */}
       <section 
