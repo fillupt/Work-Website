@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from 'react';
-import { BookOpen, GraduationCap, Users, ExternalLink, Mail, ChevronDown } from "lucide-react";
+import { BookOpen, GraduationCap, Users, ExternalLink, Mail } from "lucide-react";
 import { useDesign } from '@/app/providers/DesignProvider';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import {
@@ -11,26 +11,24 @@ import {
   getBioSectionClasses,
   getCardClasses,
   getPanelClasses,
-  getTileClasses,
-  getTileOverlayClasses,
-  getTileIconClasses,
-  getTileTitleClasses,
   getAnimationDelay,
 } from '@/app/design/variants';
+
+const TABS = [
+  { key: 'research', label: 'Research', icon: BookOpen },
+  { key: 'teaching', label: 'Teaching', icon: GraduationCap },
+  { key: 'advisory', label: 'Advisory', icon: Users },
+] as const;
 
 export default function Home() {
   const { variant } = useDesign();
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const [showDarkModeHint, setShowDarkModeHint] = useState(true);
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const bioSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollIndicator(window.scrollY < 100);
-      
       // Parallax effect
       if (variant !== 'flat') {
         setParallaxOffset(window.scrollY * 0.5);
@@ -40,14 +38,6 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [variant]);
-
-  // Hide dark mode hint after 8 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowDarkModeHint(false);
-    }, 8000);
-    return () => clearTimeout(timer);
-  }, []);
 
   // SVG Texture Pattern
   const TextureBackground = () => (
@@ -75,12 +65,6 @@ export default function Home() {
 
   const bannerClasses = getBannerClasses(variant, isDark);
   const bioClasses = getBioSectionClasses(variant, isDark);
-  const researchTile = getTileClasses(variant, isDark, activeTab === 'research');
-  const teachingTile = getTileClasses(variant, isDark, activeTab === 'teaching');
-  const advisoryTile = getTileClasses(variant, isDark, activeTab === 'advisory');
-  const researchOverlay = getTileOverlayClasses(variant, isDark, activeTab === 'research');
-  const teachingOverlay = getTileOverlayClasses(variant, isDark, activeTab === 'teaching');
-  const advisoryOverlay = getTileOverlayClasses(variant, isDark, activeTab === 'advisory');
   const cardBase = getCardClasses(variant, isDark);
   const panelPrimary = getPanelClasses(variant, isDark, 'primary');
   const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
@@ -88,23 +72,6 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-white dark:bg-gray-950">
       <TextureBackground />
-
-      {/* Scroll Indicator */}
-      {showScrollIndicator && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 animate-bounce transition-opacity duration-500">
-          <span>Scroll</span>
-          <ChevronDown className="w-4 h-4" />
-        </div>
-      )}
-
-      {/* Dark Mode Hint */}
-      {showDarkModeHint && (
-        <div className="fixed top-20 right-6 z-40 transition-opacity duration-500">
-          <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">
-            Prefer dark mode? Click the {isDark ? '☀️' : '🌙'} icon
-          </div>
-        </div>
-      )}
 
       {/* Hero Section with Virtual Patient Banner */}
       <section 
@@ -231,83 +198,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Tab Tiles */}
+      {/* Interactive Tabs */}
       <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {/* Research Tile */}
-          <button
-            onClick={() => setActiveTab('research')}
-            className={`${researchTile.className} ${researchTile.animationClass}`}
-            style={{
-              ...researchTile.style,
-              animationDelay: getAnimationDelay(0, variant),
-            }}
-          >
-            <div
-              className={`${researchOverlay.className} ${activeTab === 'research' ? 'opacity-90' : 'opacity-0 group-hover:opacity-40'}`}
-              style={researchOverlay.style}
-            />
-            <div className="relative z-10">
-              <BookOpen className={`w-14 h-14 mb-4 transition-colors ${getTileIconClasses(variant, activeTab === 'research')}`} />
-              <h3 className={`${getTileTitleClasses(variant, isDark, activeTab === 'research')} mb-3`}>Research</h3>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
-                <li>• Virtual Reality Applications</li>
-                <li>• Eye Tracking Systems</li>
-                <li>• Artificial Intelligence</li>
-                <li>• Myopia Control Research</li>
-              </ul>
-            </div>
-          </button>
-
-          {/* Teaching Tile */}
-          <button
-            onClick={() => setActiveTab('teaching')}
-            className={`${teachingTile.className} ${teachingTile.animationClass}`}
-            style={{
-              ...teachingTile.style,
-              animationDelay: getAnimationDelay(1, variant),
-            }}
-          >
-            <div
-              className={`${teachingOverlay.className} ${activeTab === 'teaching' ? 'opacity-90' : 'opacity-0 group-hover:opacity-40'}`}
-              style={teachingOverlay.style}
-            />
-            <div className="relative z-10">
-              <GraduationCap className={`w-14 h-14 mb-4 transition-colors ${getTileIconClasses(variant, activeTab === 'teaching')}`} />
-              <h3 className={`${getTileTitleClasses(variant, isDark, activeTab === 'teaching')} mb-3`}>Teaching</h3>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
-                <li>• Undergraduate Optometry</li>
-                <li>• Postgraduate Programs</li>
-                <li>• Clinical Decision-Making</li>
-                <li>• Virtual Patient Platform</li>
-              </ul>
-            </div>
-          </button>
-
-          {/* Advisory Tile */}
-          <button
-            onClick={() => setActiveTab('advisory')}
-            className={`${advisoryTile.className} ${advisoryTile.animationClass}`}
-            style={{
-              ...advisoryTile.style,
-              animationDelay: getAnimationDelay(2, variant),
-            }}
-          >
-            <div
-              className={`${advisoryOverlay.className} ${activeTab === 'advisory' ? 'opacity-90' : 'opacity-0 group-hover:opacity-40'}`}
-              style={advisoryOverlay.style}
-            />
-            <div className="relative z-10">
-              <Users className={`w-14 h-14 mb-4 transition-colors ${getTileIconClasses(variant, activeTab === 'advisory')}`} />
-              <h3 className={`${getTileTitleClasses(variant, isDark, activeTab === 'advisory')} mb-3`}>Advisory</h3>
-              <ul className="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
-                <li>• ODOB Advisor & Researcher</li>
-                <li>• CAA Vision Standards</li>
-                <li>• Expert Witness Services</li>
-                <li>• Policy Development</li>
-              </ul>
-            </div>
-          </button>
+        <div className="flex w-full border-b-2 border-gray-200 dark:border-gray-700 mb-10">
+          {TABS.map(({ key, label, icon: Icon }) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`flex-1 flex items-center justify-center gap-2 py-4 px-2 font-semibold text-sm sm:text-base transition-all duration-200 border-b-2 -mb-[2px] ${
+                activeTab === key
+                  ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-blue-50/60 dark:bg-blue-900/20'
+                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/30'
+              }`}
+            >
+              <Icon className="w-5 h-5 flex-shrink-0" />
+              <span>{label}</span>
+            </button>
+          ))}
         </div>
 
         {/* Tab Content */}
