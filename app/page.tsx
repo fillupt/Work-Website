@@ -171,7 +171,12 @@ export default function Home() {
                   for optometry practice in New Zealand. My research explores virtual reality, 
                   eye tracking, and AI applications in healthcare, alongside broader interests in 
                   mental wellbeing, equity, and improving access to eye health care for those in 
-                  Aotearoa New Zealand. 
+                  Aotearoa New Zealand.
+                </p>
+                <p>
+                  I am available to supervise Masters and PhD students across these topics, and I welcome 
+                  advisory or expert witness engagements where my experience in optometry, standards development, 
+                  or digital health may add value.
                 </p>
               </div>
 
@@ -227,7 +232,7 @@ export default function Home() {
                   Research Areas
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
-                  Leading the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
+                  I lead the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div
@@ -241,7 +246,7 @@ export default function Home() {
                       Virtual Reality in Healthcare
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Developing and evaluating virtual reality applications for optometry education and clinical training. These immersive environments enhance learning outcomes and prepare students for real-world practice.
+                      I develop and evaluate virtual reality applications for optometry education and clinical training. These immersive environments enhance learning outcomes and prepare students for real-world practice.
                     </p>
                   </div>
 
@@ -256,7 +261,7 @@ export default function Home() {
                       Eye Tracking & Gaze Analysis
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Exploring eye tracking technology to understand visual behaviour, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
+                      I explore eye tracking technology to understand visual behaviour, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
                     </p>
                   </div>
 
@@ -271,7 +276,7 @@ export default function Home() {
                       Artificial Intelligence in Optometry
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Applying AI and machine learning to retinal imaging, disease prediction, and clinical decision support systems to improve diagnostic accuracy and patient outcomes.
+                      I apply AI and machine learning to retinal imaging, disease prediction, and clinical decision support systems to improve diagnostic accuracy and patient outcomes.
                     </p>
                   </div>
 
@@ -286,7 +291,7 @@ export default function Home() {
                       Myopia Control Research
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Researching effective myopia management strategies and co-founding the Auckland Myopia Control Clinic to address the growing global myopia epidemic.
+                      I research effective myopia management strategies and co-founded the Auckland Myopia Control Clinic to address the growing global myopia epidemic.
                     </p>
                   </div>
                 </div>
@@ -301,7 +306,7 @@ export default function Home() {
               >
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Publications</h2>
                 <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-                  Explore my research publications, including journal articles, conference papers, and collaborative works.
+                  I share my research publications, including journal articles, conference papers, and collaborative works.
                 </p>
                 <Link
                   href="/publications"
@@ -326,7 +331,7 @@ export default function Home() {
                     As an educator, I teach and examine both undergraduate and postgraduate optometry students. I am the Part II coordinator for the Bachelor of Optometry programme, and course director of OPTOM216 – Introduction to Optometry. I also act as both a clinical and oral examiner for Part V students, and teach statistics and research skills as part of the OPTOM783 – Research Project in Vision Science.
                   </p>
                   <p>
-                    Each year I supervise many Honours, Masters, and PhD students, in a broad range of research areas.
+                    Each year I supervise many Honours, Masters, and PhD students in a broad range of research areas, and I remain available to take on new Masters and PhD projects.
                   </p>
                 </div>
               </div>
@@ -347,7 +352,7 @@ export default function Home() {
                       Part II Coordinator
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Coordinating the Bachelor of Optometry Part II programme and directing OPTOM216 – Introduction to Optometry.
+                      I coordinate the Bachelor of Optometry Part II programme and direct OPTOM216 – Introduction to Optometry.
                     </p>
                   </div>
 
@@ -362,7 +367,7 @@ export default function Home() {
                       Clinical Examiner
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Acting as clinical and oral examiner for Part V optometry students in their final year assessments.
+                      I act as a clinical and oral examiner for Part V optometry students in their final year assessments.
                     </p>
                   </div>
 
@@ -377,7 +382,7 @@ export default function Home() {
                       Research Methods
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Teaching statistics and research skills in OPTOM783 – Research Project in Vision Science for postgraduate students.
+                      I teach statistics and research skills in OPTOM783 – Research Project in Vision Science for postgraduate students.
                     </p>
                   </div>
 
@@ -392,7 +397,7 @@ export default function Home() {
                       Virtual Patient Platform
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Developing and teaching with the Virtual Patient platform to provide immersive, interactive learning experiences.
+                      I develop and teach with the Virtual Patient platform to provide immersive, interactive learning experiences.
                     </p>
                   </div>
                 </div>
@@ -470,7 +475,7 @@ export default function Home() {
                   Advisory & Professional Service
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
-                  Providing advisory services to professional organisations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
+                  I provide advisory services to professional organisations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
                 </p>
               </div>
 
@@ -486,7 +491,7 @@ export default function Home() {
                     ODOB Advisor & Researcher
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Advising the Optometrists and Dispensing Opticians Board on standards, education requirements, and professional development.
+                    I advise the Optometrists and Dispensing Opticians Board on standards, education requirements, and professional development.
                   </p>
                 </div>
 
@@ -501,7 +506,7 @@ export default function Home() {
                     CAA Vision Standards
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Contributing to Civil Aviation Authority standards for vision requirements and assessments in aviation safety.
+                    I contribute to Civil Aviation Authority standards for vision requirements and assessments in aviation safety.
                   </p>
                 </div>
 
@@ -516,7 +521,7 @@ export default function Home() {
                     Expert Witness Services
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Providing expert opinion on optometry-related matters in legal cases and professional disputes.
+                    I provide expert opinion on optometry-related matters in legal cases and professional disputes.
                   </p>
                 </div>
 
@@ -531,7 +536,7 @@ export default function Home() {
                     Policy Development
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Helping develop policy and best practice guidelines for optometry education and clinical practice in New Zealand and internationally.
+                    I help develop policy and best practice guidelines for optometry education and clinical practice in New Zealand and internationally.
                   </p>
                 </div>
               </div>
@@ -547,7 +552,7 @@ export default function Home() {
                   Interested in Collaborating?
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-                  I'm always interested in discussing how my expertise can help your organisation or research initiatives. Let's connect!
+                  I'm always interested in discussing how my expertise can help your organisation or research initiatives, and I'm available for advisory or expert witness engagements when those conversations extend into regulatory or clinical practice questions.
                 </p>
                 <Link
                   href="/contact"
