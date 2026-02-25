@@ -99,10 +99,12 @@ export default function Home() {
       {/* Bio Section */}
       <section 
         ref={bioSectionRef}
-        className={`relative z-10 ${bioClasses.className}`}
+        className="relative z-10"
         style={bioClasses.style}
       >
-        <div className="max-w-7xl mx-auto">
+        <div 
+          className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 transition-all duration-300 ${bioClasses.animationClass}`}
+        >
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Profile Image */}
             <div className={`flex-shrink-0 ${bioClasses.animationClass}`} style={{ animationDelay: '0ms' }}>

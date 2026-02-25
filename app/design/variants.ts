@@ -67,7 +67,7 @@ export function getBioSectionClasses(variant: DesignVariant, isDark: boolean): V
   const colors = getColorPalette(variant, isDark);
   const isFlat = variant === 'flat';
 
-  let className = 'relative z-10 bg-gradient-to-b py-20 px-4 sm:px-6 lg:px-8 transition-all duration-300';
+  let className = 'relative bg-gradient-to-b transition-all duration-300';
   const style: React.CSSProperties = {};
 
   if (isFlat) {
