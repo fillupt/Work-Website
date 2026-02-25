@@ -167,7 +167,7 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     },
     gradients: {
       banner: 'linear-gradient(135deg, #1e40af 0%, #2563eb 25%, #3b82f6 50%, #0ea5e9 100%)',
-      bio: 'linear-gradient(to bottom, #ffffff 0%, #e0f2fe 100%)',
+      bio: 'linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%)',
       card: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)',
       panelPrimary: 'linear-gradient(135deg, #dbeafe 0%, #bae6fd 100%)',
       panelSecondary: 'linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 100%)',
@@ -177,16 +177,16 @@ const tokens: Record<DesignVariant, VariantConfig> = {
       opacity: 0.15,
     },
     shadows: {
-      sm: '0 4px 8px rgba(0, 0, 0, 0.12)',
-      md: '0 8px 20px rgba(0, 0, 0, 0.15)',
-      lg: '0 16px 40px rgba(0, 0, 0, 0.2)',
+      sm: '0 2px 6px rgba(0, 0, 0, 0.08)',
+      md: '0 6px 16px rgba(0, 0, 0, 0.1)',
+      lg: '0 12px 32px rgba(0, 0, 0, 0.12)',
     },
     animations: {
-      fadeIn: '0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-      float: '2.5s ease-in-out infinite',
-      gradientShift: '4s ease-in-out infinite',
-      patternPulse: '3s ease-in-out infinite',
-      hoverScale: 1.05,
+      fadeIn: '0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      float: '3.5s ease-in-out infinite',
+      gradientShift: '6s ease-in-out infinite',
+      patternPulse: '4s ease-in-out infinite',
+      hoverScale: 1.02,
     },
   },
 };

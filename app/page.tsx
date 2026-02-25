@@ -24,19 +24,18 @@ export default function Home() {
   const { variant } = useDesign();
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
-  const [parallaxOffset, setParallaxOffset] = useState(0);
   const bioSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Parallax effect
-      if (variant !== 'flat') {
-        setParallaxOffset(window.scrollY * 0.5);
-      }
+    // Currently no scroll effects needed
+    window.addEventListener('scroll', () => {
+      // Passthrough
+    });
+    return () => {
+      window.removeEventListener('scroll', () => {
+        // Passthrough
+      });
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [variant]);
 
   // SVG Texture Pattern
@@ -76,10 +75,7 @@ export default function Home() {
       {/* Hero Section with Virtual Patient Banner */}
       <section 
         className={`relative text-white py-3 bg-cover bg-center z-10 overflow-hidden ${bannerClasses.className}`}
-        style={{
-          ...bannerClasses.style,
-          transform: variant !== 'flat' ? `translateY(${parallaxOffset * 0.3}px)` : 'none',
-        }}
+        style={bannerClasses.style}
       >
         <div 
           className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${bannerClasses.animationClass}`}
@@ -103,53 +99,58 @@ export default function Home() {
         style={bioClasses.style}
       >
         <div 
-          className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 transition-all duration-300 ${bioClasses.animationClass}`}
+          className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transition-all duration-300 ${bioClasses.animationClass}`}
         >
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
             {/* Profile Image */}
-            <div className={`flex-shrink-0 ${bioClasses.animationClass}`} style={{ animationDelay: '0ms' }}>
-              <div className="relative">
+            <div className={`flex-shrink-0 md:flex-shrink animate-slideInLeft`} style={{ animationDelay: '0ms' }}>
+              <div className="relative inline-block">
                 <Image 
                   src="/images/profile-photo.jpg" 
                   alt="Associate Professor Philip Turnbull"
                   width={240}
                   height={240}
-                  className={`rounded-2xl shadow-2xl transition-all duration-300 ${variant !== 'flat' ? 'hover:scale-105 cursor-pointer' : ''}`}
+                  className={`rounded-xl shadow-lg transition-all duration-500 ${variant !== 'flat' ? 'hover:shadow-xl' : ''}`}
                   priority
                 />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 dark:ring-white/10" />
+                <div className="absolute inset-0 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5" />
               </div>
             </div>
 
             {/* Bio Content */}
-            <div className={`flex-1 space-y-6 text-center md:text-left ${bioClasses.animationClass}`} style={{ animationDelay: '50ms' }}>
+            <div className={`flex-1 space-y-8 animate-slideInRight`} style={{ animationDelay: '100ms' }}>
               <div>
-                <h1 className="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-4 tracking-tight">
-                  <b>Philip Turnbull</b> B Optom (Hons), PhD
+                <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
+                  Philip Turnbull
                 </h1>
-                <div className="text-lg text-gray-600 dark:text-gray-400 space-y-1">
-                  <p><b>Associate Professor in Optometry</b></p>
-                  <br/>
-                  <a 
-                    href="https://www.auckland.ac.nz/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline"
-                  >
-                    University of Auckland
-                  </a>
-                  <span className="text-gray-500 dark:text-gray-500"> • Auckland, New Zealand</span>
-                  <br/>
-                  <a 
-                    href="https://orcid.org/0000-0002-9892-2964"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline"
-                  >
-                    <span className="inline-flex items-center justify-center w-4 h-4">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 font-normal">
+                  B Optom (Hons), PhD
+                </p>
+                <div className="text-sm text-gray-600 dark:text-gray-400 space-y-3 mt-5">
+                  <div>
+                    <p className="font-semibold text-gray-700 dark:text-gray-300">Associate Professor in Optometry</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a 
+                      href="https://www.auckland.ac.nz/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-medium"
+                    >
+                      University of Auckland
+                    </a>
+                    <span className="text-gray-400 dark:text-gray-500">• Aotearoa New Zealand</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a 
+                      href="https://orcid.org/0000-0002-9892-2964"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-medium"
+                    >
                       <svg
                         viewBox="0 0 256 256"
-                        className="w-4 h-4"
+                        className="w-4 h-4 flex-shrink-0"
                         aria-hidden="true"
                         focusable="false"
                       >
@@ -159,21 +160,20 @@ export default function Home() {
                           fill="#FFFFFF"
                         />
                       </svg>
-                    </span>
-                    ORCiD: 0000-0002-9892-2964
-                  </a>
+                      <span>ORCiD: 0000-0002-9892-2964</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+              <div className="space-y-5 text-gray-700 dark:text-gray-300 text-base leading-relaxed">
                 <p>
                   I'm an optometrist passionate about using technology and other available resources 
                   to make eye care better for patients and students. I co-founded the translational 
                   Auckland Myopia Control Clinic, and now work on developing and advising on standards 
-                  for optometry practice in New Zealand. My research explores virtual reality, 
+                  for optometry practice in Aotearoa New Zealand. My research explores virtual reality, 
                   eye tracking, and AI applications in healthcare, alongside broader interests in 
-                  mental wellbeing, equity, and improving access to eye health care for those in 
-                  Aotearoa New Zealand.
+                  mental wellbeing, equity, and improving access to eye health.
                 </p>
                 <p>
                   I am available to supervise Masters and PhD students across these topics, and I welcome 
@@ -182,19 +182,19 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex gap-4 pt-4 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-4 pt-6 justify-start">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  <Mail size={20} />
+                  <Mail size={18} />
                   Contact Me
                 </Link>
                 <a
                   href="https://profiles.auckland.ac.nz/p-turnbull/about"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all duration-300"
                 >
                   University Profile
                   <ExternalLink size={20} />
@@ -206,16 +206,17 @@ export default function Home() {
       </section>
 
       {/* Interactive Tabs */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex w-full border-b-2 border-gray-200 dark:border-gray-700 mb-10">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Desktop Tabs */}
+        <div className="hidden md:flex w-full border-b border-gray-200 dark:border-gray-800 mb-12">
           {TABS.map(({ key, label, icon: Icon }) => (
             <button
               key={key}
               onClick={() => setActiveTab(key)}
-              className={`flex-1 flex items-center justify-center gap-2 py-4 px-2 font-semibold text-sm sm:text-base transition-all duration-200 border-b-2 -mb-[2px] ${
+              className={`flex-1 flex items-center justify-center gap-2 py-3 px-2 font-semibold text-sm sm:text-base transition-all duration-300 border-b-2 -mb-[1px] ${
                 activeTab === key
-                  ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-blue-50/60 dark:bg-blue-900/20'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/30'
+                  ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-blue-50/40 dark:bg-blue-950/30'
+                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50/50 dark:hover:bg-gray-800/20'
               }`}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
@@ -224,19 +225,40 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Mobile Dropdown */}
+        <div className="md:hidden mb-8">
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value as 'research' | 'teaching' | 'advisory')}
+            className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white font-semibold text-base appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 transition-all"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23${isDark ? '9ca3af' : '4b5563'}' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 12px center',
+              paddingRight: '36px',
+            }}
+          >
+            {TABS.map(({ key, label }) => (
+              <option key={key} value={key}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {/* Tab Content */}
-        <div className="animate-fadeIn">
+        <div className="transition-opacity duration-500">
           {/* Research Tab */}
           {activeTab === 'research' && (
-            <div className="space-y-12">
+            <div className="space-y-14 animate-fadeInUp">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
                   Research Areas
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10">
                   I lead the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
                 </p>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-8 animate-stagger">
                   <div
                     className={`${cardBase.className} ${cardBase.animationClass}`}
                     style={{

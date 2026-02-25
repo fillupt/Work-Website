@@ -65,12 +65,56 @@ a:not(.no-hover-effect) {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes subtleFloat {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
 }
 
@@ -101,7 +145,7 @@ a:not(.no-hover-effect) {
 }
 
 .animate-fadeInSlide {
-  animation: fadeInSlide 0.6s ease-out backwards;
+  animation: fadeInSlide 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
   animation-fill-mode: both;
 }
 
@@ -110,23 +154,51 @@ a:not(.no-hover-effect) {
 }
 
 .animate-fadeInSlide:nth-child(2) {
-  animation-delay: 50ms;
+  animation-delay: 60ms;
 }
 
 .animate-fadeInSlide:nth-child(3) {
-  animation-delay: 100ms;
+  animation-delay: 120ms;
 }
 
 .animate-fadeInSlide:nth-child(4) {
-  animation-delay: 150ms;
+  animation-delay: 180ms;
 }
 
 .animate-fadeInSlide:nth-child(5) {
-  animation-delay: 200ms;
+  animation-delay: 240ms;
 }
 
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Staggered animation utilities */
+.animate-stagger > * {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.animate-stagger > *:nth-child(2) { animation-delay: 80ms; }
+.animate-stagger > *:nth-child(3) { animation-delay: 160ms; }
+.animate-stagger > *:nth-child(4) { animation-delay: 240ms; }
+.animate-stagger > *:nth-child(5) { animation-delay: 320ms; }
+.animate-stagger > *:nth-child(6) { animation-delay: 400ms; }
+
 .animate-subtleFloat {
-  animation: subtleFloat 3s ease-in-out infinite;
+  animation: subtleFloat 3.5s ease-in-out infinite;
 }
 
 .animate-gradientShift {
@@ -142,10 +214,36 @@ a:not(.no-hover-effect) {
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-animate.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Improved spacing for modern minimalist design */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Refined heading styles */
+h1, h2, h3 {
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+h3 {
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+/* Better paragraph spacing */
+p {
+  margin-bottom: 1.125em;
+  line-height: 1.7;
 }

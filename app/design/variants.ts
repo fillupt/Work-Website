@@ -75,7 +75,7 @@ export function getBioSectionClasses(variant: DesignVariant, isDark: boolean): V
     className += ' from-white to-gray-50 dark:from-gray-900 dark:to-gray-950';
   } else {
     const gradient = isDark
-      ? `linear-gradient(135deg, ${colors.background} 0%, ${colors.secondary} 55%, ${colors.border} 100%)`
+      ? `linear-gradient(to bottom, #0c1929 0%, #111827 100%)`
       : tokens.gradients.bio;
     style.background = gradient;
     if (tokens.patterns.opacity > 0) {
@@ -97,7 +97,7 @@ export function getCardClasses(variant: DesignVariant, isDark: boolean): Variant
   const colors = getColorPalette(variant, isDark);
   const isFlat = variant === 'flat';
 
-  let className = 'bg-white dark:bg-gray-800 rounded-2xl p-8 border transition-all duration-300';
+  let className = 'bg-white dark:bg-gray-800 rounded-xl p-8 border transition-all duration-300';
   const style: React.CSSProperties = {
     borderColor: colors.border,
   };
@@ -109,16 +109,14 @@ export function getCardClasses(variant: DesignVariant, isDark: boolean): Variant
       ? `linear-gradient(145deg, ${colors.background} 0%, ${colors.secondary} 65%, ${colors.border} 100%)`
       : tokens.gradients.card;
     style.background = gradient;
-    style.boxShadow = tokens.shadows.md;
+    style.boxShadow = tokens.shadows.sm;
     style.borderColor = colors.accent;
   }
 
-  // Subtle hover effect for non-interactive cards
+  // Refined hover effect - more subtle and professional
   const hoverClass = variant === 'flat'
     ? ''
-    : variant === 'depth-subtle'
-      ? 'hover:shadow-lg'
-      : 'hover:shadow-xl';
+    : 'hover:shadow-md';
 
   return {
     className: `${className} ${hoverClass}`,
@@ -132,7 +130,7 @@ export function getClickableCardClasses(variant: DesignVariant, isDark: boolean)
   const colors = getColorPalette(variant, isDark);
   const isFlat = variant === 'flat';
 
-  let className = 'bg-white dark:bg-gray-800 rounded-2xl p-8 border transition-all duration-300';
+  let className = 'bg-white dark:bg-gray-800 rounded-xl p-8 border transition-all duration-300';
   const style: React.CSSProperties = {
     borderColor: colors.border,
   };
@@ -144,16 +142,14 @@ export function getClickableCardClasses(variant: DesignVariant, isDark: boolean)
       ? `linear-gradient(145deg, ${colors.background} 0%, ${colors.secondary} 65%, ${colors.border} 100%)`
       : tokens.gradients.card;
     style.background = gradient;
-    style.boxShadow = tokens.shadows.md;
+    style.boxShadow = tokens.shadows.sm;
     style.borderColor = colors.accent;
   }
 
-  // Interactive cards with pointer and scale
+  // Interactive cards with refined hover effect
   const hoverClass = variant === 'flat'
     ? 'cursor-pointer hover:shadow-md'
-    : variant === 'depth-subtle'
-      ? 'hover:shadow-xl hover:scale-[1.02] cursor-pointer'
-      : 'hover:shadow-2xl hover:scale-[1.03] cursor-pointer';
+    : 'hover:shadow-md hover:scale-[1.02] cursor-pointer';
 
   return {
     className: `${className} ${hoverClass}`,
@@ -171,7 +167,7 @@ export function getPanelClasses(
   const colors = getColorPalette(variant, isDark);
   const isFlat = variant === 'flat';
 
-  let className = 'rounded-2xl p-10 border transition-all duration-300';
+  let className = 'rounded-xl p-10 border transition-all duration-300';
   const style: React.CSSProperties = {
     borderColor: colors.border,
   };
@@ -184,7 +180,7 @@ export function getPanelClasses(
       ? `linear-gradient(145deg, ${colors.background} 0%, ${colors.secondary} 60%, ${colors.border} 100%)`
       : baseGradient;
     style.background = gradient;
-    style.boxShadow = tokens.shadows.lg;
+    style.boxShadow = tokens.shadows.md;
     style.borderColor = colors.accent;
 
     if (tokens.patterns.opacity > 0) {
