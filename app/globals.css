@@ -7,6 +7,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
 }
 
 @theme inline {
@@ -28,6 +34,10 @@ html.dark {
   --foreground: #ededed;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -37,7 +47,7 @@ body {
 
 /* Global link styling */
 a {
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 a:not(.no-hover-effect) {
@@ -227,6 +237,41 @@ section {
   scroll-margin-top: 80px;
 }
 
+.cv-layout {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+
+.cv-section {
+  padding-top: var(--space-5);
+}
+
+.cv-section-title {
+  margin-bottom: var(--space-3);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.cv-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 820px) {
+  .cv-section {
+    padding-top: var(--space-6);
+  }
+
+  .cv-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
 /* Refined heading styles */
 h1, h2, h3 {
   letter-spacing: -0.5px;
@@ -246,4 +291,176 @@ h3 {
 p {
   margin-bottom: 1.125em;
   line-height: 1.7;
+}
+
+/* Phase 4: Micro-interactions and subtle motion */
+
+/* Card hover lift effect */
+article {
+  transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark article:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+}
+
+/* Button hover and focus polish */
+button, a[role="button"] {
+  transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Focus visible states for accessibility */
+button:focus-visible, a[role="button"]:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.dark button:focus-visible,
+.dark a[role="button"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+/* Link hover underline transition */
+a:not(.no-hover-effect) {
+  position: relative;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  article:hover {
+    transform: translateY(0);
+  }
+}
+
+/* Phase 6: Visual Polish — Optional accent surfaces */
+
+/* Soft glass effect for CTA panels (degrades gracefully) */
+.bg-blue-50, .dark\:bg-blue-900\/30 {
+  @supports (backdrop-filter: blur(4px)) {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Phase 7: Accessibility & Quality Checks */
+
+/* Enhanced contrast for headings in hero */
+h1 {
+  color: var(--foreground);
+}
+
+/* Improve link contrast and underline visibility */
+a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-skip-ink: auto;
+}
+
+a:not([href]),
+a.no-hover-effect {
+  text-decoration: none;
+}
+
+/* Ensure all interactive elements are keyboard accessible */
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dark button:focus,
+.dark a:focus {
+  outline-color: #60a5fa;
+}
+
+/* Skip to main content link for keyboard navigation */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Ensure all text has sufficient line-height for readability */
+body {
+  line-height: 1.6;
+}
+
+/* Ensure labels are properly associated with form inputs */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Improve hover states for better feedback */
+button:not(:disabled):hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading indicator for auto-extend */
+.publications-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.publications-loading::after {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .publications-loading::after {
+    animation: none;
+    border-right-color: currentColor;
+  }
 }

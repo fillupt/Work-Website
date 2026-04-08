@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { publications } from '../data/publications';
 import { ExternalLink, FileText, Calendar, Users, X } from 'lucide-react';
 import { useDesign } from '@/app/providers/DesignProvider';
@@ -63,6 +63,9 @@ export default function PublicationsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
   const [selectedYears, setSelectedYears] = useState<Set<number>>(new Set());
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const lastItemRef = useRef<HTMLDivElement>(null);
+  const isAutoLoadingRef = useRef(false);
   const cardBase = getCardClasses(variant, isDark);
   const clickableCard = getClickableCardClasses(variant, isDark);
   const panelPrimary = getPanelClasses(variant, isDark, 'primary');
@@ -108,9 +111,8 @@ export default function PublicationsPage() {
   }, [selectedTopics, selectedYears, topicsById]);
 
   const totalPages = Math.ceil(filteredPublications.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentPublications = filteredPublications.slice(startIndex, endIndex);
+  const visibleCount = currentPage * ITEMS_PER_PAGE;
+  const currentPublications = filteredPublications.slice(0, visibleCount);
 
   const handleTopicToggle = (topic: string) => {
     const newSelected = new Set(selectedTopics);
@@ -140,6 +142,35 @@ export default function PublicationsPage() {
     setCurrentPage(1);
   };
 
+  // Auto-extend publications on scroll
+  useEffect(() => {
+    if (!lastItemRef.current || currentPage >= totalPages || isLoadingMore) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting && currentPage < totalPages && !isAutoLoadingRef.current) {
+          isAutoLoadingRef.current = true;
+          setIsLoadingMore(true);
+
+          setCurrentPage(prev => Math.min(prev + 1, totalPages));
+
+          setTimeout(() => {
+            isAutoLoadingRef.current = false;
+            setIsLoadingMore(false);
+          }, 250);
+        }
+      },
+      {
+        rootMargin: '300px',
+      }
+    );
+
+    observer.observe(lastItemRef.current);
+    return () => observer.disconnect();
+  }, [currentPage, totalPages, isLoadingMore]);
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'journal':
@@ -152,7 +183,7 @@ export default function PublicationsPage() {
   };
 
   return (
-    <main className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <main className="bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Container with Header and Filters */}
         <div
@@ -270,10 +301,12 @@ export default function PublicationsPage() {
               {currentPublications.map((pub, index) => {
                 const hasLink = !!(pub.doi || pub.url);
                 const card = hasLink ? clickableCard : cardBase;
+                const isLastItem = index === currentPublications.length - 1;
                 
                 return (
                   <article
                     key={pub.id}
+                    ref={isLastItem ? lastItemRef : null}
                     className={`${card.className} ${card.animationClass}`}
                     style={{
                       ...card.style,
@@ -393,38 +426,9 @@ export default function PublicationsPage() {
               })}
             </div>
 
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2">
-                <button
-                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                  disabled={currentPage === 1}
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Previous
-                </button>
-                <div className="flex gap-2">
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                        currentPage === page
-                          ? 'bg-blue-600 dark:bg-blue-500 text-white'
-                          : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  ))}
-                </div>
-                <button
-                  onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                  disabled={currentPage === totalPages}
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Next
-                </button>
+            {currentPage < totalPages && (
+              <div className="flex justify-center py-2 text-sm text-gray-500 dark:text-gray-400">
+                {isLoadingMore ? 'Loading more publications...' : 'Scroll to load more publications'}
               </div>
             )}
           </>

@@ -55,48 +55,65 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-      {/* SVG Texture Pattern */}
-      <svg
-        className="fixed inset-0 w-full h-full pointer-events-none opacity-5 dark:opacity-10 z-0"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <pattern id="texture-contact" patternUnits="userSpaceOnUse" width="100" height="100">
-            <rect width="100" height="100" fill="currentColor" />
-            <path
-              d="M0,0 l100,100 M100,0 l-100,100"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              opacity="0.5"
-            />
-            <circle cx="50" cy="50" r="1" fill="currentColor" opacity="0.3" />
-            <circle cx="25" cy="25" r="0.5" fill="currentColor" opacity="0.3" />
-            <circle cx="75" cy="75" r="0.5" fill="currentColor" opacity="0.3" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#texture-contact)" />
-      </svg>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Header */}
-        <div
-          className={`${panelPrimary.className} ${panelPrimary.animationClass} text-center mb-16`}
-          style={{
-            ...panelPrimary.style,
-            animationDelay: getAnimationDelay(0, variant),
-          }}
-        >
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Compact Header */}
+        <div className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-800">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             Get in Touch
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Whether you have a question, collaboration opportunity,
-            or just want to connect, please feel free to reach out.
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
+            For collaboration opportunities, supervision enquiries, or professional engagements, please send a message below or use direct contact details.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Quick Contact Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <a
+            href="mailto:p.turnbull@auckland.ac.nz"
+            className={`${panelPrimary.className} ${panelPrimary.animationClass} p-4`}
+            style={{
+              ...panelPrimary.style,
+              animationDelay: getAnimationDelay(0, variant),
+            }}
+          >
+            <div className="flex items-center gap-3 text-gray-800 dark:text-gray-100">
+              <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-medium">Email</span>
+            </div>
+            <p className="mt-2 text-sm text-blue-700 dark:text-blue-300">p.turnbull@auckland.ac.nz</p>
+          </a>
+
+          <div
+            className={`${panelPrimary.className} ${panelPrimary.animationClass} p-4`}
+            style={{
+              ...panelPrimary.style,
+              animationDelay: getAnimationDelay(1, variant),
+            }}
+          >
+            <div className="flex items-center gap-3 text-gray-800 dark:text-gray-100">
+              <Phone className="w-5 h-5 text-green-600 dark:text-green-400" />
+              <span className="text-sm font-medium">Phone</span>
+            </div>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">+64 9 373 7599 Ext. 82352</p>
+          </div>
+
+          <div
+            className={`${panelPrimary.className} ${panelPrimary.animationClass} p-4`}
+            style={{
+              ...panelPrimary.style,
+              animationDelay: getAnimationDelay(2, variant),
+            }}
+          >
+            <div className="flex items-center gap-3 text-gray-800 dark:text-gray-100">
+              <MapPin className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <span className="text-sm font-medium">Location</span>
+            </div>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">Auckland, New Zealand</p>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Cards */}
@@ -114,7 +131,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {/* Email */}
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-start justify-center pt-2">
                     <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -130,7 +147,7 @@ export default function ContactPage() {
 
                 {/* Address */}
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-start justify-center pt-2">
                     <MapPin className="w-6 h-6 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
@@ -147,7 +164,7 @@ export default function ContactPage() {
 
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-start justify-center pt-2">
                     <Phone className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div>
@@ -163,7 +180,7 @@ export default function ContactPage() {
 
                 {/* Mailing Address */}
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-start justify-center pt-2">
                     <MapPin className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                   </div>
                   <div>
