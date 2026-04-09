@@ -1,25 +1,78 @@
 'use client';
 
+import { useState } from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Mail } from "lucide-react";
+import { ExternalLink, Mail, ChevronDown } from "lucide-react";
 import { useDesign } from '@/app/providers/DesignProvider';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import {
   getBannerClasses,
   getBioSectionClasses,
-  getCardClasses,
   getPanelClasses,
   getAnimationDelay,
 } from '@/app/design/variants';
 
+function AccordionItem({
+  id,
+  title,
+  openItem,
+  onToggle,
+  children,
+}: {
+  id: string;
+  title: string;
+  openItem: string | null;
+  onToggle: (id: string) => void;
+  children: React.ReactNode;
+}) {
+  const isOpen = openItem === id;
+  return (
+    <div
+      className={`border-b border-gray-200 dark:border-gray-700 last:border-0 transition-colors duration-200 ${
+        isOpen ? 'bg-blue-50/70 dark:bg-blue-900/20' : ''
+      }`}
+    >
+      <button
+        onClick={() => onToggle(id)}
+        className="w-full flex items-center justify-between py-4 px-5 text-left gap-4 hover:bg-gray-50 dark:hover:bg-gray-800/60 transition-colors duration-150"
+        aria-expanded={isOpen}
+      >
+        <span
+          className={`text-lg font-semibold transition-colors duration-200 ${
+            isOpen ? 'text-blue-800 dark:text-blue-200' : 'text-gray-900 dark:text-white'
+          }`}
+        >
+          {title}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 flex-shrink-0 transition-transform transition-colors duration-200 ${
+            isOpen
+              ? 'rotate-180 text-blue-700 dark:text-blue-300'
+              : 'text-gray-500 dark:text-gray-400'
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="px-5 pb-5 text-gray-700 dark:text-gray-300 leading-relaxed border-t border-blue-100/70 dark:border-blue-800/40">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   const { variant } = useDesign();
   const { isDark } = useTheme();
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const toggleItem = (id: string) => {
+    setOpenItem(prev => (prev === id ? null : id));
+  };
 
   const bannerClasses = getBannerClasses(variant, isDark);
   const bioClasses = getBioSectionClasses(variant, isDark);
-  const cardBase = getCardClasses(variant, isDark);
   const panelPrimary = getPanelClasses(variant, isDark, 'primary');
   const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
 
@@ -38,7 +91,7 @@ export default function Home() {
             href="https://virtualpatient.co.nz" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-300 group"
+            className="flex items-center justify-center gap-2 hover:opacity-50 transition-all duration-300 group"
           >
             <span className="text-base group-hover:scale-105 transition-transform">Looking for the Virtual Patient?</span>
             <ExternalLink className={`w-5 h-5 group-hover:translate-x-1 transition-transform`} />
@@ -56,15 +109,15 @@ export default function Home() {
           className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transition-all duration-300 ${bioClasses.animationClass}`}
         >
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)] gap-8 md:gap-10 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-[230px_minmax(0,1fr)] gap-8 md:gap-10 items-start">
               {/* Profile Image */}
               <div className={`flex-shrink-0 animate-slideInLeft`} style={{ animationDelay: '0ms' }}>
                 <div className="relative inline-block">
                   <Image 
                     src="/images/profile-photo.jpg" 
                     alt="Associate Professor Philip Turnbull"
-                    width={240}
-                    height={240}
+                    width={230}
+                    height={230}
                     className={`rounded-xl shadow-lg transition-all duration-500 ${variant !== 'flat' ? 'hover:shadow-xl' : ''}`}
                     priority
                   />
@@ -75,26 +128,30 @@ export default function Home() {
               {/* Bio Content */}
               <div className={`animate-slideInRight`} style={{ animationDelay: '100ms' }}>
                 <div>
-                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight leading-tight">
+                  <h1 className="text-4xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight leading-tight">
                     Philip Turnbull
                   </h1>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-4 text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
-                    <p>B Optom (Hons), PhD</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-1 text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+                    <p>PhD, B Optom (Hons)<br />Associate Professor in Optometry</p>
                   </div>
-                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium mb-2">
-                    Associate Professor in Optometry
-                  </p>
-                  <div className="text-sm md:text-base text-gray-500 dark:text-gray-400 space-y-2">
+                  <div className="text-sm md:text-base text-gray-500 dark:text-gray-400">
                     <div className="mb-1">
+                                          <a 
+                        href="https://www.auckland.ac.nz/en/fmhs/about-the-faculty/sovs.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline font-medium"
+                      >
+                        School of Optometry and Vision Science<br />
+                      </a>
                       <a 
                         href="https://www.auckland.ac.nz/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline font-medium"
                       >
-                        School of Optometry and Vision Science, University of Auckland
+                        Waipapa Taumata Rau | University of Auckland<br></br>
                       </a>
-                      <span className="text-gray-400 dark:text-gray-500 mx-2">•</span>
                       <span className="text-gray-500 dark:text-gray-400">Aotearoa New Zealand</span>
                     </div>
                     <div className="flex items-center gap-1.5">
@@ -126,19 +183,35 @@ export default function Home() {
 
             <div className="mt-10 pt-10 border-t border-gray-200 dark:border-gray-800">
               <div className="space-y-5 text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">
-                <p>
-                  I'm an optometrist passionate about using technology and other available resources 
-                  to make eye care better for patients and students. I co-founded the translational 
-                  Auckland Myopia Control Clinic, and now work on developing and advising on standards 
-                  for optometry practice in Aotearoa New Zealand. My research explores virtual reality, 
-                  eye tracking, and AI applications in healthcare, alongside broader interests in 
-                  mental wellbeing, equity, and improving access to eye health.
-                </p>
-                <p>
-                  I am available to supervise Masters and PhD students across these topics, and I welcome 
-                  advisory or expert witness engagements where my experience in optometry, standards development, 
-                  or digital health may add value.
-                </p>
+<p>
+  I am an Associate Professor in the School of Optometry and Vision Science at the University of Auckland. 
+  My work as a clinician-scientist is driven by a commitment to improving eye care through two parallel paths: 
+  the development and maintenance of professional standards, 
+  and the application of emerging technologies and novel approaches to clinical challenges.
+</p>
+
+<p>
+  My research portfolio reflects a broad interest in the mechanisms of vision and ocular health. 
+  This includes work in myopia control, including the co-founding of the Auckland Myopia Control Clinic, 
+  as well as investigations into dry eye disease, and how eye tracking and virtual reality can impact eye care. 
+  I am particularly interested in how digital environments, ranging from screen time to virtual reality, impact 
+  ocular physiology. By combining psychophysics with eye-tracking and physics-based simulations, 
+  I develop tools designed to enhance both student education and patient diagnostics.
+</p>
+
+<p>
+  Beyond the laboratory, I actively contribute to the profession of optometry in Aotearoa New Zealand. 
+  I serve in advisory roles for government and non-government agencies, contributing expertise to guide 
+  healthcare policy and optometric standards, and I can act as a supervisor for those under remediation programmes.
+  Additionally, I have experience providing expert witness testimony in District Court proceedings, mediation, 
+  adjudication, and arbitration sessions, where I offer evidence-based forensic analysis on vision-related evidence and clinical standards.
+</p>
+
+<p>
+  I welcome inquiries for Masters and PhD supervision across diverse fields. 
+  I am also available for consultancy or advisory engagements where my experience in digital health, 
+  standards development, or forensic optometry can add value.
+</p>
               </div>
             </div>
 
@@ -168,79 +241,77 @@ export default function Home() {
         <section id="research" className="cv-section">
           <h2 className="cv-section-title">Research</h2>
           <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10">
-            I lead the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
+            I lead the <span className="font-semibold">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
           </p>
-          <div className="cv-card-grid animate-stagger">
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(0, variant),
-              }}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Virtual Reality in Healthcare
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I develop and evaluate virtual reality applications for optometry education and clinical training. These immersive environments enhance learning outcomes and prepare students for real-world practice.
-              </p>
-            </article>
+<div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-gray-900/50">
+  
+  <AccordionItem id="research-simulation" title="Clinical Simulation & VR" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4">
+      I design and build <strong>physics-based simulators in Unity</strong> to bridge the gap between theory and 
+      clinical practice. My work focuses on creating high-fidelity virtual environments and digital simulations for 
+      optometry education, allowing students to master complex diagnostic techniques in a safe, 
+      repeatable setting before engaging with patients. I also have a bespoke physics-based driving 
+      simulator, which allows for controlled experiments on both desktop and virtual reality environments.
+    </p>
+  </AccordionItem>
 
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(1, variant),
-              }}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Eye Tracking & Gaze Analysis
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I explore eye tracking technology to understand visual behaviour, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
-              </p>
-            </article>
+  <AccordionItem id="research-eye-tracking" title="Ocular Motility & Gaze Analysis" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4">
+      I integrate eye tracking to quantify <strong>visual behavior and pupillary dynamics</strong>. 
+      By investigating phenomena like pupillary hippus and optokinetic nystagmus (OKN), I develop 
+      objective diagnostic markers for visual function that can be integrated into digital health 
+      platforms and screening tools.
+    </p>
+  </AccordionItem>
 
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(2, variant),
-              }}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Artificial Intelligence in Optometry
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I apply AI and machine learning to retinal imaging, disease prediction, and clinical decision support systems to improve diagnostic accuracy and patient outcomes.
-              </p>
-            </article>
+  <AccordionItem id="research-myopia" title="Myopia Control & Emmetropisation" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4">
+      As a continuation of my PhD work, I work with colleagues to investigate the mechanisms that regulate eye growth. 
+      My work explores how retinal defocus and environmental factors influence 
+      eye growth, aiming to provide evidence-based management strategies to 
+      mitigate the global rise of progressive myopia. As a co-founder of the translational <strong>Auckland Myopia Control Clinic</strong>, 
+      I have a strong interest in the efficacy of optical and pharmaceutical interventions. 
+    </p>
+  </AccordionItem>
 
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(3, variant),
-              }}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Myopia Control Research
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I research effective myopia management strategies and co-founded the Auckland Myopia Control Clinic to address the growing global myopia epidemic.
-              </p>
-            </article>
-          </div>
+  <AccordionItem id="research-ocular-surface" title="Ocular Surface & Microbiome" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4">
+      Alongside colleagues, I research dry eye, including the <strong>ocular tear film</strong>, 
+      the management of Meibomian Gland Dysfunction (MGD), and the impact of technology on the eyes and blinking behaviour. 
+      This research evaluates novel clinical treatments, such as Intense Pulsed Light (IPL) therapy 
+      and natural interventions, to improve long-term outcomes for dry eye sufferers.
+    </p>
+  </AccordionItem>
+
+  <AccordionItem id="research-standards" title="Professional Standards & Policy" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4">
+      A significant portion of my daily work involves advising on <strong>clinical standards and healthcare policy </strong> 
+       within Aotearoa New Zealand and Australia. To help ensure transparency and hold the profession to the
+       highest standards of accountability, I also publish reports and research papers in this domain, 
+       with a focus on ensuring public safety, equity of access, updating stakeholders on what how optometrists
+       contribute to wider healthcare, and how the profession can adapt to meet the challenges of the future.
+    </p>
+  </AccordionItem>
+
+  <AccordionItem id="research-ai" title="Digital Health & AI Applications" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4">
+      I explore the application of <strong>machine learning and automated imaging</strong> to support clinical 
+      decision-making. By integrating AI with traditional diagnostic data, my goal is to develop predictive 
+      models that enhance the early detection of ocular diseases and conditions such as <strong>mild traumatic brain injury</strong>and streamline referral pathways in primary care.
+    </p>
+  </AccordionItem>
+
+</div>
 
           <div
-            className={`${panelPrimary.className} ${panelPrimary.animationClass} mt-10`}
+            className={`${panelPrimary.className} ${panelPrimary.animationClass} mt-5`}
             style={{
               ...panelPrimary.style,
               animationDelay: getAnimationDelay(4, variant),
             }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Publications</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Publications</h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-2 text-lg">
               I share my research publications, including journal articles, conference papers, and collaborative works.
             </p>
             <Link
@@ -254,83 +325,55 @@ export default function Home() {
         </section>
 
         <section id="teaching" className="cv-section">
-          <h2 className="cv-section-title">Teaching</h2>
-          <div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg leading-relaxed mb-10">
-            <p>
-              As an educator, I teach and examine both undergraduate and postgraduate optometry students. I am the Part II coordinator for the Bachelor of Optometry programme, and course director of OPTOM216 - Introduction to Optometry. I also act as both a clinical and oral examiner for Part V students, and teach statistics and research skills as part of the OPTOM783 - Research Project in Vision Science.
-            </p>
-            <p>
-              Each year I supervise many Honours, Masters, and PhD students in a broad range of research areas, and I remain available to take on new Masters and PhD projects.
-            </p>
-          </div>
+ <h2 className="cv-section-title">Teaching</h2>
+<div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg leading-relaxed mb-10">
+  <p>
+    As an educator, I am dedicated to developing the next generation of eye care professionals through a curriculum that balances fundamental clinical skills with emerging digital health trends. My teaching spans the entire optometric journey, from introducing foundational concepts to second-year students to conducting final-year clinical examinations.
+  </p>
+  <p>
+    I am a strong advocate for evidence-based practice and research literacy. To that end, I supervise a diverse cohort of <strong>Honours, Masters, and PhD students</strong> across projects in vision science, clinical simulation, and public health. I welcome inquiries from prospective postgraduate students interested in exploring the intersection of technology and optometry.
+  </p>
+</div>
 
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-            Teaching Roles
-          </h3>
-          <div className="cv-card-grid">
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(0, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Part II Coordinator
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I coordinate the Bachelor of Optometry Part II programme and direct OPTOM216 - Introduction to Optometry.
-              </p>
-            </article>
+<h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+  Teaching Roles
+</h3>
+<div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-gray-900/50">
+  
+  <AccordionItem id="teaching-part2" title="Leadership in Teaching" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4 text-gray-600 dark:text-gray-400">
+      I serve as the <strong>Part II Coordinator</strong> for the Bachelor of Optometry programme and am the Course Director for <strong>OPTOM216: Introduction to Optometry</strong>. In these roles, I oversee the transition of students into professional clinical training, ensuring a robust foundation in ocular anatomy, physiology, and basic clinical assessment.
+    </p>
+  </AccordionItem>
 
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(1, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Clinical Examiner
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I act as a clinical and oral examiner for Part V optometry students in their final year assessments.
-              </p>
-            </article>
+  <AccordionItem id="teaching-lecturing" title="Undergraduate & International Lecturing" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4 text-gray-600 dark:text-gray-400">
+      I deliver lectures across the full spectrum of optometry education, ranging from foundational visual science to advanced clinical management. My teaching is informed by research and infused with the latest technological advances, ensuring students receive the most current evidence-based insights in a fun and engaging manner. Beyond my core roles at the University of Auckland, I am invited to provide <strong>guest lectures at international universities</strong>, contributing to postgraduate modules and specialised clinical seminars on a global scale.
+    </p>
+  </AccordionItem>
 
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(2, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Research Methods
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I teach statistics and research skills in OPTOM783 - Research Project in Vision Science for postgraduate students.
-              </p>
-            </article>
+  <AccordionItem id="teaching-examiner" title="Clinical & Oral Examination" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4 text-gray-600 dark:text-gray-400">
+      I act as a <strong>Clinical and Oral Examiner for Part V</strong> students during their final year of study. These high-stakes assessments evaluate a student’s clinical reasoning, diagnostic accuracy, and readiness for independent practice, ensuring they meet the professional standards required for registration in Aotearoa New Zealand.
+    </p>
+  </AccordionItem>
 
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(3, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Virtual Patient Platform
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I develop and teach with the Virtual Patient platform to provide immersive, interactive learning experiences.
-              </p>
-            </article>
-          </div>
+  <AccordionItem id="teaching-research-methods" title="Statistics & Research Methodology" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4 text-gray-600 dark:text-gray-400">
+      I lead the statistics and research skills component of <strong>OPTOM783: Research Project in Vision Science</strong>. I focus on equipping postgraduate students with practical data analysis skills, emphasizing the use of <strong>R and reproducible research methods</strong> to critically evaluate clinical data and scientific literature.
+    </p>
+  </AccordionItem>
+
+  <AccordionItem id="teaching-virtual-patient" title="Innovative Learning Platforms" openItem={openItem} onToggle={toggleItem}>
+    <p className="pt-4 text-gray-600 dark:text-gray-400">
+      I am the developer and lead educator for the <strong>Virtual Patient platform</strong>. This tool provides students with immersive, interactive simulations of clinical encounters, allowing them to practice diagnostic decision-making and patient management in a risk-free digital environment that mirrors real-world complexity. The Virtual Patient can be accessed at <a href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline font-medium">virtualpatient.co.nz</a> I also have developed a range of tools to make it easy to generate custom MCQ based quizzes in Canvas and Inspera teaching platforms.
+    </p>
+  </AccordionItem>
+
+</div>
 
           <div
-            className={`${panelSecondary.className} ${panelSecondary.animationClass} mt-10`}
+            className={`${panelSecondary.className} ${panelSecondary.animationClass} mt-5`}
             style={{
               ...panelSecondary.style,
               animationDelay: getAnimationDelay(4, variant),
@@ -340,41 +383,38 @@ export default function Home() {
               Postgraduate Supervision
             </h3>
 
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Current PhD Students</h4>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>- <strong>Jasmine Zoest</strong> - Measurement of eye movements in three-dimensional space</li>
-                  <li>- <strong>Balaje Vivekanandan</strong> - Oculomotor Function, Attentional Function, Trans-Saccadic Processing and Visual Perception in Mild Cognitive Impairment and Alzheimer's Disease</li>
-                  <li>- <strong>Maggie Xu</strong> - The Effect of Blue Light on Myopia Progression in Young Smartphone Users</li>
-                  <li>- <strong>Tony Han</strong> - Home-Based Monitoring of Visual Function in Age-Related Macular Degeneration</li>
-                  <li>- <strong>Jordan Cooper</strong> - Exploring the influence of eyelid and blink characteristics on dry eye development</li>
+            <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden mt-4">
+              <AccordionItem id="supervision-current" title="Current PhD Students" openItem={openItem} onToggle={toggleItem}>
+                <ul className="space-y-2">
+                  <li><strong>Jasmine Zoest</strong> - Measurement of eye movements in three-dimensional space</li>
+                  <li><strong>Balaje Vivekanandan</strong> - Oculomotor Function, Attentional Function, Trans-Saccadic Processing and Visual Perception in Mild Cognitive Impairment and Alzheimer's Disease</li>
+                  <li><strong>Maggie Xu</strong> - The Effect of Blue Light on Myopia Progression in Young Smartphone Users</li>
+                  <li><strong>Tony Han</strong> - Home-Based Monitoring of Visual Function in Age-Related Macular Degeneration</li>
+                  <li><strong>Jordan Cooper</strong> - Exploring the influence of eyelid and blink characteristics on dry eye development</li>
                 </ul>
-              </div>
-
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Alumni</h4>
-                <div className="space-y-4 text-gray-700 dark:text-gray-300">
+              </AccordionItem>
+              <AccordionItem id="supervision-alumni" title="Alumni" openItem={openItem} onToggle={toggleItem}>
+                <div className="space-y-4">
                   <div>
                     <p className="font-semibold mb-2">PhD Graduates:</p>
                     <ul className="space-y-2 text-base">
-                      <li>- <strong>Dr Samuel Chiang</strong> - The effect of optical defocus on choroidal thickness</li>
-                      <li>- <strong>Dr Safal Khanal</strong> - The effect of changes in choroidal perfusion on visual function</li>
-                      <li>- <strong>Dr Soheil Doustkouhi</strong> - Development of objective techniques of the optometric examination</li>
-                      <li>- <strong>Dr Alice Cade</strong> - Eye movements and postural stability following traumatic brain injury</li>
-                      <li>- <strong>Dr Aryaman Taore</strong> - Developing Eye Tracking Technology using a mobile device for the use of optokinetic assessment</li>
+                      <li><strong>Dr Samuel Chiang</strong> - The effect of optical defocus on choroidal thickness</li>
+                      <li><strong>Dr Safal Khanal</strong> - The effect of changes in choroidal perfusion on visual function</li>
+                      <li><strong>Dr Soheil Doustkouhi</strong> - Development of objective techniques of the optometric examination</li>
+                      <li><strong>Dr Alice Cade</strong> - Eye movements and postural stability following traumatic brain injury</li>
+                      <li><strong>Dr Aryaman Taore</strong> - Developing eye tracking technology using a mobile device for the use of optokinetic assessment</li>
                     </ul>
                   </div>
                   <div>
                     <p className="font-semibold mb-2">Masters Graduates:</p>
                     <ul className="space-y-2 text-base">
-                      <li>- <strong>Bhavna Patel</strong> - Dry eye in younger populations</li>
-                      <li>- <strong>Richard Johnson</strong> - Maritime visual standards</li>
-                      <li>- <strong>Sabrina Ju</strong> - Treatments for AMD</li>
+                      <li><strong>Bhavna Patel</strong> - Dry eye in younger populations</li>
+                      <li><strong>Richard Johnson</strong> - Maritime visual standards</li>
+                      <li><strong>Sabrina Ju</strong> - Emerging treatments for AMD</li>
                     </ul>
                   </div>
                 </div>
-              </div>
+              </AccordionItem>
             </div>
           </div>
         </section>
@@ -385,66 +425,19 @@ export default function Home() {
             I provide advisory services to professional organisations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
           </p>
 
-          <div className="cv-card-grid">
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(0, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                ODOB Advisor and Researcher
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I advise the Optometrists and Dispensing Opticians Board on standards, education requirements, and professional development.
-              </p>
-            </article>
-
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(1, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                CAA Vision Standards
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I contribute to Civil Aviation Authority standards for vision requirements and assessments in aviation safety.
-              </p>
-            </article>
-
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(2, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Expert Witness Services
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I provide expert opinion on optometry-related matters in legal cases and professional disputes.
-              </p>
-            </article>
-
-            <article
-              className={`${cardBase.className} ${cardBase.animationClass}`}
-              style={{
-                ...cardBase.style,
-                animationDelay: getAnimationDelay(3, variant),
-              }}
-            >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                Policy Development
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I help develop policy and best practice guidelines for optometry education and clinical practice in New Zealand and internationally.
-              </p>
-            </article>
+          <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-gray-900/50">
+            <AccordionItem id="advisory-odob" title="ODOB Advisor and Researcher" openItem={openItem} onToggle={toggleItem}>
+              <p>I advise the Optometrists and Dispensing Opticians Board on standards, education requirements, and professional development.</p>
+            </AccordionItem>
+            <AccordionItem id="advisory-caa" title="CAA Vision Standards" openItem={openItem} onToggle={toggleItem}>
+              <p>I contribute to Civil Aviation Authority standards for vision requirements and assessments in aviation safety.</p>
+            </AccordionItem>
+            <AccordionItem id="advisory-expert" title="Expert Witness Services" openItem={openItem} onToggle={toggleItem}>
+              <p>I provide expert opinion on optometry-related matters in legal cases and professional disputes.</p>
+            </AccordionItem>
+            <AccordionItem id="advisory-policy" title="Policy Development" openItem={openItem} onToggle={toggleItem}>
+              <p>I help develop policy and best practice guidelines for optometry education and clinical practice in New Zealand and internationally.</p>
+            </AccordionItem>
           </div>
         </section>
 
@@ -461,7 +454,7 @@ export default function Home() {
               Interested in Collaborating?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-              I am always interested in discussing how my expertise can support your organisation or research initiatives, including advisory and expert witness engagements.
+              I am always interested in discussing how I could support your case, organisation, or research initiatives, including advisory and expert witness engagements.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
