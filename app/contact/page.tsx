@@ -64,16 +64,14 @@ export default function ContactPage() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
         {/* Header */}
-        <div className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-800">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
-            Get in Touch
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
-            I am available for research collaborations, postgraduate supervision (Masters/PhD), 
-            and professional advisory roles. For expert witness engagements or 
-            standards development inquiries, please use the form below.
-          </p>
-        </div>
+        <div className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-800 text-center">
+  <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+    Get in Touch
+  </h1>
+  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+    I am available for research collaborations, postgraduate supervision (Masters/PhD), and professional advisory roles. For expert witness engagements or standards development inquiries, please use the form below.
+  </p>
+</div>
 
         <div className="grid lg:grid-cols-2 gap-4">
           {/* Left Column: Contact Information */}

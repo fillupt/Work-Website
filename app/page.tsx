@@ -238,7 +238,7 @@ export default function Home() {
       </section>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 cv-layout">
-        <section id="research" className="cv-section">
+        <section id="research" className="cv-section bg-white dark:bg-gray-900 py-16">
           <h2 className="cv-section-title">Research</h2>
           <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10">
             I lead the <span className="font-semibold">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
@@ -324,7 +324,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="teaching" className="cv-section">
+        <section id="teaching" className="cv-section bg-blue-50/30 dark:bg-blue-900/10 py-16 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
  <h2 className="cv-section-title">Teaching</h2>
 <div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg leading-relaxed mb-10">
   <p>
