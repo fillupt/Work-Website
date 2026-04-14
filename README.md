@@ -14,4 +14,4 @@ Hello! I'm **Associate Professor Philip Turnbull**, based in the School of Optom
 
 ---
 
-*This site is built with modern web technologies (Next.js, TypeScript, Tailwind CSS) and deployed to GitHub Pages. It's designed to be fast, accessible, and responsive across all devices.*
+*This site is my playpen for modern web technologies (Next.js, TypeScript, Tailwind CSS) and is freely deployed to GitHub Pages. It's designed to be fast, accessible, and responsive across all devices.*
