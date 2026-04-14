@@ -13,6 +13,7 @@ import {
   getPanelClasses,
   getAnimationDelay,
 } from '@/app/design/variants';
+import { buildAssetUrl } from '@/app/lib/site';
 
 const TABS = [
   { key: 'research', label: 'Research', icon: BookOpen },
@@ -24,6 +25,7 @@ export default function Home() {
   const { variant } = useDesign();
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
+  const profilePhotoUrl = buildAssetUrl('/images/profile-photo.jpg');
 
   // SVG Texture Pattern
   const TextureBackground = () => (
@@ -92,7 +94,7 @@ export default function Home() {
             <div className={`flex-shrink-0 md:flex-shrink animate-slideInLeft`} style={{ animationDelay: '0ms' }}>
               <div className="relative inline-block">
                 <Image 
-                  src="/images/profile-photo.jpg" 
+                  src={profilePhotoUrl}
                   alt="Associate Professor Philip Turnbull"
                   width={240}
                   height={240}

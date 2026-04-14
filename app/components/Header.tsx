@@ -5,11 +5,13 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/app/providers/ThemeProvider';
+import { buildAssetUrl } from '@/app/lib/site';
 
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme, isDark } = useTheme();
+  const headerBannerUrl = buildAssetUrl('/images/header-banner.jpg');
 
   const homeLink = { href: '/', label: 'Home' };
   const sectionLinks = [
@@ -33,8 +35,8 @@ export default function Header() {
       className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 relative bg-cover bg-center transition-colors"
       style={{ 
         backgroundImage: isDark 
-          ? "linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)), url('/images/header-banner.jpg')"
-          : "linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)), url('/images/header-banner.jpg')"
+          ? `linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)), url('${headerBannerUrl}')`
+          : `linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)), url('${headerBannerUrl}')`
       }}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
