@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { DesignProvider } from "./providers/DesignProvider";
+import { getSiteUrl } from "./lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,14 +15,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Associate Professor Philip Turnbull - Optometry and Vision Science",
   description: "Associate Professor at the School of Optometry and Vision Science, University of Auckland, specialising in virtual patients, eye tracking, and digital health innovation.",
-  metadataBase: new URL('https://philipturnbull.com'),
+  metadataBase: new URL(getSiteUrl()),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_NZ',
-    url: 'https://philipturnbull.com',
+    url: '/',
     siteName: 'Associate Professor Philip Turnbull',
   },
 };
