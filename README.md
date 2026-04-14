@@ -1,44 +1,17 @@
-# Associate Professor Philip Turnbull's Academic Website
+# Welcome to My Website
 
-A modern, responsive personal website built with Next.js, TypeScript, and Tailwind CSS.
+Hello! I'm **Associate Professor Philip Turnbull**, based in the School of Optometry and Vision Science at the University of Auckland. This is my personal and professional space on the web.
 
-## Features
+## What You'll Find Here
 
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Static Export**: Browser-rendered UI deployed as static files on GitHub Pages
-- **Publications Page**: Showcases research papers with AI-generated summaries, filtering, and pagination
-- **Clean UI**: Professional design with smooth animations and transitions
+**Research & Teaching** — Explore my research focus on vision science, technology applications (VR, eye tracking, AI), and my teaching across undergraduate and postgraduate programmes. I also lead work on the Virtual Patient platform and curriculum innovation.
 
-## Tech Stack
+**Advisory Work** — Information about my roles on the Optometrists and Dispensing Opticians Board, advisory work with the Civil Aviation Authority, and expert witness services.
 
-- **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages (GitHub Actions)
+**Publications** — A curated list of my research outputs with summaries and links.
 
-## Deployment
+**Contact** — Get in touch if you'd like to collaborate or have questions about my work.
 
-This project is configured for static export and automated GitHub Pages deployment.
+---
 
-1. Enable GitHub Pages in repository settings.
-2. Set source to GitHub Actions.
-3. Push to main.
-
-The workflow file is at .github/workflows/pages.yml and exports the site to out/.
-
-### Environment Variables Used By Build
-
-- NEXT_PUBLIC_BASE_PATH: path prefix for project-site hosting.
-- NEXT_PUBLIC_SITE_URL: absolute site URL used for metadata, robots, and sitemap.
-
-The workflow currently targets:
-
-- NEXT_PUBLIC_BASE_PATH=/Work-Website
-- NEXT_PUBLIC_SITE_URL=https://fillupt.github.io/Work-Website
-
-If you later move to a root custom domain, update those values in the workflow.
-
-## License
-
-Private - All Rights Reserved
+*This site is built with modern web technologies (Next.js, TypeScript, Tailwind CSS) and deployed to GitHub Pages. It's designed to be fast, accessible, and responsive across all devices.*

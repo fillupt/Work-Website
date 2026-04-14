@@ -1,5 +1,4 @@
 const DEFAULT_SITE_URL = 'https://fillupt.github.io/Work-Website';
-const DEFAULT_BASE_PATH = '/Work-Website';
 
 function stripTrailingSlash(value: string): string {
   return value.endsWith('/') ? value.slice(0, -1) : value;
@@ -24,7 +23,13 @@ export function buildAbsoluteUrl(pathname: string): string {
 }
 
 export function getBasePath(): string {
-  return process.env.NEXT_PUBLIC_BASE_PATH || DEFAULT_BASE_PATH;
+  const raw = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+  if (!raw || raw === '/') {
+    return '';
+  }
+
+  return raw.endsWith('/') ? raw.slice(0, -1) : raw;
 }
 
 export function buildAssetUrl(pathname: string): string {
