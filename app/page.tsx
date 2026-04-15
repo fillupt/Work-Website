@@ -63,7 +63,7 @@ export default function Home() {
 
       {/* Hero Section with Virtual Patient Banner */}
       <section 
-        className={`relative text-white py-3 bg-cover bg-center z-10 overflow-hidden ${bannerClasses.className}`}
+        className={`relative text-white py-2.5 sm:py-3 bg-cover bg-center z-10 overflow-hidden ${bannerClasses.className}`}
         style={bannerClasses.style}
       >
         <div 
@@ -73,9 +73,9 @@ export default function Home() {
             href="https://virtualpatient.co.nz" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-300 group"
+            className="flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-300 group text-center"
           >
-            <span className="text-base group-hover:scale-105 transition-transform">Looking for the Virtual Patient?</span>
+            <span className="text-sm sm:text-base group-hover:scale-105 transition-transform">Looking for the Virtual Patient?</span>
             <ExternalLink className={`w-5 h-5 group-hover:translate-x-1 transition-transform`} />
           </Link>
         </div>
@@ -87,9 +87,9 @@ export default function Home() {
         style={bioClasses.style}
       >
         <div 
-          className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transition-all duration-300 ${bioClasses.animationClass}`}
+          className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 transition-all duration-300 ${bioClasses.animationClass}`}
         >
-          <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start md:items-center">
             {/* Profile Image */}
             <div className={`flex-shrink-0 md:flex-shrink animate-slideInLeft`} style={{ animationDelay: '0ms' }}>
               <div className="relative inline-block">
@@ -98,7 +98,7 @@ export default function Home() {
                   alt="Associate Professor Philip Turnbull"
                   width={240}
                   height={240}
-                  className={`rounded-xl shadow-lg transition-all duration-500 ${variant !== 'flat' ? 'hover:shadow-xl' : ''}`}
+                  className={`w-40 sm:w-52 md:w-60 h-auto rounded-xl shadow-lg transition-all duration-500 ${variant !== 'flat' ? 'hover:shadow-xl' : ''}`}
                   priority
                 />
                 <div className="absolute inset-0 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5" />
@@ -106,9 +106,9 @@ export default function Home() {
             </div>
 
             {/* Bio Content */}
-            <div className={`flex-1 space-y-8 animate-slideInRight`} style={{ animationDelay: '100ms' }}>
+            <div className={`flex-1 min-w-0 space-y-6 sm:space-y-8 animate-slideInRight`} style={{ animationDelay: '100ms' }}>
               <div>
-                <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
                   Philip Turnbull
                 </h1>
                 <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 font-normal">
@@ -118,7 +118,7 @@ export default function Home() {
                   <div>
                     <p className="font-semibold text-gray-700 dark:text-gray-300">Associate Professor in Optometry</p>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2">
                     <a 
                       href="https://www.auckland.ac.nz/"
                       target="_blank"
@@ -127,14 +127,14 @@ export default function Home() {
                     >
                       University of Auckland
                     </a>
-                    <span className="text-gray-400 dark:text-gray-500">• Aotearoa New Zealand</span>
+                    <span className="text-gray-400 dark:text-gray-500 text-sm">Aotearoa New Zealand</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-start gap-2">
                     <a 
                       href="https://orcid.org/0000-0002-9892-2964"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-medium"
+                      className="inline-flex items-start sm:items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-medium break-all"
                     >
                       <svg
                         viewBox="0 0 256 256"
@@ -148,13 +148,13 @@ export default function Home() {
                           fill="#FFFFFF"
                         />
                       </svg>
-                      <span>ORCiD: 0000-0002-9892-2964</span>
+                      <span className="leading-tight">ORCiD: 0000-0002-9892-2964</span>
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-5 text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+              <div className="space-y-5 text-gray-700 dark:text-gray-300 text-[15px] sm:text-base leading-relaxed">
                 <p>
                   I'm an optometrist passionate about using technology and other available resources 
                   to make eye care better for patients and students. I co-founded the translational 
@@ -170,10 +170,10 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-6 justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-start">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
                 >
                   <Mail size={18} />
                   Contact Me
@@ -182,7 +182,7 @@ export default function Home() {
                   href="https://profiles.auckland.ac.nz/p-turnbull/about"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all duration-300"
                 >
                   University Profile
                   <ExternalLink size={20} />
@@ -194,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* Interactive Tabs */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         {/* Desktop Tabs */}
         <div className="hidden md:flex w-full border-b border-gray-200 dark:border-gray-800 mb-12">
           {TABS.map(({ key, label, icon: Icon }) => (
@@ -238,12 +238,12 @@ export default function Home() {
         <div className="transition-opacity duration-500">
           {/* Research Tab */}
           {activeTab === 'research' && (
-            <div className="space-y-14 animate-fadeInUp">
+            <div className="space-y-10 sm:space-y-14 animate-fadeInUp">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
                   Research Areas
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10">
+                <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-8 sm:mb-10">
                   I lead the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, a research group focused on innovative technology applications in optometry and vision science.
                 </p>
                 <div className="grid md:grid-cols-2 gap-8 animate-stagger">
@@ -322,7 +322,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/publications"
-                  className="inline-flex items-center gap-2 bg-blue-600 dark:bg-blue-500 text-white hover:text-white px-8 py-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all font-semibold shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-blue-600 dark:bg-blue-500 text-white hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all font-semibold shadow-lg hover:shadow-xl"
                 >
                   View Publications
                   <ExternalLink className="w-5 h-5" />
@@ -335,10 +335,10 @@ export default function Home() {
           {activeTab === 'teaching' && (
             <div className="space-y-12">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Teaching & Education
                 </h2>
-                <div className="space-y-4 text-gray-700 dark:text-gray-200 text-lg leading-relaxed">
+                <div className="space-y-4 text-gray-700 dark:text-gray-200 text-base md:text-lg leading-relaxed">
                   <p>
                     As an educator, I teach and examine both undergraduate and postgraduate optometry students. I am the Part II coordinator for the Bachelor of Optometry programme, and course director of OPTOM216 – Introduction to Optometry. I also act as both a clinical and oral examiner for Part V students, and teach statistics and research skills as part of the OPTOM783 – Research Project in Vision Science.
                   </p>
@@ -429,7 +429,7 @@ export default function Home() {
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Current PhD Students</h4>
-                    <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                    <ul className="space-y-2 text-gray-700 dark:text-gray-300 break-words">
                       <li>• <strong>Jasmine Zoest</strong> - Measurement of eye movements in three-dimensional space</li>
                       <li>• <strong>Balaje Vivekanandan</strong> - Oculomotor Function, Attentional Function, Trans-Saccadic Processing and Visual Perception in Mild Cognitive Impairment and Alzheimer's Disease</li>
                       <li>• <strong>Maggie Xu</strong> - The Effect of Blue Light on Myopia Progression in Young Smartphone Users</li>
@@ -463,12 +463,12 @@ export default function Home() {
                   </div>
 
                   <div className="pt-4 border-t border-indigo-200 dark:border-indigo-700">
-                    <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
+                    <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-4">
                       Interested in undertaking research in the Virtual Eyes Lab?
                     </p>
                     <Link
                       href="/contact"
-                      className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                     >
                       <Mail size={20} />
                       Contact Phil
@@ -483,10 +483,10 @@ export default function Home() {
           {activeTab === 'advisory' && (
             <div className="space-y-12">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Advisory & Professional Service
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300 text-xl leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 text-base md:text-xl leading-relaxed">
                   I provide advisory services to professional organisations, regulatory bodies, and healthcare providers to advance optometry practice and education standards.
                 </p>
               </div>
@@ -563,12 +563,12 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                   Interested in Collaborating?
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
+                <p className="text-gray-700 dark:text-gray-300 mb-6 text-base md:text-lg">
                   I'm always interested in discussing how my expertise can help your organisation or research initiatives, and I'm available for advisory or expert witness engagements when those conversations extend into regulatory or clinical practice questions.
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
                 >
                   <Mail size={20} />
                   Contact Philip

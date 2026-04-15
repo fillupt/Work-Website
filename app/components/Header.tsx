@@ -40,8 +40,8 @@ export default function Header() {
       }}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 gap-4">
-          <Link href="/" className="text-base lg:text-xl font-bold text-gray-900 dark:text-white truncate max-w-[52vw] lg:max-w-none">
+        <div className="flex justify-between items-center h-16 gap-2 sm:gap-4">
+          <Link href="/" className="text-sm sm:text-base lg:text-xl font-bold text-gray-900 dark:text-white truncate max-w-[58vw] sm:max-w-[52vw] lg:max-w-none">
             Associate Professor Philip Turnbull
           </Link>
           
