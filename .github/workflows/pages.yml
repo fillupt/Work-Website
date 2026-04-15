@@ -18,8 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: /Work-Website
-      NEXT_PUBLIC_SITE_URL: https://fillupt.github.io/Work-Website
+      NEXT_PUBLIC_BASE_PATH: ''
+      NEXT_PUBLIC_SITE_URL: https://philipturnbull.com
     steps:
       - name: Checkout
         uses: actions/checkout@v4
