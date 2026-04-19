@@ -1,24 +1,17 @@
-# Associate Professor Philip Turnbull's Academic Website
+# Welcome to My Website
 
-A modern, responsive personal website built with Next.js, TypeScript, and Tailwind CSS.
+Hello! I'm **Associate Professor Philip Turnbull**, based in the School of Optometry and Vision Science at the University of Auckland. This is my personal and professional space on the web.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/013c694a-c9ea-450f-af68-545ea1bd63b1/deploy-status)](https://app.netlify.com/projects/professorphil/deploys)
+## What You'll Find Here
 
-## Features
+**Research & Teaching** — Explore my research focus on vision science, technology applications (VR, eye tracking, AI), and my teaching across undergraduate and postgraduate programmes. I also lead work on the Virtual Patient platform and curriculum innovation.
 
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Dynamic Content**: Modern React-based architecture with server-side rendering
-- **Publications Page**: Showcases research papers with AI-generated summaries, filtering, and pagination
-- **Clean UI**: Professional design with smooth animations and transitions
+**Advisory Work** — Information about my roles on the Optometrists and Dispensing Opticians Board, advisory work with the Civil Aviation Authority, and expert witness services.
 
-## Tech Stack
+**Publications** — A curated list of my research outputs with summaries and links.
 
-- **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Deployment**: Netlify
+**Contact** — Get in touch if you'd like to collaborate or have questions about my work.
 
-## License
+---
 
-Private - All Rights Reserved
+*This site is my playpen for modern web technologies (Next.js, TypeScript, Tailwind CSS) and is freely deployed to GitHub Pages. It's designed to be fast, accessible, and responsive across all devices.*

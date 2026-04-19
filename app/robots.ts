@@ -1,4 +1,7 @@
 import { MetadataRoute } from 'next'
+import { buildAbsoluteUrl } from './lib/site'
+
+export const dynamic = 'force-static'
  
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://philipturnbull.com/sitemap.xml',
+    sitemap: buildAbsoluteUrl('/sitemap.xml'),
   }
 }

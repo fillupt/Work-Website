@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildAbsoluteUrl } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Publications - Associate Professor Philip Turnbull",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Publications - Associate Professor Philip Turnbull",
     description: "Research publications by Associate Professor Philip Turnbull covering optometry, vision science, myopia, eye tracking, and digital health.",
-    url: 'https://philipturnbull.com/publications',
+    url: buildAbsoluteUrl('/publications'),
   },
 };
 

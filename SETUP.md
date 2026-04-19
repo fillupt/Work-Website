@@ -1,129 +1,59 @@
-# Setup Instructions for Netlify Deployment
+# Setup Instructions for GitHub Pages Deployment
 
 ## Quick Start
 
-Your website is now ready! Here's what to do next:
+This repository now deploys as a static export using GitHub Actions.
 
-## Step 1: Customize Your Information
+## Step 1: Enable GitHub Pages
 
-### Update Google Scholar Link
-In `app/page.tsx`, find and replace:
-```typescript
-href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
-```
-Replace `YOUR_SCHOLAR_ID` with your actual Google Scholar ID.
+1. Open repository settings.
+2. Go to Pages.
+3. Set source to GitHub Actions.
 
-### Update Virtual Patient Link
-In `app/page.tsx`, verify or update:
-```typescript
-href="https://virtualpat.com"
-```
+## Step 2: Confirm Workflow Values
 
-### Add Your Publications
-Edit `app/data/publications.ts` to add your actual publications. Each publication follows this structure:
-```typescript
-{
-  id: 'unique-id',
-  title: 'Your Paper Title',
-  authors: ['Author1', 'Author2'],
-  year: 2024,
-  journal: 'Journal Name', // or conference: 'Conference Name'
-  volume: 'Volume',
-  pages: 'Page Range',
-  doi: 'DOI identifier',
-  summary: 'AI-generated or custom summary',
-  type: 'journal' | 'conference' | 'book-chapter' | 'preprint',
-}
-```
+Check .github/workflows/pages.yml and verify:
 
-## Step 2: Test Locally
+- NEXT_PUBLIC_BASE_PATH=/Work-Website
+- NEXT_PUBLIC_SITE_URL=https://fillupt.github.io/Work-Website
 
-```bash
-npm run dev
-```
-Visit http://localhost:3000 to preview your site.
+If you rename the repository, update both values.
 
-## Step 3: Push to GitHub
+## Step 3: Push to Main
 
 ```bash
 git add .
-git commit -m "Initial website setup"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-git push -u origin main
+git commit -m "Configure GitHub Pages static export"
+git push origin main
 ```
 
-## Step 4: Deploy to Netlify
+GitHub Actions will build and deploy the static output from out/.
 
-1. **Log in to Netlify** at https://netlify.com
-2. **Click "Add new site" → "Import an existing project"**
-3. **Connect to GitHub** and select your repository
-4. **Build settings** (should auto-detect):
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-5. **Click "Deploy site"**
+## Step 4: Optional Custom Domain Redirect
 
-## Step 5: Configure Custom Domain
+If your domain provider will redirect to GitHub Pages, keep that redirect external to this repository.
 
-1. In Netlify, go to **Site settings → Domain management**
-2. Click **Add custom domain**
-3. Enter `philipturnbull.com`
-4. Follow Netlify's instructions to update your domain's DNS settings:
-   - Add an A record pointing to Netlify's load balancer
-   - Or add a CNAME record for your subdomain
+## Local Validation
 
-### Example DNS Configuration:
-```
-Type: A
-Name: @
-Value: 75.2.60.5 (Netlify's IP)
-
-Type: CNAME
-Name: www
-Value: your-site-name.netlify.app
+```bash
+npm run build
 ```
 
-## Step 6: Enable HTTPS
-
-Netlify automatically provisions SSL certificates. Once your domain is configured:
-1. Go to **Domain settings → HTTPS**
-2. Click **Verify DNS configuration**
-3. Wait for certificate to be issued (usually < 24 hours)
-
-## Automatic Deployments
-
-Once set up, Netlify will automatically:
-- Build and deploy on every push to your main branch
-- Generate deploy previews for pull requests
-- Provide instant rollback if needed
-
-## Adding More Content
-
-### Create a New Page
-1. Create a new folder in `app/` (e.g., `app/teaching`)
-2. Add a `page.tsx` file inside
-3. Add link to navigation in `app/components/Header.tsx`
-
-### Update Styles
-Edit Tailwind classes directly in your components or extend `app/globals.css`.
+This should generate static files in out/.
 
 ## Troubleshooting
 
-### Build Fails on Netlify
-- Check build logs in Netlify dashboard
-- Ensure all dependencies are in `package.json`
-- Test build locally: `npm run build`
+### Build Fails in GitHub Actions
 
-### Images Not Loading
-- Place images in `public/` folder
-- Reference as `/image-name.jpg` in code
+- Check Actions logs for the Deploy static site to GitHub Pages workflow.
+- Confirm NEXT_PUBLIC_BASE_PATH and NEXT_PUBLIC_SITE_URL values.
 
-### Domain Not Working
-- Verify DNS settings have propagated (use https://dnschecker.org)
-- Check Netlify domain settings
-- Wait up to 48 hours for full DNS propagation
+### Broken Asset or Route Paths
 
-## Support
+- Ensure NEXT_PUBLIC_BASE_PATH matches the repository path exactly.
+- Re-run build after any base path change.
 
-For Next.js questions: https://nextjs.org/docs
-For Netlify questions: https://docs.netlify.com
+## References
+
+- Next.js static export docs: https://nextjs.org/docs/app/building-your-application/deploying/static-exports
+- GitHub Pages docs: https://docs.github.com/pages

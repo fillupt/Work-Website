@@ -1,27 +1,24 @@
 import { MetadataRoute } from 'next'
+import { buildAbsoluteUrl } from './lib/site'
+
+export const dynamic = 'force-static'
  
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://philipturnbull.com',
+      url: buildAbsoluteUrl('/'),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://philipturnbull.com/work',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://philipturnbull.com/publications',
+      url: buildAbsoluteUrl('/publications'),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: 'https://philipturnbull.com/contact',
+      url: buildAbsoluteUrl('/contact'),
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,

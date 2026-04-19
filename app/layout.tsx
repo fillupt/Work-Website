@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { DesignProvider } from "./providers/DesignProvider";
+import { getSiteUrl } from "./lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,14 +16,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Associate Professor Philip Turnbull - Optometry and Vision Science",
   description: "Associate Professor at the School of Optometry and Vision Science, University of Auckland, specialising in virtual patients, eye tracking, and digital health innovation.",
-  metadataBase: new URL('https://philipturnbull.com'),
+  metadataBase: new URL(getSiteUrl()),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_NZ',
-    url: 'https://philipturnbull.com',
+    url: '/',
     siteName: 'Associate Professor Philip Turnbull',
   },
 };
@@ -51,6 +53,22 @@ export default function RootLayout({
                   document.documentElement.classList.remove('dark');
                 }
               } catch (e) {}
+            `,
+          }}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9Z0W4ZSKZD"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-9Z0W4ZSKZD');
             `,
           }}
         />
