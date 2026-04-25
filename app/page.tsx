@@ -192,7 +192,7 @@ export default function Home() {
                 Research Areas
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-8 sm:mb-10">
-                Leading the <span className="font-semibold text-blue-600 dark:text-blue-400">Virtual Eyes Lab</span>, our research spans three core pillars: developing innovative <span className="font-medium text-gray-900 dark:text-gray-200">healthcare technologies</span>, advancing <span className="font-medium text-gray-900 dark:text-gray-200">clinical diagnostics and management</span>, and shaping <span className="font-medium text-gray-900 dark:text-gray-200">health policy</span> to improve equitable access to eye care.
+                Leading the <span className="font-semibold text-gray-900 dark:text-white">Virtual Eyes Lab</span>, our research spans three core pillars: developing innovative <span className="font-medium font-bold text-cyan-700 dark:text-cyan-400t-gray-900 dark:text-gray-200">healthcare technologies</span>, advancing <span className="font-medium font-bold text-emerald-700 dark:text-emerald-400">clinical diagnostics and management</span>, and shaping <span className="font-medium font-bold text-indigo-700 dark:text-indigo-400">health policy</span> to improve equitable access to eye care.
               </p>
               <div className="space-y-10 animate-stagger">
                 {/* Healthcare Technologies Group */}
@@ -213,9 +213,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                         Virtual Reality in Healthcare
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Developing and evaluating virtual reality applications for optometry education and clinical training. These immersive environments enhance learning outcomes and prepare students for real-world practice.
                       </p>
@@ -235,9 +235,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         Eye Tracking & Gaze Analysis
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Exploring eye tracking technology to understand visual behaviour, support clinical diagnosis, and develop assistive technologies for patients with vision impairment.
                       </p>
@@ -257,9 +257,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                         Artificial Intelligence in Optometry
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Applying AI and machine learning to retinal imaging, disease prediction, and clinical decision support systems to improve diagnostic accuracy and patient outcomes.
                       </p>
@@ -285,9 +285,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                         Traumatic Brain Injury & Concussion
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Investigating the use of eye tracking and oculomotor function to objectively classify and manage mild traumatic brain injuries, as well as the effects of interventions like cervical spine vibration on visual processing.
                       </p>
@@ -307,9 +307,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                         Myopia Control Research
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Researching effective myopia management strategies and evaluating clinical interventions to address the growing global myopia epidemic, including foundational work at the Auckland Myopia Control Clinic.
                       </p>
@@ -329,9 +329,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         Ocular Surface & Dry Eye
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Researching the physiological impacts of modern lifestyles, including the effects of soft contact lenses and extended digital screen time on tear film stability and ocular surface health in younger populations.
                       </p>
@@ -357,9 +357,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                         Scope of Practice & Health Policy
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Investigating the evolving scope of optometry practice, workforce dynamics, and advising on health policy and standards to improve eye care delivery in Aotearoa New Zealand.
                       </p>
@@ -379,9 +379,9 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                         Public Health & Eye Care Equity
-                      </h3>
+                      </h4>
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         Conducting population-based eye health surveys to identify underserved groups and develop strategies to address inequity in access to eye care across Aotearoa New Zealand and the wider Western Pacific.
                       </p>

@@ -88,7 +88,7 @@ const getCategoryStyles = (category: string) => {
 };
 
 export default function SupervisionRoster() {
-  const [activeCategory, setActiveCategory] = useState('Current PhD');
+  const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredStudents = students.filter(s => {
