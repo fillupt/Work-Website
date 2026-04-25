@@ -150,7 +150,7 @@ export default function Home() {
 
               <div className="space-y-5 text-gray-700 dark:text-gray-300 text-[15px] sm:text-base leading-relaxed">
                 <p>
-                  I'm an optometrist passionate about improving eye care for patients and creating better learning experiences for students. My research explores virtual reality, eye tracking, and AI applications in healthcare, alongside broader interests in mental wellbeing, emmetropisation, evidence-based optometry, equity, and improving access to eye care. I also advise on clinical standards and healthcare policy in Aotearoa New Zealand.
+                  I'm an optometrist passionate about improving eye care for patients and creating better learning experiences for students. My research explores virtual reality, eye tracking, and AI applications in healthcare, alongside broader interests in mental wellbeing, refractive development, evidence-based optometry, equity, and improving access to eye care. I also advise on clinical standards and healthcare policy in Aotearoa New Zealand.
                 </p>
 
                 <p>
@@ -204,7 +204,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(0, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/vr_healthcare.png')}
                         alt="Virtual Reality in Healthcare"
@@ -226,7 +226,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(1, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/eye_tracking.png')}
                         alt="Eye Tracking and Gaze Analysis"
@@ -248,7 +248,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(2, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/ai_optometry.png')}
                         alt="Artificial Intelligence in Optometry"
@@ -276,7 +276,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(3, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/tbi_research.png')}
                         alt="Traumatic Brain Injury and Concussion"
@@ -298,7 +298,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(4, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/myopia_research.png')}
                         alt="Myopia Control Research"
@@ -320,7 +320,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(5, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/dry_eye_research.png')}
                         alt="Ocular Surface and Dry Eye"
@@ -348,7 +348,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(6, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/health_policy.png')}
                         alt="Scope of Practice and Health Policy"
@@ -370,7 +370,7 @@ export default function Home() {
                     className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                     style={{ animationDelay: getAnimationDelay(7, variant) }}
                   >
-                    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all duration-500 relative">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all duration-500 relative">
                       <Image
                         src={buildAssetUrl('/images/equity_research.png')}
                         alt="Public Health and Eye Care Equity"
@@ -439,7 +439,7 @@ export default function Home() {
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(0, variant) }}
                 >
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all duration-500 relative">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all duration-500 relative">
                     <Image
                       src={buildAssetUrl('/images/ug_coordination.png')}
                       alt="Undergraduate Coordination"
@@ -461,7 +461,7 @@ export default function Home() {
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(1, variant) }}
                 >
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-500 relative">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-500 relative">
                     <Image
                       src={buildAssetUrl('/images/clinical_assessment.png')}
                       alt="Clinical Assessment"
@@ -483,7 +483,7 @@ export default function Home() {
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(2, variant) }}
                 >
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500 relative">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500 relative">
                     <Image
                       src={buildAssetUrl('/images/pg_teaching.png')}
                       alt="Postgraduate Teaching"
@@ -505,7 +505,7 @@ export default function Home() {
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(3, variant) }}
                 >
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-500 relative">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-500 relative">
                     <Image
                       src={buildAssetUrl('/images/interactive_learning.png')}
                       alt="Interactive Learning"
@@ -531,7 +531,7 @@ export default function Home() {
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(4, variant) }}
                 >
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all duration-500 relative">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all duration-500 relative">
                     <Image
                       src={buildAssetUrl('/images/external_review.png')}
                       alt="External Review & Audit"
@@ -553,7 +553,7 @@ export default function Home() {
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(5, variant) }}
                 >
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] transition-all duration-500 relative">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] transition-all duration-500 relative">
                     <Image
                       src={buildAssetUrl('/images/pg_examination.png')}
                       alt="Postgraduate Examination"
@@ -608,7 +608,7 @@ export default function Home() {
                 className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                 style={{ animationDelay: getAnimationDelay(0, variant) }}
               >
-                <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all duration-500 relative">
+                <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all duration-500 relative">
                   <Image
                     src={buildAssetUrl('/images/odob_advisor.png')}
                     alt="ODOB Advisor & Researcher"
@@ -634,7 +634,7 @@ export default function Home() {
                 className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                 style={{ animationDelay: getAnimationDelay(1, variant) }}
               >
-                <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-500 relative">
+                <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-500 relative">
                   <Image
                     src={buildAssetUrl('/images/vision_standards.png')}
                     alt="Vision Standards"
@@ -656,7 +656,7 @@ export default function Home() {
                 className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                 style={{ animationDelay: getAnimationDelay(2, variant) }}
               >
-                <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-500 relative">
+                <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-500 relative">
                   <Image
                     src={buildAssetUrl('/images/expert_witness.png')}
                     alt="Expert Witness Services"
@@ -678,7 +678,7 @@ export default function Home() {
                 className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                 style={{ animationDelay: getAnimationDelay(3, variant) }}
               >
-                <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-500 relative">
+                <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-500 relative">
                   <Image
                     src={buildAssetUrl('/images/health_policy2.png')}
                     alt="Policy Development"
@@ -700,7 +700,7 @@ export default function Home() {
                 className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                 style={{ animationDelay: getAnimationDelay(4, variant) }}
               >
-                <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(225,29,72,0.3)] transition-all duration-500 relative">
+                <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 group-hover:scale-[1.02] group-hover:shadow-[0_0_20px_rgba(225,29,72,0.3)] transition-all duration-500 relative">
                   <Image
                     src={buildAssetUrl('/images/associate_editor.png')}
                     alt="Associate Editor"
