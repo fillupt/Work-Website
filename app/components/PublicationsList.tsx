@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from 'react';
 import { publications } from '../data/publications';
-import { ExternalLink, FileText, Calendar, Users, X, Search } from 'lucide-react';
+import { generateAPACitation } from '../utils/citation';
+import { ExternalLink, FileText, Calendar, Users, X, Search, Copy, Check } from 'lucide-react';
 import { useDesign } from '@/app/providers/DesignProvider';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { getCardClasses, getClickableCardClasses, getPanelClasses, getAnimationDelay } from '@/app/design/variants';
@@ -68,6 +69,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
   const [selectedYears, setSelectedYears] = useState<Set<number>>(new Set());
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const cardBase = getCardClasses(variant, isDark);
   const clickableCard = getClickableCardClasses(variant, isDark);
   const panelPrimary = getPanelClasses(variant, isDark, 'primary');
@@ -147,6 +149,32 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
     setSelectedTopics(new Set());
     setSelectedYears(new Set());
     setCurrentPage(1);
+  };
+
+  const handleCopyCitation = async (pub: any) => {
+    const citation = generateAPACitation(pub);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(citation);
+      } else {
+        // Fallback for non-secure contexts (e.g. testing on LAN)
+        const textArea = document.createElement("textarea");
+        textArea.value = citation;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (!successful) throw new Error('Fallback copy failed');
+      }
+      setCopiedId(pub.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy citation:', err);
+      alert('Failed to copy citation to clipboard. Please copy it manually.');
+    }
   };
 
 
@@ -417,6 +445,31 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                     )}
                   </div>
                 )}
+                
+                {/* APA Citation Section */}
+                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-800">
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-serif">
+                      {generateAPACitation(pub)}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleCopyCitation(pub)}
+                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                  >
+                    {copiedId === pub.id ? (
+                      <>
+                        <Check className="w-4 h-4 text-green-500" />
+                        <span className="text-green-500 font-medium">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        <span>Copy APA Citation</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </article>
             );
             })}

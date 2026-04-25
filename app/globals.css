@@ -22,13 +22,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #f8fafc;
-  }
-}
-
 html.dark {
   --background: #020617;
   --foreground: #f8fafc;
@@ -365,10 +358,7 @@ a:not(.no-hover-effect) {
 
 /* Phase 7: Accessibility & Quality Checks */
 
-/* Enhanced contrast for headings in hero */
-h1 {
-  color: var(--foreground);
-}
+
 
 /* Improve link contrast and underline visibility */
 a {
