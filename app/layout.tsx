@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,9 +8,9 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 import { DesignProvider } from "./providers/DesignProvider";
 import { getSiteUrl } from "./lib/site";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -73,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors`}>
+      <body className={`${outfit.variable} font-sans antialiased flex flex-col min-h-screen bg-gray-50 text-gray-900 dark:bg-[#050505] dark:text-gray-100 transition-colors`}>
         <ThemeProvider>
           <DesignProvider>
             <Header />

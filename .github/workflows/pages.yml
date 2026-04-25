@@ -20,6 +20,7 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: ''
       NEXT_PUBLIC_SITE_URL: https://philipturnbull.com
+      NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

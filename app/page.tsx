@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from 'react';
 import { BookOpen, GraduationCap, Users, ExternalLink, Mail } from "lucide-react";
 import { useDesign } from '@/app/providers/DesignProvider';
 import { useTheme } from '@/app/providers/ThemeProvider';
+import PublicationsList from './components/PublicationsList';
+import ContactSection from './components/ContactSection';
 import {
   getBannerClasses,
   getBioSectionClasses,
@@ -15,16 +16,11 @@ import {
 } from '@/app/design/variants';
 import { buildAssetUrl } from '@/app/lib/site';
 
-const TABS = [
-  { key: 'research', label: 'Research', icon: BookOpen },
-  { key: 'teaching', label: 'Teaching', icon: GraduationCap },
-  { key: 'advisory', label: 'Advisory', icon: Users },
-] as const;
+// Removed TABS array since we are using continuous scrolling
 
 export default function Home() {
   const { variant } = useDesign();
   const { isDark } = useTheme();
-  const [activeTab, setActiveTab] = useState<'research' | 'teaching' | 'advisory'>('research');
   const profilePhotoUrl = buildAssetUrl('/images/profile-photo.jpg');
 
   // SVG Texture Pattern
@@ -58,7 +54,8 @@ export default function Home() {
   const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
 
   return (
-    <main className="relative min-h-screen bg-white dark:bg-gray-950">
+    <main className="relative min-h-screen bg-gray-50 dark:bg-[#020617]">
+      <div className="fixed inset-0 z-0 pointer-events-none" style={bioClasses.style}></div>
       <TextureBackground />
 
       {/* Hero Section with Virtual Patient Banner */}
@@ -82,27 +79,24 @@ export default function Home() {
       </section>
 
       {/* Bio Section */}
-      <section 
-        className="relative z-10"
-        style={bioClasses.style}
-      >
+      <section className="relative z-10 pt-8 pb-4">
         <div 
           className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 transition-all duration-300 ${bioClasses.animationClass}`}
         >
           <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start md:items-center">
             {/* Profile Image */}
             <div className={`flex-shrink-0 md:flex-shrink animate-slideInLeft`} style={{ animationDelay: '0ms' }}>
-              <div className="relative inline-block">
-                <Image 
-                  src={profilePhotoUrl}
-                  alt="Associate Professor Philip Turnbull"
-                  width={240}
-                  height={240}
-                  className={`w-40 sm:w-52 md:w-60 h-auto rounded-xl shadow-lg transition-all duration-500 ${variant !== 'flat' ? 'hover:shadow-xl' : ''}`}
-                  priority
-                />
-                <div className="absolute inset-0 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5" />
-              </div>
+                <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-[1.25rem] blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div className="relative inline-block rounded-[1.15rem] overflow-hidden border border-white/10">
+                  <Image 
+                    src={profilePhotoUrl}
+                    alt="Associate Professor Philip Turnbull"
+                    width={240}
+                    height={240}
+                    className="w-40 sm:w-52 md:w-60 h-auto transition-transform duration-700 hover:scale-105"
+                    priority
+                  />
+                </div>
             </div>
 
             {/* Bio Content */}
@@ -172,8 +166,8 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-start">
                 <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
+                  href="/#contact"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
                 >
                   <Mail size={18} />
                   Contact Me
@@ -182,7 +176,7 @@ export default function Home() {
                   href="https://profiles.auckland.ac.nz/p-turnbull/about"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 rounded-xl font-semibold transition-all duration-300 hover:border-cyan-500/50 dark:hover:border-cyan-400/50 hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   University Profile
                   <ExternalLink size={20} />
@@ -193,52 +187,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Tabs */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
-        {/* Desktop Tabs */}
-        <div className="hidden md:flex w-full border-b border-gray-200 dark:border-gray-800 mb-12">
-          {TABS.map(({ key, label, icon: Icon }) => (
-            <button
-              key={key}
-              onClick={() => setActiveTab(key)}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 px-2 font-semibold text-sm sm:text-base transition-all duration-300 border-b-2 -mb-[1px] ${
-                activeTab === key
-                  ? 'border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-blue-50/40 dark:bg-blue-950/30'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50/50 dark:hover:bg-gray-800/20'
-              }`}
-            >
-              <Icon className="w-5 h-5 flex-shrink-0" />
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Mobile Dropdown */}
-        <div className="md:hidden mb-8">
-          <select
-            value={activeTab}
-            onChange={(e) => setActiveTab(e.target.value as 'research' | 'teaching' | 'advisory')}
-            className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white font-semibold text-base appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 transition-all"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23${isDark ? '9ca3af' : '4b5563'}' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 12px center',
-              paddingRight: '36px',
-            }}
-          >
-            {TABS.map(({ key, label }) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Tab Content */}
-        <div className="transition-opacity duration-500">
-          {/* Research Tab */}
-          {activeTab === 'research' && (
-            <div className="space-y-10 sm:space-y-14 animate-fadeInUp">
+      {/* Main Content Sections */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-24">
+        
+        {/* Research Section */}
+        <section id="research" className="scroll-mt-24 space-y-10 sm:space-y-14 animate-fadeInUp">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
                   Research Areas
@@ -321,19 +274,17 @@ export default function Home() {
                   I share my research publications, including journal articles, conference papers, and collaborative works.
                 </p>
                 <Link
-                  href="/publications"
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-blue-600 dark:bg-blue-500 text-white hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all font-semibold shadow-lg hover:shadow-xl"
+                  href="#publications"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
                 >
                   View Publications
-                  <ExternalLink className="w-5 h-5" />
+                  <BookOpen className="w-5 h-5" />
                 </Link>
               </div>
-            </div>
-          )}
+        </section>
 
-          {/* Teaching Tab */}
-          {activeTab === 'teaching' && (
-            <div className="space-y-12">
+        {/* Teaching Section */}
+        <section id="teaching" className="scroll-mt-24 space-y-12 pt-12 border-t border-gray-200/30 dark:border-gray-800/50">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Teaching & Education
@@ -467,8 +418,8 @@ export default function Home() {
                       Interested in undertaking research in the Virtual Eyes Lab?
                     </p>
                     <Link
-                      href="/contact"
-                      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                      href="/#contact"
+                      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl transition-all font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
                     >
                       <Mail size={20} />
                       Contact Phil
@@ -476,12 +427,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+        </section>
 
-          {/* Advisory Tab */}
-          {activeTab === 'advisory' && (
-            <div className="space-y-12">
+        {/* Advisory Section */}
+        <section id="advisory" className="scroll-mt-24 space-y-12 pt-12 border-t border-gray-200/30 dark:border-gray-800/50">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Advisory & Professional Service
@@ -567,17 +516,25 @@ export default function Home() {
                   I'm always interested in discussing how my expertise can help your organisation or research initiatives, and I'm available for advisory or expert witness engagements when those conversations extend into regulatory or clinical practice questions.
                 </p>
                 <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white hover:text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                  href="/#contact"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl transition-all font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
                 >
                   <Mail size={20} />
                   Contact Philip
                 </Link>
               </div>
-            </div>
-          )}
-        </div>
-      </section>
+        </section>
+
+        {/* Publications Section */}
+        <section id="publications" className="scroll-mt-24 space-y-12 pt-12 border-t border-gray-200/30 dark:border-gray-800/50">
+              <PublicationsList showTitle={false} />
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="scroll-mt-24 space-y-12 pt-12 border-t border-gray-200/30 dark:border-gray-800/50">
+              <ContactSection />
+        </section>
+      </div>
     </main>
   );
 }
