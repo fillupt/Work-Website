@@ -337,138 +337,128 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                     animationDelay: getAnimationDelay(index, variant),
                   }}
                 >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getTypeColor(pub.type)}`}>
-                        {pub.type.replace('-', ' ').toUpperCase()}
-                      </span>
-                      <span className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {pub.year}
-                      </span>
-                    </div>
-                    {(pub.doi || pub.url) ? (
-                      <a
-                        href={pub.doi ? `https://doi.org/${pub.doi}` : pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 mb-2 block transition-colors"
-                      >
-                        {pub.title}
-                      </a>
-                    ) : (
-                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                        {pub.title}
-                      </h2>
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
-                  <Users className="w-4 h-4 mr-2" />
-                  <span>{pub.authors.join(', ')}</span>
-                </div>
-
-                {pub.journal && (
-                  <div className="flex items-center text-sm text-gray-700 dark:text-gray-300 mb-3">
-                    <FileText className="w-4 h-4 mr-2" />
-                    <span className="italic">
-                      {pub.journal}
-                      {pub.volume && `, ${pub.volume}`}
-                      {pub.pages && `, pp. ${pub.pages}`}
+                <div className="flex flex-col gap-4">
+                  {/* Tags Row */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getTypeColor(pub.type)}`}>
+                      {pub.type.replace('-', ' ').toUpperCase()}
                     </span>
-                  </div>
-                )}
-
-                {pub.conference && (
-                  <div className="flex items-center text-sm text-gray-700 dark:text-gray-300 mb-3">
-                    <FileText className="w-4 h-4 mr-2" />
-                    <span className="italic">
-                      {pub.conference}
-                      {pub.pages && `, pp. ${pub.pages}`}
+                    <span className="flex items-center text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+                      <Calendar className="w-3.5 h-3.5 mr-1.5" />
+                      {pub.year}
                     </span>
+                    {topicsById[pub.id]?.map(topic => (
+                      <button
+                        key={topic}
+                        onClick={() => handleTopicToggle(topic)}
+                        className={`text-xs px-3 py-1 rounded-full transition-all ${
+                          selectedTopics.has(topic)
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50 border border-blue-100 dark:border-blue-800/50'
+                        }`}
+                      >
+                        #{topic}
+                      </button>
+                    ))}
                   </div>
-                )}
 
-                <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 mb-4">
-                  <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Summary</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    {pub.summary}
-                  </p>
-                </div>
+                  {/* Title */}
+                  {(pub.doi || pub.url) ? (
+                    <a
+                      href={pub.doi ? `https://doi.org/${pub.doi}` : pub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 block transition-colors leading-tight"
+                    >
+                      {pub.title}
+                    </a>
+                  ) : (
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
+                      {pub.title}
+                    </h2>
+                  )}
 
-                {/* Topics Display */}
-                {topicsById[pub.id]?.length > 0 && (
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {topicsById[pub.id].map(topic => (
-                        <button
-                          key={topic}
-                          onClick={() => handleTopicToggle(topic)}
-                          className={`text-xs px-2 py-1 rounded-full transition-all ${
-                            selectedTopics.has(topic)
-                              ? 'bg-blue-600 text-white'
-                              : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-                          }`}
-                        >
-                          #{topic}
-                        </button>
-                      ))}
+                  {/* Authors & Journal/Conference */}
+                  <div className="space-y-2">
+                    <div className="flex items-start text-sm text-gray-700 dark:text-gray-300">
+                      <Users className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0 text-gray-500" />
+                      <span>{pub.authors.join(', ')}</span>
                     </div>
-                  </div>
-                )}
 
-                {(pub.doi || pub.url) && (
-                  <div className="flex gap-3">
-                    {pub.doi && (
-                      <a
-                        href={`https://doi.org/${pub.doi}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium"
-                      >
-                        DOI
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    )}
-                    {pub.url && (
-                      <a
-                        href={pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium"
-                      >
-                        Full Text
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
+                    {(pub.journal || pub.conference) && (
+                      <div className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                        <FileText className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0 text-gray-500" />
+                        <span className="italic">
+                          {pub.journal || pub.conference}
+                          {pub.volume && `, ${pub.volume}`}
+                          {pub.pages && `, pp. ${pub.pages}`}
+                        </span>
+                      </div>
                     )}
                   </div>
-                )}
-                
-                {/* APA Citation Section */}
-                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                  <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-serif">
-                      {generateAPACitation(pub)}
+
+                  {/* Summary */}
+                  <div className="bg-gray-50/50 dark:bg-gray-900/30 border border-gray-100 dark:border-gray-800/50 rounded-lg p-4">
+                    <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Summary</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                      {pub.summary}
                     </p>
                   </div>
-                  <button
-                    onClick={() => handleCopyCitation(pub)}
-                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-                  >
-                    {copiedId === pub.id ? (
-                      <>
-                        <Check className="w-4 h-4 text-green-500" />
-                        <span className="text-green-500 font-medium">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-4 h-4" />
-                        <span>Copy APA Citation</span>
-                      </>
-                    )}
-                  </button>
+
+                  {/* APA Citation Section & Action Links */}
+                  <div className="mt-2 pt-4 border-t border-gray-100 dark:border-gray-800 space-y-4">
+                    <div className="p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-800">
+                      <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-serif">
+                        {generateAPACitation(pub)}
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-wrap items-center gap-4">
+                      <button
+                        onClick={() => handleCopyCitation(pub)}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-1.5 shadow-sm hover:shadow"
+                      >
+                        {copiedId === pub.id ? (
+                          <>
+                            <Check className="w-4 h-4 text-green-500" />
+                            <span className="text-green-500">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-4 h-4" />
+                            <span>Copy Citation</span>
+                          </>
+                        )}
+                      </button>
+
+                      {(pub.doi || pub.url) && (
+                        <div className="flex items-center gap-3 border-l border-gray-200 dark:border-gray-700 pl-4">
+                          {pub.doi && (
+                            <a
+                              href={`https://doi.org/${pub.doi}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                            >
+                              DOI
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+                          )}
+                          {pub.url && (
+                            <a
+                              href={pub.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                            >
+                              Google Scholar
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </article>
             );

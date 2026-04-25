@@ -121,7 +121,6 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="h-6 w-px bg-gray-300 dark:bg-gray-600 mx-2" />
 
             {/* Publications and Contact links */}
             {pageNavItems.map((item) => (
