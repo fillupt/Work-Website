@@ -87,12 +87,13 @@ export default function Home() {
       </section>
 
       {/* Bio Section */}
-      <section className="relative z-10 pt-2 pb-4">
+      <section className="relative z-10 pt-4 pb-12 sm:pb-16">
         <div
-          className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 transition-all duration-300 ${bioClasses.animationClass}`}
+          className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${bioClasses.animationClass}`}
         >
-          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start md:items-center">
-            {/* Profile Image */}
+          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
+            <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-start md:items-center">
+              {/* Profile Image */}
             <div className={`flex-shrink-0 md:flex-shrink animate-slideInLeft`} style={{ animationDelay: '0ms' }}>
               <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-[1.25rem] blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
               <div className="relative inline-block rounded-[1.15rem] overflow-hidden border border-white/10">
@@ -178,6 +179,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
@@ -192,7 +194,7 @@ export default function Home() {
                 Research Areas
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-8 sm:mb-10">
-                Leading the <span className="font-semibold text-gray-900 dark:text-white">Virtual Eyes Lab</span>, our research spans three core pillars: developing innovative <span className="font-medium font-bold text-cyan-700 dark:text-cyan-400t-gray-900 dark:text-gray-200">healthcare technologies</span>, advancing <span className="font-medium font-bold text-emerald-700 dark:text-emerald-400">clinical diagnostics and management</span>, and shaping <span className="font-medium font-bold text-indigo-700 dark:text-indigo-400">health policy</span> to improve equitable access to eye care.
+                Leading the <span className="font-semibold text-gray-900 dark:text-white">Virtual Eyes Lab</span>, our research spans three core pillars: developing innovative <span className="font-medium font-bold text-cyan-700 dark:text-cyan-400">healthcare technologies</span>, advancing <span className="font-medium font-bold text-emerald-700 dark:text-emerald-400">clinical diagnostics and management</span>, and shaping <span className="font-medium font-bold text-indigo-700 dark:text-indigo-400">health policy</span> to improve equitable access to eye care.
               </p>
               <div className="space-y-10 animate-stagger">
                 {/* Healthcare Technologies Group */}
@@ -414,8 +416,8 @@ export default function Home() {
         </section>
 
         {/* Teaching Section */}
-        <section id="teaching" className="scroll-mt-24 w-full py-16 sm:py-24 bg-gray-100/50 dark:bg-white/[0.03] border-y border-gray-200/50 dark:border-gray-800/50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section id="teaching" className="relative scroll-mt-10 w-full py-24 sm:py-32 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_3vw,100%_0,100%_calc(100%-3vw),0_100%)] z-10 my-8">
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Teaching & Education
@@ -592,7 +594,7 @@ export default function Home() {
         </section>
 
         {/* Advisory Section */}
-        <section id="advisory" className="scroll-mt-24 w-full py-16 sm:py-24">
+        <section id="advisory" className="scroll-mt-24 w-full py-16 sm:py-24 relative z-0">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -748,8 +750,8 @@ export default function Home() {
         </section>
 
         {/* Publications Section */}
-        <section id="publications" className="scroll-mt-24 w-full py-16 sm:py-24 bg-gray-100/50 dark:bg-white/[0.03] border-y border-gray-200/50 dark:border-gray-800/50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section id="publications" className="relative scroll-mt-10 w-full py-24 sm:py-32 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_0,100%_3vw,100%_100%,0_calc(100%-3vw))] z-10 my-8">
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Publications

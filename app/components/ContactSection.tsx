@@ -66,7 +66,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="space-y-12 animate-fadeInUp">
+    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-200/50 dark:border-gray-700/50 animate-fadeInUp space-y-12">
       <div>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
           Get in Touch
@@ -78,11 +78,10 @@ export default function ContactSection() {
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Contact Information */}
-        <div className="space-y-8">
+        <div className="space-y-8 lg:pr-8">
           <div
-            className={`${cardBase.className} ${cardBase.animationClass}`}
+            className={`animate-fadeInUp`}
             style={{
-              ...cardBase.style,
               animationDelay: getAnimationDelay(0, variant),
             }}
           >
@@ -158,9 +157,8 @@ export default function ContactSection() {
 
         {/* Contact Form */}
         <div
-          className={`${cardBase.className} ${cardBase.animationClass}`}
+          className={`animate-fadeInUp`}
           style={{
-            ...cardBase.style,
             animationDelay: getAnimationDelay(1, variant),
           }}
         >
