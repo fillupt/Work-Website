@@ -16,6 +16,80 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "id": "68",
+    "doi": "10.1080/08164622.2026.2652580",
+    "title": "Optometrist attitudes towards delivering intravitreal injections in Aotearoa New Zealand",
+    "authors": [
+      "Philip RK Turnbull",
+      "ML Acosta",
+      "A Lee",
+      "B Solanki"
+    ],
+    "year": 2026,
+    "journal": "Clinical and Experimental Optometry",
+    "pages": "1-4",
+    "summary": "This study examines optometrists' attitudes toward expanding scope of practice to include intravitreal injections in Aotearoa New Zealand. The findings identify key enablers and barriers, including training pathways, governance, and confidence in shared-care delivery. The paper provides practical direction for workforce planning and service models aimed at improving access to timely retinal care.",
+    "type": "journal",
+    "keywords": [
+      "optometry",
+      "intravitreal injections",
+      "scope of practice",
+      "workforce",
+      "Aotearoa New Zealand",
+      "access to care"
+    ]
+  },
+  {
+    "id": "69",
+    "doi": "10.1080/08164622.2026.2624750",
+    "title": "Models of multidisciplinary team-based care involving optometrists in Australia and New Zealand: narrative review and synthesis of implementation issues",
+    "authors": [
+      "Jessie Huang-Lung",
+      "Sheela Kumaran",
+      "Philip RK Turnbull",
+      "Ann L Webber",
+      "Joel Rhee",
+      "Margo Barr",
+      "Jacqueline Ramke",
+      "Lisa J Keay"
+    ],
+    "year": 2026,
+    "journal": "Clinical and Experimental Optometry",
+    "pages": "1-5",
+    "summary": "This narrative review synthesises multidisciplinary team-based care models that include optometrists across Australia and New Zealand. It highlights recurring implementation challenges around role clarity, referral pathways, funding settings, and interprofessional communication. The synthesis outlines system-level considerations for scaling collaborative care while maintaining quality and equitable access.",
+    "type": "journal",
+    "keywords": [
+      "optometry",
+      "workforce",
+      "multidisciplinary care",
+      "team-based care",
+      "equity",
+      "access"
+    ]
+  },
+  {
+    "id": "70",
+    "doi": "10.1080/02699052.2026.2651864",
+    "title": "Objective oculomotor markers of mTBI: a three-timepoint case report",
+    "authors": [
+      "A Cade",
+      "K Stevens",
+      "PRK Turnbull"
+    ],
+    "year": 2026,
+    "journal": "Brain Injury",
+    "pages": "1-5",
+    "summary": "This case report tracks objective oculomotor outcomes across three timepoints in mild traumatic brain injury. Serial measurements show how eye-movement metrics can capture dynamic recovery patterns that may not be evident on routine assessment alone. The report supports the potential value of oculomotor markers as practical adjuncts for monitoring mTBI progression.",
+    "type": "journal",
+    "keywords": [
+      "oculomotor",
+      "mTBI",
+      "brain injury",
+      "eye movements",
+      "case report"
+    ]
+  },
+  {
     "id": "1",
     "doi": "10.1080/08164622.2024.2377391",
     "title": "Response of the human choroid to short-term changes in eyelid and periocular temperature",
@@ -79,7 +153,7 @@ export const publications: Publication[] = [
       "Philip RK Turnbull",
       "Jacqueline Ramke"
     ],
-    "year": 2025,
+    "year": 2026,
     "journal": "Clinical and Experimental Optometry",
     "pages": "1-7",
     "url": "https://scholar.google.com/scholar?q=A+baseline+audit+of+the+population+groups+accessing+optometry+training+clinics+in+Aotearoa+New+Zealand%3A+looking+towards+equity+in+eye+care",

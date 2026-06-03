@@ -53,6 +53,7 @@ export default function Home() {
   const cardBase = getCardClasses(variant, isDark);
   const panelPrimary = getPanelClasses(variant, isDark, 'primary');
   const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
+  const sectionItemSpacing = 'space-y-2 sm:space-y-3';
 
   return (
     <main className="relative min-h-screen bg-gray-50 dark:bg-[#020617]">
@@ -115,7 +116,7 @@ export default function Home() {
                   <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
                     Philip Turnbull
                     <span className="text-lg sm:text-xl font-medium text-cyan-700 dark:text-cyan-400">
-                      B Optom (Hons), PhD
+                      PhD, B Optom (Hons)
                     </span>
                   </h1>
                 </div>
@@ -123,7 +124,14 @@ export default function Home() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-3 text-gray-800 dark:text-gray-200">
                     <GraduationCap className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
-                    <span className="font-semibold text-base sm:text-lg">Associate Professor in Optometry</span>
+                    <a
+                      href="https://profiles.auckland.ac.nz/p-turnbull/about"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-base sm:text-lg text-inherit hover:text-cyan-700 dark:hover:text-cyan-400 hover:underline transition-colors"
+                    >
+                      Associate Professor in Optometry
+                    </a>
                   </div>
 
                   <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
@@ -167,15 +175,6 @@ export default function Home() {
                   <Mail size={18} />
                   Contact Phil
                 </Link>
-                <a
-                  href="https://profiles.auckland.ac.nz/p-turnbull/about"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 rounded-xl font-semibold transition-all duration-300 hover:border-cyan-500/50 dark:hover:border-cyan-400/50 hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  University Profile
-                  <ExternalLink size={20} />
-                </a>
               </div>
             </div>
           </div>
@@ -187,7 +186,7 @@ export default function Home() {
       <div className="relative z-10 pb-20">
 
         {/* Research Section */}
-        <section id="research" className="scroll-mt-24 w-full py-16 sm:py-24">
+        <section id="research" className="scroll-mt-16 w-full pt-10 sm:pt-14 pb-16 sm:pb-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14 animate-fadeInUp">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
@@ -196,10 +195,10 @@ export default function Home() {
               <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-8 sm:mb-10">
                 Leading the <span className="font-semibold text-gray-900 dark:text-white">Virtual Eyes Lab</span>, our research spans three core pillars: developing innovative <span className="font-medium font-bold text-cyan-700 dark:text-cyan-400">healthcare technologies</span>, advancing <span className="font-medium font-bold text-emerald-700 dark:text-emerald-400">clinical diagnostics and management</span>, and shaping <span className="font-medium font-bold text-indigo-700 dark:text-indigo-400">health policy</span> to improve equitable access to eye care.
               </p>
-              <div className="space-y-10 animate-stagger">
+              <div className="space-y-8 sm:space-y-10 animate-stagger">
                 {/* Healthcare Technologies Group */}
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-cyan-700 dark:text-cyan-400 border-b border-gray-200/50 dark:border-gray-800/50 pb-2 mb-4" style={{ animationDelay: getAnimationDelay(0, variant) }}>
+                <div className={sectionItemSpacing}>
+                  <h3 className="text-xl md:text-2xl font-bold text-cyan-700 dark:text-cyan-400 border-b border-gray-200/50 dark:border-gray-800/50 pb-2" style={{ animationDelay: getAnimationDelay(0, variant) }}>
                     Healthcare Technologies
                   </h3>
                   <div
@@ -270,8 +269,8 @@ export default function Home() {
                 </div>
 
                 {/* Clinical Diagnostics Group */}
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-emerald-700 dark:text-emerald-400 border-b border-gray-200/50 dark:border-gray-800/50 pb-2 mb-4 pt-4" style={{ animationDelay: getAnimationDelay(3, variant) }}>
+                <div className={sectionItemSpacing}>
+                  <h3 className="text-xl md:text-2xl font-bold text-emerald-700 dark:text-emerald-400 border-b border-gray-200/50 dark:border-gray-800/50 pb-2 pt-4" style={{ animationDelay: getAnimationDelay(3, variant) }}>
                     Clinical Diagnostics & Management
                   </h3>
                   <div
@@ -342,8 +341,8 @@ export default function Home() {
                 </div>
 
                 {/* Health Policy Group */}
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-indigo-700 dark:text-indigo-400 border-b border-gray-200/50 dark:border-gray-800/50 pb-2 mb-4 pt-4" style={{ animationDelay: getAnimationDelay(6, variant) }}>
+                <div className={sectionItemSpacing}>
+                  <h3 className="text-xl md:text-2xl font-bold text-indigo-700 dark:text-indigo-400 border-b border-gray-200/50 dark:border-gray-800/50 pb-2 pt-4" style={{ animationDelay: getAnimationDelay(6, variant) }}>
                     Health Policy & Equity
                   </h3>
                   <div
@@ -416,7 +415,7 @@ export default function Home() {
         </section>
 
         {/* Teaching Section */}
-        <section id="teaching" className="relative scroll-mt-10 w-full py-24 sm:py-32 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_3vw,100%_0,100%_calc(100%-3vw),0_100%)] z-10 my-8">
+        <section id="teaching" className="relative scroll-mt-16 w-full pt-14 sm:pt-20 pb-20 sm:pb-24 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_3vw,100%_0,100%_calc(100%-3vw),0_100%)] z-10 my-6">
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -436,7 +435,7 @@ export default function Home() {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
                 Teaching Roles
               </h3>
-              <div className="space-y-10 animate-stagger">
+              <div className={`${sectionItemSpacing} animate-stagger`}>
                 <div
                   className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                   style={{ animationDelay: getAnimationDelay(0, variant) }}
@@ -594,7 +593,7 @@ export default function Home() {
         </section>
 
         {/* Advisory Section */}
-        <section id="advisory" className="scroll-mt-24 w-full py-16 sm:py-24 relative z-0">
+        <section id="advisory" className="scroll-mt-16 w-full pt-12 sm:pt-16 pb-16 sm:pb-20 relative z-0">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -605,7 +604,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-10 animate-stagger mt-8">
+            <div className={`${sectionItemSpacing} animate-stagger mt-8`}>
               <div
                 className={`group flex items-start gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/30 ${cardBase.animationClass}`}
                 style={{ animationDelay: getAnimationDelay(0, variant) }}
@@ -668,7 +667,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-                    Expert Witness Services
+                    Expert Witness and Forensic Optometry
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                     Providing objective expert opinions and scientific testimony on optometry-related matters in complex legal cases and professional disciplinary disputes.
@@ -750,7 +749,7 @@ export default function Home() {
         </section>
 
         {/* Publications Section */}
-        <section id="publications" className="relative scroll-mt-10 w-full py-24 sm:py-32 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_0,100%_3vw,100%_100%,0_calc(100%-3vw))] z-10 my-8">
+        <section id="publications" className="relative scroll-mt-16 w-full pt-14 sm:pt-20 pb-20 sm:pb-24 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_0,100%_3vw,100%_100%,0_calc(100%-3vw))] z-10 my-6">
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -765,7 +764,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="scroll-mt-24 w-full py-16 sm:py-24">
+        <section id="contact" className="scroll-mt-16 w-full pt-12 sm:pt-16 pb-16 sm:pb-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <ContactSection />
           </div>
