@@ -1,17 +1,16 @@
-# Welcome to My Website
+# philipturnbull.com
 
-Hello! I'm **Associate Professor Philip Turnbull**, based in the School of Optometry and Vision Science at the University of Auckland. This is my personal and professional space on the web.
+Personal and professional portal for **Dr hilip Turnbull**, Associate Professor at the School of Optometry and Vision Science, University of Auckland.
 
-## What You'll Find Here
+## Overview
+This site serves as a central hub for my academic research, clinical advisory work, and ongoing development projects. It is designed to provide clear access to my research outputs, teaching focus, and professional contributions.
 
-**Research & Teaching** — Explore my research focus on vision science, technology applications (VR, eye tracking, AI), and my teaching across undergraduate and postgraduate programmes. I also lead work on the Virtual Patient platform and curriculum innovation.
+## Key Sections
+* **Research & Teaching**: An overview of my work in vision science and clinical education, including applications of VR and eye-tracking technology and initiatives like the Virtual Patient platform.
+* **Advisory & Expert Services**: Details on my current contributions to the Optometrists and Dispensing Opticians Board and the Civil Aviation Authority, along with information regarding expert witness services.
+* **Publications**: A repository of research outputs, including summaries and persistent links.
+* **Contact**: Secure channels for collaboration inquiries and professional correspondence.
 
-**Advisory Work** — Information about my roles on the Optometrists and Dispensing Opticians Board, advisory work with the Civil Aviation Authority, and expert witness services.
+## Technical Implementation
+Built as a sandbox for exploring modern web standards, this site is developed using **Next.js**, **TypeScript**, and **Tailwind CSS**. It is designed to be performance-oriented, accessible, and responsive across all devices, with deployment managed via GitHub Pages.
 
-**Publications** — A curated list of my research outputs with summaries and links.
-
-**Contact** — Get in touch if you'd like to collaborate or have questions about my work.
-
----
-
-*This site is my playpen for modern web technologies (Next.js, TypeScript, Tailwind CSS) and is freely deployed to GitHub Pages. It's designed to be fast, accessible, and responsive across all devices.*

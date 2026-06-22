@@ -41,10 +41,9 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: 980 }}>
-          <div style={{ fontSize: 64, lineHeight: 1.05, fontWeight: 800 }}>
-            Associate Professor
-            <br />
-            Philip Turnbull
+          <div style={{ fontSize: 64, lineHeight: 1.05, fontWeight: 800, display: 'flex', flexDirection: 'column' }}>
+            <span>Associate Professor</span>
+            <span>Philip Turnbull</span>
           </div>
           <div style={{ fontSize: 32, lineHeight: 1.25, color: '#bae6fd', fontWeight: 500 }}>
             Optometry and Vision Science
