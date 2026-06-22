@@ -92,8 +92,8 @@ export default function SupervisionRoster() {
 
   const filteredStudents = students.filter(s => {
     const matchesCategory = activeCategory === 'All' || s.category === activeCategory;
-    const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          s.topic.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      s.topic.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -107,8 +107,8 @@ export default function SupervisionRoster() {
             onClick={() => setActiveCategory('All')}
             className={`
               px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300
-              ${activeCategory === 'All' 
-                ? 'bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 shadow-md transform -translate-y-0.5' 
+              ${activeCategory === 'All'
+                ? 'bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 shadow-md transform -translate-y-0.5'
                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-gray-700/50'}
             `}
           >
@@ -123,8 +123,8 @@ export default function SupervisionRoster() {
                 onClick={() => setActiveCategory(category)}
                 className={`
                   px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300
-                  ${isActive 
-                    ? `${styles.tabActive} shadow-md transform -translate-y-0.5` 
+                  ${isActive
+                    ? `${styles.tabActive} shadow-md transform -translate-y-0.5`
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-gray-700/50'}
                 `}
               >
@@ -165,7 +165,7 @@ export default function SupervisionRoster() {
               >
                 {/* Background Decoration */}
                 <div className={`absolute -right-4 -top-4 w-28 h-28 bg-gradient-to-br ${styles.glow} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-                
+
                 <div className="relative z-10 flex items-start gap-4">
                   <div className={`mt-0.5 flex-shrink-0 p-2.5 rounded-xl ${styles.iconBg} ${styles.iconHoverBg} group-hover:scale-110 transition-all duration-300`}>
                     {student.category.includes('Alumni') ? (
@@ -174,7 +174,7 @@ export default function SupervisionRoster() {
                       <GraduationCap className="w-5 h-5" />
                     )}
                   </div>
-                  
+
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1.5">
                       <h4 className={`text-lg font-bold text-gray-900 dark:text-white ${styles.textHover} transition-colors truncate`}>
@@ -204,9 +204,9 @@ export default function SupervisionRoster() {
             <>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No students found</h3>
               <p className="text-gray-500 dark:text-gray-400 max-w-sm mb-6">
-                We couldn't find any students matching "{searchQuery}" in this category.
+                No students matching "{searchQuery}" in this category.
               </p>
-              <button 
+              <button
                 onClick={() => {
                   setSearchQuery('');
                   setActiveCategory('All');
