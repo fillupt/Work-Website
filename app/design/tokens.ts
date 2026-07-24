@@ -1,5 +1,5 @@
 /**
- * Design tokens for the "Tech-Forward" aesthetic (Option 1)
+ * Design tokens for a "Tech-Forward" aesthetic 
  * Focuses on deep dark backgrounds, glassmorphism, and vibrant cyan/purple gradients.
  */
 

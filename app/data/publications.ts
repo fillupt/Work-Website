@@ -16,6 +16,37 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "id": "71",
+    "doi": "10.1002/ovs2.70088",
+    "title": "Global scope of glaucoma clinical practice for optometrists",
+    "authors": [
+      "Jonathan Denniss",
+      "Brendan T Barrett",
+      "Riccardo Cheloni",
+      "Patrick J G Gunn",
+      "Robert A Harper",
+      "Sarah MacIver",
+      "Allison M McKendrick",
+      "Stephen Ocansey",
+      "Philip RK Turnbull",
+      "John G Flanagan"
+    ],
+    "year": 2026,
+    "journal": "Optometry and Vision Science",
+    "volume": "103(7)",
+    "pages": "e70088",
+    "summary": "This review maps the evolving global scope of optometric glaucoma care across Africa, Australia and New Zealand, Canada, Europe, the United Kingdom, and the United States. It shows a broad shift from case-finding toward diagnostic and therapeutic management, while highlighting persistent barriers such as regulatory restrictions, uneven funding, equipment limitations, and training variation. The paper argues that addressing these system constraints is essential if optometrists are to expand sustainable access to glaucoma care.",
+    "type": "journal",
+    "keywords": [
+      "glaucoma",
+      "optometry",
+      "scope of practice",
+      "prescribing",
+      "laser procedures",
+      "access to care"
+    ]
+  },
+  {
     "id": "68",
     "doi": "10.1080/08164622.2026.2652580",
     "title": "Optometrist attitudes towards delivering intravitreal injections in Aotearoa New Zealand",

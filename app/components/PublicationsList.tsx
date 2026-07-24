@@ -105,14 +105,17 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
   }, []);
 
   const filteredPublications = useMemo(() => {
+    const normalizedQuery = searchQuery.toLowerCase();
+
     return publications.filter(pub => {
       const topicMatch = selectedTopics.size === 0 ||
         (topicsById[pub.id] ?? []).some(topic => selectedTopics.has(topic));
       const yearMatch = selectedYears.size === 0 || selectedYears.has(pub.year);
       const searchMatch = !searchQuery ||
-        pub.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        pub.authors.some(a => a.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (pub.summary && pub.summary.toLowerCase().includes(searchQuery.toLowerCase()));
+        pub.title.toLowerCase().includes(normalizedQuery) ||
+        pub.authors.some(a => a.toLowerCase().includes(normalizedQuery)) ||
+        pub.keywords?.some(keyword => keyword.toLowerCase().includes(normalizedQuery)) ||
+        (pub.summary && pub.summary.toLowerCase().includes(normalizedQuery));
 
       return topicMatch && yearMatch && searchMatch;
     });
