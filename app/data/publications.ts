@@ -16,7 +16,113 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "id": "71",
+    "doi": "10.1002/ovs2.70088",
+    "title": "Global scope of glaucoma clinical practice for optometrists",
+    "authors": [
+      "Jonathan Denniss",
+      "Brendan T Barrett",
+      "Riccardo Cheloni",
+      "Patrick J G Gunn",
+      "Robert A Harper",
+      "Sarah MacIver",
+      "Allison M McKendrick",
+      "Stephen Ocansey",
+      "Philip RK Turnbull",
+      "John G Flanagan"
+    ],
+    "year": 2026,
+    "journal": "Optometry and Vision Science",
+    "volume": "103(7)",
+    "pages": "e70088",
+    "summary": "This review maps the evolving global scope of optometric glaucoma care across Africa, Australia and New Zealand, Canada, Europe, the United Kingdom, and the United States. It shows a broad shift from case-finding toward diagnostic and therapeutic management, while highlighting persistent barriers such as regulatory restrictions, uneven funding, equipment limitations, and training variation. The paper argues that addressing these system constraints is essential if optometrists are to expand sustainable access to glaucoma care.",
+    "type": "journal",
+    "keywords": [
+      "glaucoma",
+      "optometry",
+      "scope of practice",
+      "prescribing",
+      "laser procedures",
+      "access to care"
+    ]
+  },
+  {
+    "id": "68",
+    "doi": "10.1080/08164622.2026.2652580",
+    "title": "Optometrist attitudes towards delivering intravitreal injections in Aotearoa New Zealand",
+    "authors": [
+      "Philip RK Turnbull",
+      "ML Acosta",
+      "A Lee",
+      "B Solanki"
+    ],
+    "year": 2026,
+    "journal": "Clinical and Experimental Optometry",
+    "pages": "1-4",
+    "summary": "This study examines optometrists' attitudes toward expanding scope of practice to include intravitreal injections in Aotearoa New Zealand. The findings identify key enablers and barriers, including training pathways, governance, and confidence in shared-care delivery. The paper provides practical direction for workforce planning and service models aimed at improving access to timely retinal care.",
+    "type": "journal",
+    "keywords": [
+      "optometry",
+      "intravitreal injections",
+      "scope of practice",
+      "workforce",
+      "Aotearoa New Zealand",
+      "access to care"
+    ]
+  },
+  {
+    "id": "69",
+    "doi": "10.1080/08164622.2026.2624750",
+    "title": "Models of multidisciplinary team-based care involving optometrists in Australia and New Zealand: narrative review and synthesis of implementation issues",
+    "authors": [
+      "Jessie Huang-Lung",
+      "Sheela Kumaran",
+      "Philip RK Turnbull",
+      "Ann L Webber",
+      "Joel Rhee",
+      "Margo Barr",
+      "Jacqueline Ramke",
+      "Lisa J Keay"
+    ],
+    "year": 2026,
+    "journal": "Clinical and Experimental Optometry",
+    "pages": "1-5",
+    "summary": "This narrative review synthesises multidisciplinary team-based care models that include optometrists across Australia and New Zealand. It highlights recurring implementation challenges around role clarity, referral pathways, funding settings, and interprofessional communication. The synthesis outlines system-level considerations for scaling collaborative care while maintaining quality and equitable access.",
+    "type": "journal",
+    "keywords": [
+      "optometry",
+      "workforce",
+      "multidisciplinary care",
+      "team-based care",
+      "equity",
+      "access"
+    ]
+  },
+  {
+    "id": "70",
+    "doi": "10.1080/02699052.2026.2651864",
+    "title": "Objective oculomotor markers of mTBI: a three-timepoint case report",
+    "authors": [
+      "A Cade",
+      "K Stevens",
+      "PRK Turnbull"
+    ],
+    "year": 2026,
+    "journal": "Brain Injury",
+    "pages": "1-5",
+    "summary": "This case report tracks objective oculomotor outcomes across three timepoints in mild traumatic brain injury. Serial measurements show how eye-movement metrics can capture dynamic recovery patterns that may not be evident on routine assessment alone. The report supports the potential value of oculomotor markers as practical adjuncts for monitoring mTBI progression.",
+    "type": "journal",
+    "keywords": [
+      "oculomotor",
+      "mTBI",
+      "brain injury",
+      "eye movements",
+      "case report"
+    ]
+  },
+  {
     "id": "1",
+    "doi": "10.1080/08164622.2024.2377391",
     "title": "Response of the human choroid to short-term changes in eyelid and periocular temperature",
     "authors": [
       "Safal Khanal",
@@ -41,6 +147,8 @@ export const publications: Publication[] = [
   },
   {
     "id": "2",
+    "doi": "10.1080/08164622.2025.2460609",
+    "volume": "108",
     "title": "The expanding scope of the Aotearoa New Zealand optometric workforce",
     "authors": [
       "Philip RK Turnbull",
@@ -63,6 +171,8 @@ export const publications: Publication[] = [
   },
   {
     "id": "3",
+    "doi": "10.1080/08164622.2024.2433597",
+    "volume": "109",
     "title": "A baseline audit of the population groups accessing optometry training clinics in Aotearoa New Zealand: looking towards equity in eye care",
     "authors": [
       "Lucy K Goodman",
@@ -74,7 +184,7 @@ export const publications: Publication[] = [
       "Philip RK Turnbull",
       "Jacqueline Ramke"
     ],
-    "year": 2025,
+    "year": 2026,
     "journal": "Clinical and Experimental Optometry",
     "pages": "1-7",
     "url": "https://scholar.google.com/scholar?q=A+baseline+audit+of+the+population+groups+accessing+optometry+training+clinics+in+Aotearoa+New+Zealand%3A+looking+towards+equity+in+eye+care",
@@ -90,6 +200,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "4",
+    "doi": "10.12688/wellcomeopenres.23976.1",
     "title": "Participation in population-based eye health surveys is lower but more gender-balanced in high-compared to low-and middle-income countries",
     "authors": [
       "Lucy Goodman",
@@ -117,6 +228,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "5",
+    "doi": "10.1016/0892-8967(96)88963-2",
     "title": "The impact of soft contact lens wear on tear film lipid layer characteristics",
     "authors": [
       "Jennifer P Craig",
@@ -160,6 +272,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "7",
+    "doi": "10.31219/osf.io/s3hxa",
     "title": "Diagnosing Colour Vision Deficiencies Using Eye Movements (Without Dedicated Eye-Tracking Hardware)",
     "authors": [
       "Aryaman Taore",
@@ -184,6 +297,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "8",
+    "doi": "10.1080/08164622.2025.2579872",
     "title": "Emerging research on non-neovascular age-related macular degeneration treatments",
     "authors": [
       "Xiaohan Ju",
@@ -224,6 +338,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "10",
+    "doi": "10.1038/s41598-024-63540-8",
     "title": "Classification of short and long term mild traumatic brain injury using computerized eye tracking",
     "authors": [
       "Alice Cade",
@@ -264,6 +379,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "12",
+    "doi": "10.1111/opo.13348",
     "title": "Strategies to address inequity of uncorrected refractive error in the Western Pacific: A modified Delphi process",
     "authors": [
       "Ian McCormick",
@@ -294,6 +410,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "13",
+    "doi": "10.1016/j.jclinepi.2024.111444",
     "title": "Underserved groups could be better considered within population-based eye health surveys: a methodological study",
     "authors": [
       "Lucy Goodman",
@@ -324,6 +441,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "14",
+    "doi": "10.1016/j.jmpt.2024.08.001",
     "title": "Cervical Spine Vibration Modifies Oculomotor Function in Young Adults with Traumatic Brain Injury",
     "authors": [
       "Alice E Cade",
@@ -346,6 +464,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "15",
+    "doi": "10.1016/j.jmpt.2024.08.003",
     "title": "Effect of Chiropractic Intervention on Oculomotor and Attentional Visual Outcomes in Young Adults With Long-Term Mild Traumatic Brain Injury: A Randomized Controlled Trial",
     "authors": [
       "Alice E Cade",
@@ -408,6 +527,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "18",
+    "doi": "10.1080/08164622.2022.2134763",
     "title": "Objective estimation of fusional reserves using infrared eye tracking: the digital fusion-range test",
     "authors": [
       "Tina Y Gao",
@@ -476,6 +596,9 @@ export const publications: Publication[] = [
   },
   {
     "id": "21",
+    "doi": "10.1249/01.mss.0000980004.82300.e0",
+    "volume": "55",
+    "pages": "31-31",
     "title": "Increasing Exercise Workload Degrades The Precision Of Rapid Eye Movements",
     "authors": [
       "Yasmin Kessner",
@@ -499,6 +622,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "22",
+    "doi": "10.1016/j.clae.2021.101541",
     "title": "Extended screen time and dry eye in youth",
     "authors": [
       "Alex Muntz",
@@ -529,6 +653,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "23",
+    "doi": "10.1080/08164622.2021.2018915",
     "title": "Clinical testing of mild traumatic brain injury using computerised eye-tracking tests",
     "authors": [
       "Alice Cade",
@@ -575,6 +700,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "25",
+    "doi": "10.1111/cxo.13089",
     "title": "Oral medication prescribing by optometrists in New Zealand",
     "authors": [
       "Philip RK Turnbull",
@@ -597,6 +723,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "26",
+    "doi": "10.1038/s41598-021-87120-2",
     "title": "The effect of cellphone position on driving and gaze behaviour",
     "authors": [
       "Philip RK Turnbull",
@@ -620,6 +747,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "27",
+    "doi": "10.53761/1.18.8.12",
     "title": "The mental wellbeing of optometry and pharmacy students in New Zealand during COVID-19",
     "authors": [
       "Philip RK Turnbull",
@@ -643,6 +771,9 @@ export const publications: Publication[] = [
   },
   {
     "id": "28",
+    "doi": "10.1111/cxo.13089",
+    "volume": "104",
+    "pages": "425-427",
     "title": "A hard pill to swallow: oral medication prescribing rights for optometrists",
     "authors": [
       "Philip Turnbull"
@@ -684,6 +815,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "30",
+    "doi": "10.1167/tvst.9.3.25",
     "title": "The effect of simulated visual field loss on optokinetic nystagmus",
     "authors": [
       "Soheil M Doustkouhi",
@@ -707,6 +839,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "31",
+    "doi": "10.1038/s41598-020-75342-9",
     "title": "Additive effect of atropine eye drops and short-term retinal defocus on choroidal thickness in children with myopia",
     "authors": [
       "Samuel T-H Chiang",
@@ -730,6 +863,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "32",
+    "doi": "10.1038/s41598-020-76865-x",
     "title": "The effect of refractive error on optokinetic nystagmus",
     "authors": [
       "Soheil M Doustkouhi",
@@ -753,6 +887,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "33",
+    "doi": "10.1002/jmri.26323",
     "title": "Repeatability of arterial spin labeling MRI in measuring blood perfusion in the human eye",
     "authors": [
       "Safal Khanal",
@@ -777,6 +912,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "34",
+    "doi": "10.1167/iovs.18-24600",
     "title": "The effect of atropine on human global flash mfERG responses to retinal defocus",
     "authors": [
       "Safal Khanal",
@@ -801,6 +937,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "35",
+    "doi": "10.1016/j.clae.2019.07.008",
     "title": "Randomised trial of the clinical utility of an eyelid massage device for the management of meibomian gland dysfunction",
     "authors": [
       "Michael TM Wang",
@@ -903,6 +1040,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "39",
+    "doi": "10.1038/s41598-020-76865-x",
     "title": "Effect of refractive error on optokinetic nystagmus",
     "authors": [
       "Soheil Mohammadpour-Doustkouhi",
@@ -926,6 +1064,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "40",
+    "doi": "10.1016/j.clae.2019.08.003",
     "title": "Effect of virtual reality headset wear on the tear film: A randomised crossover study",
     "authors": [
       "Philip RK Turnbull",
@@ -972,6 +1111,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "42",
+    "doi": "10.1016/j.clae.2017.09.004",
     "title": "Comparison of treatment effect across varying severities of meibomian gland dropout",
     "authors": [
       "Philip RK Turnbull",
@@ -995,6 +1135,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "43",
+    "doi": "10.1016/j.clae.2018.06.006",
     "title": "Comparing the in vitro effects of MGO™ Manuka honey and tea tree oil on ocular Demodex viability",
     "authors": [
       "Katie Frame",
@@ -1021,6 +1162,9 @@ export const publications: Publication[] = [
   },
   {
     "id": "44",
+    "doi": "10.1002/jmri.26323",
+    "volume": "49",
+    "pages": "966-974",
     "title": "Repeatability of Arterial Spin Labeling MRI in Measuring Blood Perfusion in the Human Eye",
     "authors": [
       "OD Safal Khanal",
@@ -1041,6 +1185,9 @@ export const publications: Publication[] = [
   },
   {
     "id": "45",
+    "doi": "10.1167/iovs.18-24600",
+    "volume": "60",
+    "pages": "218",
     "title": "Effect of atropine on multifocal electroretinogram responses to defocus",
     "authors": [
       "Safal Khanal",
@@ -1062,6 +1209,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "46",
+    "doi": "10.1111/ceo.12810",
     "title": "Ocular surface microbiome in meibomian gland dysfunction",
     "authors": [
       "Grant A Watters",
@@ -1087,6 +1235,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "47",
+    "doi": "10.1167/iovs.16-20785",
     "title": "Origins of Pupillary Hippus in the Autonomic Nervous System",
     "authors": [
       "Philip RK Turnbull",
@@ -1111,6 +1260,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "48",
+    "doi": "10.1038/s41598-017-16320-6",
     "title": "Ocular effects of virtual reality headset wear in young adults",
     "authors": [
       "Philip RK Turnbull",
@@ -1172,6 +1322,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "51",
+    "doi": "10.1117/12.2653942.6323170571112",
     "title": "Intra-and inter-sessional reproducibility of blood perfusion MRI measures in the human choroid",
     "authors": [
       "Safal Khanal",
@@ -1194,6 +1345,8 @@ export const publications: Publication[] = [
   },
   {
     "id": "52",
+    "doi": "10.1038/s41598-017-16320-6",
+    "volume": "7",
     "title": "Virtual reality and the eyes",
     "authors": [
       "Philip Turnbull",
@@ -1213,6 +1366,8 @@ export const publications: Publication[] = [
   },
   {
     "id": "53",
+    "doi": "10.3389/fmed.2021.802706",
+    "volume": "8",
     "title": "The relationship between peripheral refraction and retinal electrophysiology",
     "authors": [
       "Lucy Goodman",
@@ -1253,6 +1408,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "55",
+    "doi": "10.1038/srep34514",
     "title": "Similar contrast sensitivity functions measured using psychophysics and optokinetic nystagmus",
     "authors": [
       "Steven C Dakin",
@@ -1275,6 +1431,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "56",
+    "doi": "10.1167/16.12.1331",
     "title": "Similar estimates of contrast sensitivity and acuity from psychophysics and automated analysis of optokinetic nystagmus",
     "authors": [
       "Steven Dakin",
@@ -1297,6 +1454,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "57",
+    "doi": "10.1097/opx.0000000000000957",
     "title": "Contact lens methods for clinical myopia control",
     "authors": [
       "Philip Raey Kidd Turnbull",
@@ -1338,6 +1496,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "59",
+    "doi": "10.1167/iovs.14-15764",
     "title": "Prospective Trial of Intense Pulsed Light for the Treatment of Meibomian Gland Dysfunction",
     "authors": [
       "Jennifer P Craig",
@@ -1384,6 +1543,7 @@ export const publications: Publication[] = [
   },
   {
     "id": "61",
+    "doi": "10.1016/j.cub.2015.07.073",
     "title": "Visually guided eye growth in the squid",
     "authors": [
       "Philip RK Turnbull",
@@ -1426,6 +1586,8 @@ export const publications: Publication[] = [
   },
   {
     "id": "63",
+    "doi": "10.1111/j.1755-3768.2014.4452.x",
+    "pages": "0-0",
     "title": "Prospective evaluation of intense pulsed light (IPL) therapy for meibomian gland dysfunction (MGD)",
     "authors": [
       "JP Craig",
@@ -1513,6 +1675,9 @@ export const publications: Publication[] = [
   },
   {
     "id": "67",
+    "doi": "10.1016/j.cub.2015.07.073",
+    "volume": "25",
+    "pages": "R791-R792",
     "title": "Supplemental Information: Visually guided eye growth in the squid",
     "authors": [
       "Philip RK Turnbull",

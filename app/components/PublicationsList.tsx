@@ -1,0 +1,506 @@
+'use client';
+
+import { useState, useMemo } from 'react';
+import { publications } from '../data/publications';
+import { generateAPACitation } from '../utils/citation';
+import { ExternalLink, FileText, Calendar, Users, X, Search, Copy, Check } from 'lucide-react';
+import { useDesign } from '@/app/providers/DesignProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { getCardClasses, getClickableCardClasses, getPanelClasses, getAnimationDelay } from '@/app/design/variants';
+
+const ITEMS_PER_PAGE = 10;
+
+const TOPIC_RULES: Array<{ topic: string; patterns: RegExp[] }> = [
+  {
+    topic: 'Myopia & Refractive Error',
+    patterns: [/myopia/i, /refractive/i, /defocus/i, /astigmat/i, /emmetrop/i]
+  },
+  {
+    topic: 'Ocular Surface & Dry Eye',
+    patterns: [/dry eye/i, /tear film/i, /meibomian/i, /ocular surface/i, /lipid layer/i]
+  },
+  {
+    topic: 'Eye Movements & Oculomotor',
+    patterns: [/eye movement/i, /oculomotor/i, /saccade/i, /optokinetic/i, /nystagmus/i, /vergence/i]
+  },
+  {
+    topic: 'Retina & Electrophysiology',
+    patterns: [/retina/i, /retinal/i, /mfERG/i, /electrophysiolog/i, /ERG/i]
+  },
+  {
+    topic: 'Imaging & MRI',
+    patterns: [/MRI/i, /magnetic/i, /arterial spin/i, /perfusion/i]
+  },
+  {
+    topic: 'Brain Injury & Neurology',
+    patterns: [/brain injury/i, /mTBI/i, /traumatic/i, /neurolog/i, /diplopia/i]
+  },
+  {
+    topic: 'Vision Technology & VR',
+    patterns: [/virtual reality/i, /VR/i, /eye tracker/i, /computer vision/i, /technology/i]
+  },
+  {
+    topic: 'Public Health & Equity',
+    patterns: [/equity/i, /public health/i, /global health/i, /survey/i, /access/i, /health disparities/i]
+  },
+  {
+    topic: 'Optometry Practice & Workforce',
+    patterns: [/optometry/i, /workforce/i, /dispensing/i, /guidelines/i, /clinical/i, /prescribing/i]
+  },
+  {
+    topic: 'Contact Lenses & Myopia Control',
+    patterns: [/contact lens/i, /contact lenses/i, /myopia control/i, /orthokerat/i]
+  }
+];
+
+const mapKeywordToTopic = (keyword: string) => {
+  const matched = TOPIC_RULES.find(rule => rule.patterns.some(pattern => pattern.test(keyword)));
+  return matched?.topic ?? null;
+};
+
+interface PublicationsListProps {
+  showTitle?: boolean;
+}
+
+export default function PublicationsList({ showTitle = true }: PublicationsListProps) {
+  const { variant } = useDesign();
+  const { isDark } = useTheme();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
+  const [selectedYears, setSelectedYears] = useState<Set<number>>(new Set());
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const cardBase = getCardClasses(variant, isDark);
+  const clickableCard = getClickableCardClasses(variant, isDark);
+  const panelPrimary = getPanelClasses(variant, isDark, 'primary');
+
+  const topicsById = useMemo(() => {
+    const record: Record<string, string[]> = {};
+    publications.forEach(pub => {
+      const topicSet = new Set<string>();
+      pub.keywords?.forEach(keyword => {
+        const topic = mapKeywordToTopic(keyword);
+        if (topic) topicSet.add(topic);
+      });
+      if (topicSet.size === 0 && pub.keywords?.length) {
+        topicSet.add('Other');
+      }
+      record[pub.id] = Array.from(topicSet).sort();
+    });
+    return record;
+  }, []);
+
+  const allTopics = useMemo(() => {
+    const topicSet = new Set<string>();
+    Object.values(topicsById).forEach(topics => {
+      topics.forEach(topic => topicSet.add(topic));
+    });
+    return Array.from(topicSet).sort();
+  }, [topicsById]);
+
+  const allYears = useMemo(() => {
+    const yearSet = new Set<number>();
+    publications.forEach(pub => yearSet.add(pub.year));
+    return Array.from(yearSet).sort((a, b) => b - a); // Most recent first
+  }, []);
+
+  const filteredPublications = useMemo(() => {
+    const normalizedQuery = searchQuery.toLowerCase();
+
+    return publications.filter(pub => {
+      const topicMatch = selectedTopics.size === 0 ||
+        (topicsById[pub.id] ?? []).some(topic => selectedTopics.has(topic));
+      const yearMatch = selectedYears.size === 0 || selectedYears.has(pub.year);
+      const searchMatch = !searchQuery ||
+        pub.title.toLowerCase().includes(normalizedQuery) ||
+        pub.authors.some(a => a.toLowerCase().includes(normalizedQuery)) ||
+        pub.keywords?.some(keyword => keyword.toLowerCase().includes(normalizedQuery)) ||
+        (pub.summary && pub.summary.toLowerCase().includes(normalizedQuery));
+
+      return topicMatch && yearMatch && searchMatch;
+    });
+  }, [selectedTopics, selectedYears, topicsById, searchQuery]);
+
+  const totalPages = Math.ceil(filteredPublications.length / ITEMS_PER_PAGE);
+  const visibleCount = currentPage * ITEMS_PER_PAGE;
+  const currentPublications = filteredPublications.slice(0, visibleCount);
+
+  const handleTopicToggle = (topic: string) => {
+    const newSelected = new Set(selectedTopics);
+    if (newSelected.has(topic)) {
+      newSelected.delete(topic);
+    } else {
+      newSelected.add(topic);
+    }
+    setSelectedTopics(newSelected);
+    setCurrentPage(1);
+  };
+
+  const handleYearToggle = (year: number) => {
+    const newSelected = new Set(selectedYears);
+    if (newSelected.has(year)) {
+      newSelected.delete(year);
+    } else {
+      newSelected.add(year);
+    }
+    setSelectedYears(newSelected);
+    setCurrentPage(1);
+  };
+
+  const handleClearFilters = () => {
+    setSearchQuery('');
+    setSelectedTopics(new Set());
+    setSelectedYears(new Set());
+    setCurrentPage(1);
+  };
+
+  const handleCopyCitation = async (pub: any) => {
+    const citation = generateAPACitation(pub);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(citation);
+      } else {
+        // Fallback for non-secure contexts (e.g. testing on LAN)
+        const textArea = document.createElement("textarea");
+        textArea.value = citation;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (!successful) throw new Error('Fallback copy failed');
+      }
+      setCopiedId(pub.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy citation:', err);
+      alert('Failed to copy citation to clipboard. Please copy it manually.');
+    }
+  };
+
+
+
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case 'journal':
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+      case 'report':
+        return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+      default:
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
+    }
+  };
+
+  return (
+    <div className="w-full">
+      {showTitle && (
+        <div
+          className={`${panelPrimary.className} ${panelPrimary.animationClass} mb-12`}
+          style={{
+            ...panelPrimary.style,
+            animationDelay: getAnimationDelay(0, variant),
+          }}
+        >
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Publications</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            Explore my research publications across vision science, optometry, and related fields.
+          </p>
+        </div>
+      )}
+
+      {/* Filters Section */}
+      <div className="mb-12">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">Search & Filter</h2>
+          {(searchQuery || selectedTopics.size > 0 || selectedYears.size > 0) && (
+            <button
+              onClick={handleClearFilters}
+              className="text-sm text-blue-700 hover:text-blue-800 dark:text-blue-300 dark:hover:text-blue-200 font-medium"
+            >
+              Clear all filters
+            </button>
+          )}
+        </div>
+
+        {/* Search Input */}
+        <div className="mb-6 relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search className="h-5 w-5 text-gray-400" />
+          </div>
+          <input
+            type="text"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all sm:text-sm"
+            placeholder="Search publications by title, author, or keyword..."
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setCurrentPage(1);
+            }}
+          />
+        </div>
+
+        {/* Active Filters Display */}
+        {(selectedTopics.size > 0 || selectedYears.size > 0) && (
+          <div className="mb-6 flex flex-wrap gap-2 p-4 bg-white/60 dark:bg-gray-900/40 rounded-lg border border-blue-200/70 dark:border-blue-700/60">
+            {Array.from(selectedTopics).sort().map(topic => (
+              <button
+                key={topic}
+                onClick={() => handleTopicToggle(topic)}
+                className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-full transition-colors"
+              >
+                {topic}
+                <X className="w-3 h-3" />
+              </button>
+            ))}
+            {Array.from(selectedYears).sort((a, b) => b - a).map(year => (
+              <button
+                key={year}
+                onClick={() => handleYearToggle(year)}
+                className="inline-flex items-center gap-1 px-3 py-1 bg-purple-500 hover:bg-purple-600 text-white text-sm rounded-full transition-colors"
+              >
+                {year}
+                <X className="w-3 h-3" />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Year Filters */}
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Filter by Year</h3>
+          <div className="flex flex-wrap gap-2">
+            {allYears.map(year => (
+              <button
+                key={year}
+                onClick={() => handleYearToggle(year)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedYears.has(year)
+                  ? 'bg-purple-600 dark:bg-purple-500 text-white shadow-md'
+                  : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700'
+                  }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Topic Filters */}
+        <div>
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Filter by Topic</h3>
+          <div className="flex flex-wrap gap-2">
+            {allTopics.map(topic => (
+              <button
+                key={topic}
+                onClick={() => handleTopicToggle(topic)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTopics.has(topic)
+                  ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-md'
+                  : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700'
+                  }`}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Results Count */}
+      <div className="mb-6 text-sm text-gray-600 dark:text-gray-400">
+        Showing <span className="font-semibold text-gray-900 dark:text-white">{currentPublications.length}</span> of <span className="font-semibold text-gray-900 dark:text-white">{filteredPublications.length}</span> publications
+        {(searchQuery || selectedTopics.size > 0 || selectedYears.size > 0) && (
+          ` (${filteredPublications.length} match${filteredPublications.length !== 1 ? 'es' : ''} selected filter${(selectedTopics.size + selectedYears.size) !== 1 || searchQuery ? 's' : ''})`
+        )}
+      </div>
+
+      {/* Publications List */}
+      {filteredPublications.length === 0 ? (
+        <div className="text-center py-12">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            No publications match the selected keywords.
+          </p>
+        </div>
+      ) : (
+        <>
+          <div className="space-y-6 mb-8">
+            {currentPublications.map((pub, index) => {
+              const hasLink = !!(pub.doi || pub.url);
+              const card = hasLink ? clickableCard : cardBase;
+              const isLastItem = index === currentPublications.length - 1;
+
+              return (
+                <article
+                  key={pub.id}
+                  className={`${card.className} ${card.animationClass}`}
+                  style={{
+                    ...card.style,
+                    animationDelay: getAnimationDelay(index, variant),
+                  }}
+                >
+                  <div className="flex flex-col gap-4">
+                    {/* Tags Row */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getTypeColor(pub.type)}`}>
+                        {pub.type.replace('-', ' ').toUpperCase()}
+                      </span>
+                      <span className="flex items-center text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+                        <Calendar className="w-3.5 h-3.5 mr-1.5" />
+                        {pub.year}
+                      </span>
+                      {topicsById[pub.id]?.map(topic => (
+                        <button
+                          key={topic}
+                          onClick={() => handleTopicToggle(topic)}
+                          className={`text-xs px-3 py-1 rounded-full transition-all ${selectedTopics.has(topic)
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50 border border-blue-100 dark:border-blue-800/50'
+                            }`}
+                        >
+                          #{topic}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Title */}
+                    {(pub.doi || pub.url) ? (
+                      <a
+                        href={pub.doi ? `https://doi.org/${pub.doi}` : pub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 block transition-colors leading-tight"
+                      >
+                        {pub.title}
+                      </a>
+                    ) : (
+                      <h2 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
+                        {pub.title}
+                      </h2>
+                    )}
+
+                    {/* Authors & Journal/Conference */}
+                    <div className="space-y-2">
+                      <div className="flex items-start text-sm text-gray-700 dark:text-gray-300">
+                        <Users className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0 text-gray-500" />
+                        <span>{pub.authors.join(', ')}</span>
+                      </div>
+
+                      {(pub.journal || pub.conference) && (
+                        <div className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                          <FileText className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0 text-gray-500" />
+                          <span className="italic">
+                            {pub.journal || pub.conference}
+                            {pub.volume && `, ${pub.volume}`}
+                            {pub.pages && `, pp. ${pub.pages}`}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Summary */}
+                    <div className="bg-gray-50/50 dark:bg-gray-900/30 border border-gray-100 dark:border-gray-800/50 rounded-lg p-4">
+                      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Summary</h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        {pub.summary}
+                      </p>
+                    </div>
+
+                    {/* Action Bar & Collapsible Citation Section */}
+                    <div className="mt-2 pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3">
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex flex-wrap items-center gap-3">
+                          {/* Citation Text Preview Toggle */}
+                          <button
+                            onClick={() => {
+                              const container = document.getElementById(`citation-box-${pub.id}`);
+                              if (container) {
+                                container.classList.toggle('hidden');
+                              }
+                            }}
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900/50"
+                          >
+                            <span>Show Full Citation</span>
+                          </button>
+
+                          {/* Copy APA Citation Action Button */}
+                          <button
+                            onClick={() => handleCopyCitation(pub)}
+                            className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-1.5 shadow-sm hover:shadow"
+                          >
+                            {copiedId === pub.id ? (
+                              <>
+                                <Check className="w-4 h-4 text-green-500" />
+                                <span className="text-green-500">Copied APA!</span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="w-4 h-4" />
+                                <span>Copy APA Citation</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
+
+                        {/* Persistent Reference Links */}
+                        {(pub.doi || pub.url) && (
+                          <div className="flex items-center gap-3">
+                            {pub.doi && (
+                              <a
+                                href={`https://doi.org/${pub.doi}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                              >
+                                DOI
+                                <ExternalLink className="w-3.5 h-3.5" />
+                              </a>
+                            )}
+                            {pub.url && (
+                              <a
+                                href={pub.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                              >
+                                {pub.url.includes('scholar.google') ? 'Google Scholar' : 'Full Text'}
+                                <ExternalLink className="w-3.5 h-3.5" />
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Hidden Accordion Shelf for APA string */}
+                      <div
+                        id={`citation-box-${pub.id}`}
+                        className="hidden p-3 bg-gray-50 dark:bg-gray-900/30 rounded-lg border border-gray-100 dark:border-gray-800/50 animate-fadeIn"
+                      >
+                        <p className="text-xs text-gray-500 dark:text-gray-500 font-mono mb-1 select-none">
+                          APA String Format:
+                        </p>
+                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-serif selection:bg-blue-500/20">
+                          {generateAPACitation(pub)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {currentPage < totalPages && (
+            <div className="flex justify-center py-6">
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
+              >
+                Load More Publications
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}

@@ -2,16 +2,71 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/app/providers/ThemeProvider';
-import { buildAssetUrl } from '@/app/lib/site';
+import { useDesign } from '@/app/providers/DesignProvider';
+import { getHeaderClasses } from '@/app/design/variants';
 
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme, isDark } = useTheme();
-  const headerBannerUrl = buildAssetUrl('/images/header-banner.jpg');
+  const { variant } = useDesign();
+  const [activeSection, setActiveSection] = useState<string>('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // If we are at the very top, set active to home
+      if (window.scrollY < 100) {
+        setActiveSection('/');
+        return;
+      }
+      
+      const sections = ['research', 'teaching', 'advisory', 'publications', 'contact'];
+      let current = '';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the section top is above the middle of the screen
+          if (rect.top <= window.innerHeight / 2) {
+            current = `/#${section}`;
+          }
+        }
+      }
+      
+      if (current) {
+        setActiveSection(current);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    setTimeout(handleScroll, 100);
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isActive = (href: string) => {
+    if (pathname !== '/') {
+      return pathname === href;
+    }
+    if (href === '/') return activeSection === '/';
+    return activeSection === href;
+  };
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      // Clear any existing section hash so re-clicking a nav item can trigger anchor navigation.
+      if (window.location.hash) {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const homeLink = { href: '/', label: 'Home' };
   const sectionLinks = [
@@ -20,24 +75,20 @@ export default function Header() {
     { href: '/#advisory', label: 'Advisory' },
   ];
   const pageNavItems = [
-    { href: '/publications', label: 'Publications' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/#publications', label: 'Publications' },
+    { href: '/#contact', label: 'Contact' },
   ];
 
   const getNextTheme = () => {
-    if (theme === 'light') return 'dark';
-    if (theme === 'dark') return 'system';
-    return 'light';
+    return isDark ? 'light' : 'dark';
   };
+
+  const headerClasses = getHeaderClasses(variant, isDark);
 
   return (
     <header 
-      className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 relative bg-cover bg-center transition-colors"
-      style={{ 
-        backgroundImage: isDark 
-          ? `linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)), url('${headerBannerUrl}')`
-          : `linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)), url('${headerBannerUrl}')`
-      }}
+      className={headerClasses.className}
+      style={headerClasses.style}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 gap-2 sm:gap-4">
@@ -50,11 +101,12 @@ export default function Header() {
             {/* Home link */}
             <Link
               href={homeLink.href}
+              onClick={handleHomeClick}
               className={`${
-                pathname === homeLink.href
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-              } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md`}
+                isActive(homeLink.href)
+                  ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
+              } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
             >
               {homeLink.label}
             </Link>
@@ -64,12 +116,15 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md"
+                className={`${
+                  isActive(link.href)
+                    ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
+                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="h-6 w-px bg-gray-300 dark:bg-gray-600 mx-2" />
 
             {/* Publications and Contact links */}
             {pageNavItems.map((item) => (
@@ -77,10 +132,10 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={`${
-                  pathname === item.href
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md`}
+                  isActive(item.href)
+                    ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
+                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
               >
                 {item.label}
               </Link>
@@ -89,7 +144,7 @@ export default function Header() {
             {/* Theme Toggle Button */}
             <button
               onClick={() => setTheme(getNextTheme())}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ml-2"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ml-2 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
               aria-label="Toggle theme"
               title={`Switch to ${getNextTheme()} mode`}
             >
@@ -105,7 +160,7 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => setTheme(getNextTheme())}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
               aria-label="Toggle theme"
               title={`Switch to ${getNextTheme()} mode`}
             >
@@ -118,7 +173,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
@@ -137,12 +192,15 @@ export default function Header() {
               {/* Home Link */}
               <Link
                 href={homeLink.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  handleHomeClick(e);
+                  setIsMenuOpen(false);
+                }}
                 className={`${
-                  pathname === homeLink.href
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
+                  isActive(homeLink.href)
+                    ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
               >
                 {homeLink.label}
               </Link>
@@ -153,7 +211,11 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="px-4 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 pl-6"
+                  className={`${
+                    isActive(link.href)
+                      ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                  } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 pl-6 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
                 >
                   {link.label}
                 </Link>
@@ -167,10 +229,10 @@ export default function Header() {
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
                     className={`${
-                      pathname === item.href
-                        ? 'text-blue-600 dark:text-blue-400'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    } block px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
+                      isActive(item.href)
+                        ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    } block px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
                   >
                     {item.label}
                   </Link>

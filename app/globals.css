@@ -22,16 +22,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 html {
@@ -149,6 +142,30 @@ a:not(.no-hover-effect) {
   }
 }
 
+@keyframes driftA {
+  0% {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+}
+
+@keyframes driftB {
+  0% {
+    transform: translate3d(3%, 4%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-3%, -4%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(3%, 4%, 0) scale(1.05);
+  }
+}
+
 /* Animation Utilities */
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in;
@@ -218,6 +235,48 @@ a:not(.no-hover-effect) {
 
 .animate-patternPulse {
   animation: patternPulse 4s ease-in-out infinite;
+}
+
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-bg::before,
+.ambient-bg::after {
+  content: "";
+  position: absolute;
+  width: 75vmax;
+  height: 75vmax;
+  border-radius: 9999px;
+  filter: blur(56px);
+  opacity: 0.24;
+  will-change: transform;
+}
+
+.ambient-bg::before {
+  left: -8vmax;
+  top: -6vmax;
+  background: radial-gradient(circle, #22d3ee 0%, transparent 65%);
+  animation: driftA 24s ease-in-out infinite;
+}
+
+.ambient-bg::after {
+  right: -10vmax;
+  bottom: -9vmax;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 65%);
+  animation: driftB 28s ease-in-out infinite;
+}
+
+html.dark .ambient-bg::before {
+  opacity: 0.22;
+}
+
+html.dark .ambient-bg::after {
+  opacity: 0.2;
 }
 
 /* Scroll-triggered animations */
@@ -352,6 +411,11 @@ a:not(.no-hover-effect) {
   article:hover {
     transform: translateY(0);
   }
+
+  .ambient-bg::before,
+  .ambient-bg::after {
+    animation: none;
+  }
 }
 
 /* Phase 6: Visual Polish — Optional accent surfaces */
@@ -365,10 +429,7 @@ a:not(.no-hover-effect) {
 
 /* Phase 7: Accessibility & Quality Checks */
 
-/* Enhanced contrast for headings in hero */
-h1 {
-  color: var(--foreground);
-}
+
 
 /* Improve link contrast and underline visibility */
 a {

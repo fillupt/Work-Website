@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { DesignProvider } from "./providers/DesignProvider";
-import { getSiteUrl } from "./lib/site";
+import { buildAbsoluteUrl, getSiteUrl } from "./lib/site";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -20,11 +20,38 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
+    title: "Associate Professor Philip Turnbull - Optometry and Vision Science",
+    description: "Associate Professor at the School of Optometry and Vision Science, University of Auckland, specialising in virtual patients, eye tracking, and digital health innovation.",
     type: 'website',
     locale: 'en_NZ',
     url: '/',
     siteName: 'Associate Professor Philip Turnbull',
+    images: [
+      {
+        url: buildAbsoluteUrl('/opengraph-image'),
+        width: 1200,
+        height: 630,
+        alt: 'Associate Professor Philip Turnbull - Optometry and Vision Science',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Associate Professor Philip Turnbull - Optometry and Vision Science",
+    description: "Associate Professor at the School of Optometry and Vision Science, University of Auckland, specialising in virtual patients, eye tracking, and digital health innovation.",
+    images: [buildAbsoluteUrl('/twitter-image')],
   },
 };
 
@@ -37,8 +64,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Philip Turnbull',
+    jobTitle: 'Associate Professor in Optometry',
+    url: getSiteUrl(),
+    image: buildAbsoluteUrl('/images/profile-photo.jpg'),
+    affiliation: {
+      '@type': 'CollegeOrUniversity',
+      name: 'University of Auckland',
+      url: 'https://www.auckland.ac.nz/',
+    },
+    sameAs: [
+      'https://orcid.org/0000-0002-9892-2964',
+      'https://profiles.auckland.ac.nz/p-turnbull/about',
+    ],
+  };
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-NZ" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -54,6 +99,14 @@ export default function RootLayout({
                 }
               } catch (e) {}
             `,
+          }}
+        />
+        <Script
+          id="person-ld-json"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
           }}
         />
         <Script
@@ -73,9 +126,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors`}>
+      <body className={`${outfit.variable} font-sans antialiased flex flex-col min-h-screen bg-gray-50 text-gray-900 dark:bg-[#050505] dark:text-gray-100 transition-colors`}>
         <ThemeProvider>
           <DesignProvider>
+            <div className="ambient-bg" aria-hidden="true"></div>
             <Header />
             <main className="flex-1">
               {children}

@@ -3,14 +3,30 @@
 import { Mail } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+const LAST_COMMIT_ISO = process.env.NEXT_PUBLIC_LAST_COMMIT_ISO;
+
 export default function Footer() {
   const [lastUpdated, setLastUpdated] = useState<string>('');
 
   useEffect(() => {
-    // Get the current date in ISO format (YYYY-MM-DD)
-    const now = new Date();
-    const isoDate = now.toISOString().split('T')[0];
-    setLastUpdated(isoDate);
+    if (!LAST_COMMIT_ISO) {
+      setLastUpdated('Unknown');
+      return;
+    }
+
+    const commitDate = new Date(LAST_COMMIT_ISO);
+    if (Number.isNaN(commitDate.getTime())) {
+      setLastUpdated('Unknown');
+      return;
+    }
+
+    const localDate = new Intl.DateTimeFormat(undefined, {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(commitDate);
+
+    setLastUpdated(localDate);
   }, []);
 
   return (
@@ -28,7 +44,7 @@ export default function Footer() {
           </div>
           
           <div className="text-sm text-gray-600 dark:text-gray-400">
-            Last updated: {lastUpdated}
+            Last updated: {lastUpdated || '...'}
           </div>
         </div>
       </div>
