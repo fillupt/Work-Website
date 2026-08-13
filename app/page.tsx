@@ -196,7 +196,7 @@ export default function Home() {
                     Advancing <span className="font-bold text-emerald-700 dark:text-emerald-400">clinical diagnostics and management</span>
                   </li>
                   <li>
-                    Shaping <span className="font-bold text-indigo-700 dark:text-indigo-400">health policy</span> to improve equitable access to eye care
+                    Shaping <span className="font-bold text-indigo-700 dark:text-indigo-300">health policy</span> to improve equitable access to eye care
                   </li>
                 </ul>
               </div>
@@ -444,7 +444,7 @@ export default function Home() {
           >
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Publications</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-              I share my research publications, including journal articles, conference papers, and collaborative works.
+              See details of research outputs, including journal articles, conference papers, policy papers, and collaborative works.
             </p>
             <Link
               href="#publications"
@@ -478,140 +478,85 @@ export default function Home() {
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
               Teaching Roles
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-              {/* Role 1: Undergraduate Coordination */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-gray-200/50 dark:border-gray-800/50 shadow-sm transition-all duration-300 hover:shadow-amber-500/10 hover:border-amber-500/30"
-                style={{ animationDelay: getAnimationDelay(0, variant) }}
-              >
-                <Image
-                  src={buildAssetUrl('/images/ug_coordination.png')}
-                  alt="Undergraduate Coordination"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent z-10 transition-all duration-500 group-hover:from-gray-950/90 group-hover:via-gray-950/70"></div>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col justify-end h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                    Curriculum Design
-                  </h4>
-                  <p className="text-gray-300 [text-shadow:_0_1px_2px_rgb(0_0_0_/_50%)] text-xs sm:text-sm leading-relaxed transition-all duration-500 ease-out opacity-100 max-h-[12rem] mt-1.5 md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-[12rem] md:group-hover:mt-2 overflow-hidden">
-                    Coordinating the Bachelor of Optometry Part II programme and directing OPTOM216 – Introduction to Optometry, ensuring a strong foundational curriculum for early-stage students.
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-10 items-start">
+              <div className="space-y-4">
+                <ul className="divide-y divide-gray-200/70 dark:divide-gray-700/70 border-y border-gray-200/70 dark:border-gray-700/70">
+                  <li className="flex gap-3 items-start py-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-cyan-600 dark:bg-cyan-400 shrink-0"></span>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">Curriculum Design</h4>
+                      <p className="mt-1 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                        Coordinating the Bachelor of Optometry Part II programme and directing OPTOM216 – Introduction to Optometry, ensuring a strong foundational curriculum for early-stage students.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li className="flex gap-3 items-start py-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-600 dark:bg-sky-400 shrink-0"></span>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">Clinical Assessment</h4>
+                      <p className="mt-1 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                        Acting as a clinical and oral examiner for Part V optometry students during their final-year assessments, maintaining rigorous standards for clinical competency.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li className="flex gap-3 items-start py-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-violet-700 dark:bg-violet-300 shrink-0"></span>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">Postgraduate Teaching</h4>
+                      <p className="mt-1 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                        Teaching advanced statistics and research methodologies within OPTOM783 – Research Project in Vision Science, equipping the next generation of researchers with critical analytical skills.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li className="flex gap-3 items-start py-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">Interactive Learning</h4>
+                      <p className="mt-1 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                        Developing and integrating the{' '}
+                        <a href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="font-semibold text-cyan-700 dark:text-cyan-400 hover:underline no-hover-effect">
+                          Virtual Patient
+                        </a>{' '}
+                        platform to provide immersive, interactive, and scalable clinical learning experiences that bridge theory and practice. This approach combines digital simulation, case-based teaching, and evidence-based clinical reasoning to create more engaging and accessible learning for optometry students.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li className="flex gap-3 items-start py-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-amber-600 dark:bg-amber-400 shrink-0"></span>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">External Review &amp; Audit</h4>
+                      <p className="mt-1 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                        Providing external review and auditing services for international optometry programmes to ensure academic rigour, clinical teaching standards, and programmatic excellence.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li className="flex gap-3 items-start py-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-rose-600 dark:bg-rose-400 shrink-0"></span>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">Postgraduate Examination</h4>
+                      <p className="mt-1 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                        Serving as an external examiner for international PhD and Masters theses across optometry and vision science, supporting high-quality research training and graduate outcomes.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
               </div>
 
-              {/* Role 2: Clinical Assessment */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-gray-200/50 dark:border-gray-800/50 shadow-sm transition-all duration-300 hover:shadow-sky-500/10 hover:border-sky-500/30"
-                style={{ animationDelay: getAnimationDelay(1, variant) }}
-              >
-                <Image
-                  src={buildAssetUrl('/images/clinical_assessment.png')}
-                  alt="Clinical Assessment"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent z-10 transition-all duration-500 group-hover:from-gray-950/90 group-hover:via-gray-950/70"></div>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col justify-end h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                    Clinical Assessment
-                  </h4>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ease-out opacity-100 max-h-[12rem] mt-1.5 md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-[12rem] md:group-hover:mt-2 overflow-hidden">
-                    Acting as a clinical and oral examiner for Part V optometry students during their final year capstone assessments, maintaining rigorous standards for clinical competency.
-                  </p>
-                </div>
-              </div>
-
-              {/* Role 3: Postgraduate Teaching */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-gray-200/50 dark:border-gray-800/50 shadow-sm transition-all duration-300 hover:shadow-purple-500/10 hover:border-purple-500/30"
-                style={{ animationDelay: getAnimationDelay(2, variant) }}
-              >
-                <Image
-                  src={buildAssetUrl('/images/pg_teaching.png')}
-                  alt="Postgraduate Teaching"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent z-10 transition-all duration-500 group-hover:from-gray-950/90 group-hover:via-gray-950/70"></div>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col justify-end h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                    Postgraduate Teaching
-                  </h4>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ease-out opacity-100 max-h-[12rem] mt-1.5 md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-[12rem] md:group-hover:mt-2 overflow-hidden">
-                    Teaching advanced statistics and research methodologies within OPTOM783 – Research Project in Vision Science, equipping the next generation of researchers with critical analytical skills.
-                  </p>
-                </div>
-              </div>
-
-              {/* Role 4: Interactive Learning */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-gray-200/50 dark:border-gray-800/50 shadow-sm transition-all duration-300 hover:shadow-teal-500/10 hover:border-teal-500/30"
-                style={{ animationDelay: getAnimationDelay(3, variant) }}
-              >
-                <Image
-                  src={buildAssetUrl('/images/interactive_learning.png')}
-                  alt="Interactive Learning"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent z-10 transition-all duration-500 group-hover:from-gray-950/90 group-hover:via-gray-950/70"></div>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col justify-end h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-teal-400 transition-colors">
-                    Interactive Learning
-                  </h4>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ease-out opacity-100 max-h-[12rem] mt-1.5 md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-[12rem] md:group-hover:mt-2 overflow-hidden">
-                    Developing and integrating the{' '}
-                    <a href="https://virtualpatient.co.nz" target="_blank" rel="noopener noreferrer" className="text-teal-450 font-semibold hover:underline no-hover-effect">
-                      Virtual Patient
-                    </a>{' '}
-                    platform to provide immersive, interactive, and scalable clinical learning experiences that bridge theory and practice.
-                  </p>
-                </div>
-              </div>
-
-              {/* Role 5: External Review & Audit */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-gray-200/50 dark:border-gray-800/50 shadow-sm transition-all duration-300 hover:shadow-yellow-500/10 hover:border-yellow-500/30"
-                style={{ animationDelay: getAnimationDelay(4, variant) }}
-              >
-                <Image
-                  src={buildAssetUrl('/images/external_review.png')}
-                  alt="External Review & Audit"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent z-10 transition-all duration-500 group-hover:from-gray-950/90 group-hover:via-gray-950/70"></div>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col justify-end h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-                    External Review & Audit
-                  </h4>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ease-out opacity-100 max-h-[12rem] mt-1.5 md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-[12rem] md:group-hover:mt-2 overflow-hidden">
-                    Providing external review and auditing services for international optometry programmes to ensure academic rigour, clinical teaching standards, and programmatic excellence.
-                  </p>
-                </div>
-              </div>
-
-              {/* Role 6: Postgraduate Examination */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-gray-200/50 dark:border-gray-800/50 shadow-sm transition-all duration-300 hover:shadow-amber-500/10 hover:border-amber-500/30"
-                style={{ animationDelay: getAnimationDelay(5, variant) }}
-              >
-                <Image
-                  src={buildAssetUrl('/images/pg_examination.png')}
-                  alt="Postgraduate Examination"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/40 to-transparent z-10 transition-all duration-500 group-hover:from-gray-950/90 group-hover:via-gray-950/70"></div>
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col justify-end h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-500 transition-colors">
-                    Postgraduate Examination
-                  </h4>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ease-out opacity-100 max-h-[12rem] mt-1.5 md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-[12rem] md:group-hover:mt-2 overflow-hidden">
-                    Serving as an external examiner for international PhD and Masters theses across the fields of optometry and vision science.
-                  </p>
+              <div className="space-y-4" style={{ animationDelay: getAnimationDelay(3, variant) }}>
+                <div className="rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-slate-900/40 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
+                  <div className="relative aspect-[4/5]">
+                    <Image
+                      src={buildAssetUrl('/images/interactive_learning.png')}
+                      alt="Interactive Learning"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -652,7 +597,6 @@ export default function Home() {
             <div className="lg:col-span-2 relative pl-8 md:pl-12 border-l border-gray-200/50 dark:border-gray-800/50 space-y-10 py-2">
               {/* Item 1 ODOB */}
               <div className="relative group" style={{ animationDelay: getAnimationDelay(0, variant) }}>
-                <div className="absolute -left-[42px] md:-left-[58px] top-8 md:top-9 w-5 h-5 rounded-full bg-white dark:bg-[#020617] border-4 border-blue-500 shadow-md group-hover:scale-125 transition-all duration-300 z-10" />
                 <div className="flex flex-col sm:flex-row gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 bg-white/40 dark:bg-gray-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-500/30 dark:hover:border-blue-400/40">
                   <div className="flex-shrink-0 w-full sm:w-28 h-32 sm:h-28 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 relative">
                     <Image
@@ -679,7 +623,6 @@ export default function Home() {
 
               {/* Item 2 Vision Standards */}
               <div className="relative group" style={{ animationDelay: getAnimationDelay(1, variant) }}>
-                <div className="absolute -left-[42px] md:-left-[58px] top-8 md:top-9 w-5 h-5 rounded-full bg-white dark:bg-[#020617] border-4 border-sky-500 shadow-md group-hover:scale-125 transition-all duration-300 z-10" />
                 <div className="flex flex-col sm:flex-row gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 bg-white/40 dark:bg-gray-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-sky-500/30 dark:hover:border-sky-400/40">
                   <div className="flex-shrink-0 w-full sm:w-28 h-32 sm:h-28 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 relative">
                     <Image
@@ -702,7 +645,6 @@ export default function Home() {
 
               {/* Item 3 Expert Witness */}
               <div className="relative group" style={{ animationDelay: getAnimationDelay(2, variant) }}>
-                <div className="absolute -left-[42px] md:-left-[58px] top-8 md:top-9 w-5 h-5 rounded-full bg-white dark:bg-[#020617] border-4 border-violet-500 shadow-md group-hover:scale-125 transition-all duration-300 z-10" />
                 <div className="flex flex-col sm:flex-row gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 bg-white/40 dark:bg-gray-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-violet-500/30 dark:hover:border-violet-400/40">
                   <div className="flex-shrink-0 w-full sm:w-28 h-32 sm:h-28 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 relative">
                     <Image
@@ -725,7 +667,6 @@ export default function Home() {
 
               {/* Item 4 Policy Development */}
               <div className="relative group" style={{ animationDelay: getAnimationDelay(3, variant) }}>
-                <div className="absolute -left-[42px] md:-left-[58px] top-8 md:top-9 w-5 h-5 rounded-full bg-white dark:bg-[#020617] border-4 border-emerald-500 shadow-md group-hover:scale-125 transition-all duration-300 z-10" />
                 <div className="flex flex-col sm:flex-row gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 bg-white/40 dark:bg-gray-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-500/30 dark:hover:border-emerald-400/40">
                   <div className="flex-shrink-0 w-full sm:w-28 h-32 sm:h-28 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 relative">
                     <Image
@@ -748,7 +689,6 @@ export default function Home() {
 
               {/* Item 5 Associate Editor */}
               <div className="relative group" style={{ animationDelay: getAnimationDelay(4, variant) }}>
-                <div className="absolute -left-[42px] md:-left-[58px] top-8 md:top-9 w-5 h-5 rounded-full bg-white dark:bg-[#020617] border-4 border-rose-500 shadow-md group-hover:scale-125 transition-all duration-300 z-10" />
                 <div className="flex flex-col sm:flex-row gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 bg-white/40 dark:bg-gray-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-rose-500/30 dark:hover:border-rose-400/40">
                   <div className="flex-shrink-0 w-full sm:w-28 h-32 sm:h-28 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 relative">
                     <Image
