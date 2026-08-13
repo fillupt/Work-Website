@@ -16,6 +16,29 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "id": "72",
+    "doi": "10.1152/function.046.2026",
+    "title": "A clear view at altitude: layer-specific control of the choroidal circulation.",
+    "authors": [
+      "Fan JL",
+      "Turnbull PRK"
+    ],
+    "year": 2026,
+    "journal": "Function (Oxford, England)",
+    "volume": "7(4)",
+    "pages": "e0462026",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13387085/",
+    "summary": "This paper examines how choroidal blood flow is regulated across distinct vascular layers during altitude-related changes in oxygen availability. It highlights layer-specific mechanisms that help the eye maintain adequate circulation and visual performance in changing environmental conditions.",
+    "type": "journal",
+    "keywords": [
+      "choroid",
+      "ocular circulation",
+      "altitude",
+      "oxygen delivery",
+      "eye physiology"
+    ]
+  },
+  {
     "id": "71",
     "doi": "10.1002/ovs2.70088",
     "title": "Global scope of glaucoma clinical practice for optometrists",
