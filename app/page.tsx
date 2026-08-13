@@ -22,30 +22,6 @@ export default function Home() {
   const { isDark } = useTheme();
   const profilePhotoUrl = buildAssetUrl('/images/profile-photo.jpg');
 
-  // SVG Texture Pattern
-  const TextureBackground = () => (
-    <svg
-      className="fixed inset-0 w-full h-full pointer-events-none opacity-5 dark:opacity-10 z-0"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <pattern id="texture" patternUnits="userSpaceOnUse" width="100" height="100">
-          <rect width="100" height="100" fill="currentColor" />
-          <path
-            d="M0,0 l100,100 M100,0 l-100,100"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            opacity="0.5"
-          />
-          <circle cx="50" cy="50" r="1" fill="currentColor" opacity="0.3" />
-          <circle cx="25" cy="25" r="0.5" fill="currentColor" opacity="0.3" />
-          <circle cx="75" cy="75" r="0.5" fill="currentColor" opacity="0.3" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#texture)" />
-    </svg>
-  );
-
   const bannerClasses = getBannerClasses(variant, isDark);
   const bioClasses = getBioSectionClasses(variant, isDark);
   const cardBase = getCardClasses(variant, isDark);
@@ -53,44 +29,26 @@ export default function Home() {
   const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
 
   return (
-    <main className="relative min-h-screen bg-gray-50 dark:bg-[#020617]">
+    <main className="relative isolate min-h-screen overflow-x-clip bg-gray-50 dark:bg-[#020617]">
       <div className="fixed inset-0 z-0 pointer-events-none" style={bioClasses.style}></div>
-      <TextureBackground />
-
-      {/* Hero Section with Virtual Patient Banner */}
-      <section
-        className={`relative text-white py-2.5 sm:py-3 bg-cover bg-center z-10 overflow-hidden ${bannerClasses.className}`}
-        style={bannerClasses.style}
-      >
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${bannerClasses.animationClass}`}>
-          <Link
-            href="https://virtualpatient.co.nz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 sm:gap-3 hover:opacity-90 transition-all duration-300 group text-center no-hover-effect"
-          >
-            <Image
-              src={buildAssetUrl('/images/VirtualPatientLogo.png')}
-              alt="Virtual Patient Logo"
-              width={128}
-              height={32}
-              className="h-6 sm:h-7 w-auto object-contain group-hover:scale-105 transition-transform"
-            />
-            <span className="text-sm sm:text-base font-medium group-hover:scale-105 transition-transform">Looking for the Virtual Patient?</span>
-            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
 
       {/* Bio Section */}
-      <section className="relative z-10 pt-4 pb-12 sm:pb-16">
+      <section className="relative z-10 pt-3 pb-12 sm:pb-16">
         <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${bioClasses.animationClass}`}>
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
             <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-start md:items-center">
               {/* Profile Image */}
-              <div className="flex-shrink-0 md:flex-shrink animate-slideInLeft" style={{ animationDelay: '0ms' }}>
-                <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-[1.25rem] blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <div className="relative inline-block rounded-[1.15rem] overflow-hidden border border-white/10">
+              <div className="relative flex-shrink-0 md:flex-shrink animate-slideInLeft" style={{ animationDelay: '0ms' }}>
+                <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-cyan-500/10 via-transparent to-blue-500/10 blur-3xl animate-subtleFloat" />
+                <div className="absolute inset-0 opacity-70 pointer-events-none">
+                  <svg viewBox="0 0 320 320" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="160" cy="160" r="126" stroke="rgba(125, 211, 252, 0.14)" strokeWidth="1.1" strokeDasharray="8 12" className="research-atmosphere__ring" />
+                    <circle cx="160" cy="160" r="98" stroke="rgba(59, 130, 246, 0.16)" strokeWidth="0.9" strokeDasharray="4 10" className="research-atmosphere__ring research-atmosphere__ring--small" />
+                    <circle cx="76" cy="210" r="3.5" className="research-atmosphere__node" style={{ animationDelay: '400ms' }} />
+                    <circle cx="246" cy="102" r="3" className="research-atmosphere__node" style={{ animationDelay: '1200ms' }} />
+                  </svg>
+                </div>
+                <div className="relative inline-block rounded-[1.15rem] overflow-hidden border border-white/10 shadow-[0_0_24px_rgba(34,211,238,0.10)]">
                   <Image
                     src={profilePhotoUrl}
                     alt="Associate Professor Philip Turnbull"
@@ -178,9 +136,9 @@ export default function Home() {
       <div className="relative z-10 pb-20">
 
         {/* Research Section */}
-        <section id="research" className="scroll-mt-16 w-full pt-10 sm:pt-14 pb-16 sm:pb-20">
+        <section id="research" className="scroll-mt-16 w-full pt-10 sm:pt-14 pb-12 sm:pb-14">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14 animate-fadeInUp">
-            <div>
+            <div className="rounded-[2rem] border border-gray-200/50 dark:border-gray-800/50 bg-white/50 dark:bg-gray-950/20 backdrop-blur-md p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
                 Research Areas
               </h2>
@@ -429,32 +387,23 @@ export default function Home() {
                 </div>
 
               </div>
+
+              <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-200/70 dark:border-gray-700/70">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">Publications</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-6 text-base sm:text-lg">
+                  See details of research outputs, including journal articles, conference papers, policy papers, and collaborative works.
+                </p>
+                <Link
+                  href="#publications"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
+                >
+                  View Publications
+                  <BookOpen className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
-
-        {/* Publications Link Block */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-          <div
-            className={`${panelPrimary.className} ${panelPrimary.animationClass}`}
-            style={{
-              ...panelPrimary.style,
-              animationDelay: getAnimationDelay(4, variant),
-            }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Publications</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-              See details of research outputs, including journal articles, conference papers, policy papers, and collaborative works.
-            </p>
-            <Link
-              href="#publications"
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
-            >
-              View Publications
-              <BookOpen className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
       </div>
 
       {/* Teaching Section */}
@@ -547,7 +496,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="space-y-4" style={{ animationDelay: getAnimationDelay(3, variant) }}>
+              <div className="space-y-4 lg:sticky lg:top-24 self-start" style={{ animationDelay: getAnimationDelay(3, variant) }}>
                 <div className="rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-slate-900/40 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
                   <div className="relative aspect-[4/5]">
                     <Image

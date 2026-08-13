@@ -166,6 +166,46 @@ a:not(.no-hover-effect) {
   }
 }
 
+@keyframes researchDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -1.25rem, 0) scale(1.04);
+  }
+}
+
+@keyframes researchPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes researchDash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes researchScan {
+  0% {
+    transform: translateY(-8%);
+  }
+  100% {
+    transform: translateY(8%);
+  }
+}
+
 /* Animation Utilities */
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in;
@@ -243,6 +283,93 @@ a:not(.no-hover-effect) {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+}
+
+.research-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.research-atmosphere__wash {
+  position: absolute;
+  inset: -12%;
+  opacity: 0.85;
+  filter: blur(54px);
+  mix-blend-mode: screen;
+  animation: researchDrift 26s ease-in-out infinite;
+}
+
+.research-atmosphere__wash--right {
+  animation-direction: reverse;
+  animation-duration: 31s;
+}
+
+.research-atmosphere__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.research-atmosphere__paths,
+.research-atmosphere__rings,
+.research-atmosphere__nodes {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.research-atmosphere__path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 1.4;
+  stroke-dasharray: 10 18;
+  animation: researchDash 18s linear infinite;
+}
+
+.research-atmosphere__path--primary {
+  stroke: rgba(34, 211, 238, 0.58);
+}
+
+.research-atmosphere__path--secondary {
+  stroke: rgba(59, 130, 246, 0.42);
+  animation-direction: reverse;
+  animation-duration: 24s;
+}
+
+.research-atmosphere__path--arc {
+  stroke: rgba(168, 85, 247, 0.42);
+  stroke-dasharray: 5 14;
+  animation-duration: 28s;
+}
+
+.research-atmosphere__ring {
+  stroke: rgba(125, 211, 252, 0.28);
+  stroke-width: 1.2;
+  stroke-dasharray: 6 16;
+  animation: researchDash 22s linear infinite reverse;
+}
+
+.research-atmosphere__ring--large {
+  animation-duration: 30s;
+}
+
+.research-atmosphere__ring--small {
+  animation-duration: 16s;
+}
+
+.research-atmosphere__node {
+  fill: url(#research-node-glow);
+  opacity: 0.9;
+  animation: researchPulse 4.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.research-atmosphere__scan {
+  transform-origin: center;
+  animation: researchScan 20s ease-in-out infinite alternate;
 }
 
 .ambient-bg::before,
@@ -415,6 +542,14 @@ a:not(.no-hover-effect) {
   .ambient-bg::before,
   .ambient-bg::after {
     animation: none;
+  }
+
+  .research-atmosphere__wash,
+  .research-atmosphere__path,
+  .research-atmosphere__ring,
+  .research-atmosphere__node,
+  .research-atmosphere__scan {
+    animation: none !important;
   }
 }
 
