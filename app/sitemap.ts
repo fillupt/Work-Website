@@ -5,6 +5,7 @@ export const dynamic = 'force-static'
 
 const HOME_LAST_MODIFIED = new Date('2026-06-03T00:00:00.000Z')
 const PUBLICATIONS_LAST_MODIFIED = new Date('2026-06-03T00:00:00.000Z')
+const POLICIES_LAST_MODIFIED = new Date('2026-10-06T00:00:00.000Z')
  
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -19,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: PUBLICATIONS_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: buildAbsoluteUrl('/privacy-policy'),
+      lastModified: POLICIES_LAST_MODIFIED,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: buildAbsoluteUrl('/terms-of-service'),
+      lastModified: POLICIES_LAST_MODIFIED,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 }
