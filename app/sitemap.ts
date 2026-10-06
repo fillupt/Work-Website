@@ -33,5 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    {
+      url: buildAbsoluteUrl('/fitbit-garmin-weight-sync'),
+      lastModified: POLICIES_LAST_MODIFIED,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ]
 }
