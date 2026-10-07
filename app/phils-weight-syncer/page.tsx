@@ -2,23 +2,23 @@ import type { Metadata } from 'next';
 import { buildAssetUrl } from '../lib/site';
 
 export const metadata: Metadata = {
-  title: 'Fitbit-Garmin Weight Sync',
-  description: 'Information about the Fitbit-Garmin Weight Sync application operated by Philip Turnbull.',
+  title: 'Phil\'s Weight Syncer',
+  description: 'Information about Phil\'s Weight Syncer, a Python application operated by Philip Turnbull.',
   alternates: {
-    canonical: '/fitbit-garmin-weight-sync',
+    canonical: '/phils-weight-syncer',
   },
 };
 
-export default function FitbitGarminWeightSyncPage() {
+export default function PhilsWeightSyncerPage() {
   return (
     <article className="mx-auto w-full max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-      <h1 className="mb-4 text-4xl font-bold">Fitbit-Garmin Weight Sync</h1>
+      <h1 className="mb-4 text-4xl font-bold">Phil&apos;s Weight Syncer</h1>
 
       <div className="space-y-8 leading-7 text-gray-700 dark:text-gray-300">
         <section>
           <h2 className="mb-3 text-2xl font-semibold text-gray-900 dark:text-white">About the application</h2>
           <p>
-            Fitbit-Garmin Weight Sync is a Python application operated by Philip Turnbull. It
+            Phil&apos;s Weight Syncer is a Python application operated by Philip Turnbull. It
             retrieves weight, body mass index (BMI), and body fat information from your Fitbit
             account using the Fitbit API and syncs those measurements to your Garmin Connect
             account. Its purpose is to keep these health and fitness measurements available in
