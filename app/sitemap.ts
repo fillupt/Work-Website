@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: buildAbsoluteUrl('/fitbit-garmin-weight-sync'),
+      url: buildAbsoluteUrl('/phils-weight-syncer'),
       lastModified: POLICIES_LAST_MODIFIED,
       changeFrequency: 'yearly',
       priority: 0.3,
