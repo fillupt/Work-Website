@@ -185,9 +185,9 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'journal':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+        return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200';
       case 'report':
-        return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+        return 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200';
       default:
         return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
     }
@@ -217,7 +217,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
           {(searchQuery || selectedTopics.size > 0 || selectedYears.size > 0) && (
             <button
               onClick={handleClearFilters}
-              className="text-sm text-blue-700 hover:text-blue-800 dark:text-blue-300 dark:hover:text-blue-200 font-medium"
+              className="text-sm text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200 font-medium"
             >
               Clear all filters
             </button>
@@ -231,7 +231,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
           </div>
           <input
             type="text"
-            className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all sm:text-sm"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all sm:text-sm"
             placeholder="Search publications by title, author, or keyword..."
             value={searchQuery}
             onChange={(e) => {
@@ -243,12 +243,12 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
 
         {/* Active Filters Display */}
         {(selectedTopics.size > 0 || selectedYears.size > 0) && (
-          <div className="mb-6 flex flex-wrap gap-2 p-4 bg-white/60 dark:bg-gray-900/40 rounded-lg border border-blue-200/70 dark:border-blue-700/60">
+          <div className="mb-6 flex flex-wrap gap-2 p-4 bg-white/60 dark:bg-gray-900/40 rounded-lg border border-emerald-200/70 dark:border-emerald-700/60">
             {Array.from(selectedTopics).sort().map(topic => (
               <button
                 key={topic}
                 onClick={() => handleTopicToggle(topic)}
-                className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-full transition-colors"
+                className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-white text-sm rounded-full transition-colors"
               >
                 {topic}
                 <X className="w-3 h-3" />
@@ -258,7 +258,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
               <button
                 key={year}
                 onClick={() => handleYearToggle(year)}
-                className="inline-flex items-center gap-1 px-3 py-1 bg-purple-500 hover:bg-purple-600 text-white text-sm rounded-full transition-colors"
+                className="inline-flex items-center gap-1 px-3 py-1 bg-amber-700 hover:bg-amber-800 text-white text-sm rounded-full transition-colors"
               >
                 {year}
                 <X className="w-3 h-3" />
@@ -276,7 +276,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                 key={year}
                 onClick={() => handleYearToggle(year)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedYears.has(year)
-                  ? 'bg-purple-600 dark:bg-purple-500 text-white shadow-md'
+                  ? 'bg-amber-700 dark:bg-amber-700 text-white shadow-md'
                   : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700'
                   }`}
               >
@@ -295,7 +295,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                 key={topic}
                 onClick={() => handleTopicToggle(topic)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTopics.has(topic)
-                  ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-md'
+                  ? 'bg-emerald-600 dark:bg-emerald-500 text-white shadow-md'
                   : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700'
                   }`}
               >
@@ -353,8 +353,8 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                           key={topic}
                           onClick={() => handleTopicToggle(topic)}
                           className={`text-xs px-3 py-1 rounded-full transition-all ${selectedTopics.has(topic)
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50 border border-blue-100 dark:border-blue-800/50'
+                            ? 'bg-emerald-600 text-white'
+                            : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-300 dark:hover:bg-emerald-900/50 border border-emerald-100 dark:border-emerald-800/50'
                             }`}
                         >
                           #{topic}
@@ -368,7 +368,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                         href={pub.doi ? `https://doi.org/${pub.doi}` : pub.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 block transition-colors leading-tight"
+                        className="text-xl font-bold text-gray-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 block transition-colors leading-tight"
                       >
                         {pub.title}
                       </a>
@@ -449,7 +449,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                                 href={`https://doi.org/${pub.doi}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                                className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors"
                               >
                                 DOI
                                 <ExternalLink className="w-3.5 h-3.5" />
@@ -460,7 +460,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                                 href={pub.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                                className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors"
                               >
                                 {pub.url.includes('scholar.google') ? 'Google Scholar' : 'Full Text'}
                                 <ExternalLink className="w-3.5 h-3.5" />
@@ -478,7 +478,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
                         <p className="text-xs text-gray-500 dark:text-gray-500 font-mono mb-1 select-none">
                           APA String Format:
                         </p>
-                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-serif selection:bg-blue-500/20">
+                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-serif selection:bg-emerald-500/20">
                           {generateAPACitation(pub)}
                         </p>
                       </div>
@@ -493,7 +493,7 @@ export default function PublicationsList({ showTitle = true }: PublicationsListP
             <div className="flex justify-center py-6">
               <button
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
+                className="px-8 py-3 bg-gradient-to-r from-[#17675e] to-[#36745f] hover:from-[#12574f] hover:to-[#2b624f] text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(36,139,123,0.3)] hover:shadow-[0_0_30px_rgba(36,139,123,0.5)] hover:-translate-y-0.5"
               >
                 Load More Publications
               </button>

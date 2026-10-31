@@ -33,7 +33,7 @@ export default function PhilsWeightSyncerPage() {
             the sync. It transfers those measurements to Garmin Connect to provide the feature
             you request; it does not use them for advertising or sell them. For details about
             data handling and your choices, see the{' '}
-            <a className="text-blue-700 underline dark:text-blue-300" href={buildAssetUrl('/privacy-policy/')}>
+            <a className="text-emerald-700 underline dark:text-emerald-300" href={buildAssetUrl('/privacy-policy/')}>
               Privacy Policy
             </a>.
           </p>
@@ -44,7 +44,7 @@ export default function PhilsWeightSyncerPage() {
           <p>
             The application is an independent project operated by Philip Turnbull. It is not
             affiliated with or endorsed by Fitbit, Google, or Garmin. For questions, contact{' '}
-            <a className="text-blue-700 underline dark:text-blue-300" href="mailto:p.turnbull@auckland.ac.nz">
+            <a className="text-emerald-700 underline dark:text-emerald-300" href="mailto:p.turnbull@auckland.ac.nz">
               p.turnbull@auckland.ac.nz
             </a>.
           </p>
@@ -54,7 +54,7 @@ export default function PhilsWeightSyncerPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900 dark:text-white">Terms and health information</h2>
           <p>
             Use of the application is subject to the{' '}
-            <a className="text-blue-700 underline dark:text-blue-300" href={buildAssetUrl('/terms-of-service/')}>
+            <a className="text-emerald-700 underline dark:text-emerald-300" href={buildAssetUrl('/terms-of-service/')}>
               Terms of Service
             </a>. Synced measurements are for informational purposes only and are not medical
             advice, diagnosis, or treatment.

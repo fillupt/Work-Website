@@ -104,9 +104,9 @@ export default function Header() {
               onClick={handleHomeClick}
               className={`${
                 isActive(homeLink.href)
-                  ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
-              } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
+                  ? 'text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 ring-2 ring-teal-500/50'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400'
+              } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50`}
             >
               {homeLink.label}
             </Link>
@@ -118,9 +118,9 @@ export default function Header() {
                 href={link.href}
                 className={`${
                   isActive(link.href)
-                    ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
-                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
+                    ? 'text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 ring-2 ring-teal-500/50'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400'
+                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50`}
               >
                 {link.label}
               </Link>
@@ -133,9 +133,9 @@ export default function Header() {
                 href={item.href}
                 className={`${
                   isActive(item.href)
-                    ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
-                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
+                    ? 'text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 ring-2 ring-teal-500/50'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400'
+                } px-3 py-2 text-base font-medium transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50`}
               >
                 {item.label}
               </Link>
@@ -144,7 +144,7 @@ export default function Header() {
             {/* Theme Toggle Button */}
             <button
               onClick={() => setTheme(getNextTheme())}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ml-2 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ml-2 outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
               aria-label="Toggle theme"
               title={`Switch to ${getNextTheme()} mode`}
             >
@@ -160,7 +160,7 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => setTheme(getNextTheme())}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
               aria-label="Toggle theme"
               title={`Switch to ${getNextTheme()} mode`}
             >
@@ -173,7 +173,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
@@ -198,9 +198,9 @@ export default function Header() {
                 }}
                 className={`${
                   isActive(homeLink.href)
-                    ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
+                    ? 'text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 ring-2 ring-teal-500/50'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50`}
               >
                 {homeLink.label}
               </Link>
@@ -213,9 +213,9 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                   className={`${
                     isActive(link.href)
-                      ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                  } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 pl-6 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
+                      ? 'text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 ring-2 ring-teal-500/50'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                  } px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 pl-6 outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50`}
                 >
                   {link.label}
                 </Link>
@@ -230,9 +230,9 @@ export default function Header() {
                     onClick={() => setIsMenuOpen(false)}
                     className={`${
                       isActive(item.href)
-                        ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50/50 dark:bg-cyan-900/20 ring-2 ring-cyan-500/50'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    } block px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50`}
+                        ? 'text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 ring-2 ring-teal-500/50'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    } block px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50`}
                   >
                     {item.label}
                   </Link>

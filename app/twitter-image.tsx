@@ -40,7 +40,7 @@ export default function TwitterImage() {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ fontSize: 24, color: '#e2e8f0' }}>Research, teaching, and advisory work</div>
-          <div style={{ fontSize: 24, color: '#67e8f9', fontWeight: 700 }}>philipturnbull.nz</div>
+          <div style={{ fontSize: 24, color: '#a6d8c5', fontWeight: 700 }}>philipturnbull.nz</div>
         </div>
       </div>
     ),

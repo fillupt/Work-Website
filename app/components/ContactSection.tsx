@@ -92,14 +92,14 @@ export default function ContactSection() {
             <div className="space-y-6">
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center border border-blue-200 dark:border-blue-800/50">
-                  <Mail className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center border border-emerald-200 dark:border-emerald-800/50">
+                  <Mail className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                 </div>
                 <div className="pt-1">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
                   <a 
                     href="mailto:p.turnbull@auckland.ac.nz"
-                    className="text-cyan-600 dark:text-cyan-400 hover:text-purple-500 transition-colors"
+                    className="text-teal-600 dark:text-teal-400 hover:text-amber-500 transition-colors"
                   >
                     p.turnbull@auckland.ac.nz
                   </a>
@@ -108,14 +108,14 @@ export default function ContactSection() {
 
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center border border-blue-200 dark:border-blue-800/50">
-                  <Phone className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center border border-emerald-200 dark:border-emerald-800/50">
+                  <Phone className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                 </div>
                 <div className="pt-1">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h4>
                   <a 
                     href="tel:+6493737599"
-                    className="text-cyan-600 dark:text-cyan-400 hover:text-purple-500 transition-colors"
+                    className="text-teal-600 dark:text-teal-400 hover:text-amber-500 transition-colors"
                   >
                     +64 9 373 7599 Ext. 82352
                   </a>
@@ -124,8 +124,8 @@ export default function ContactSection() {
 
               {/* Address */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center border border-blue-200 dark:border-blue-800/50">
-                  <MapPin className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center border border-emerald-200 dark:border-emerald-800/50">
+                  <MapPin className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                 </div>
                 <div className="pt-1">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Office Address</h4>
@@ -168,8 +168,8 @@ export default function ContactSection() {
 
           {submitSuccess ? (
             <div className="flex flex-col items-center justify-center py-12 text-center h-full">
-              <div className="w-20 h-20 bg-cyan-100 dark:bg-cyan-900/30 rounded-full flex items-center justify-center mb-6 border border-cyan-200 dark:border-cyan-800/50">
-                <CheckCircle className="w-10 h-10 text-cyan-500" />
+              <div className="w-20 h-20 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center mb-6 border border-teal-200 dark:border-teal-800/50">
+                <CheckCircle className="w-10 h-10 text-teal-500" />
               </div>
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
                 Message Sent!
@@ -191,7 +191,7 @@ export default function ContactSection() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none"
                   placeholder="Your name"
                 />
               </div>
@@ -207,7 +207,7 @@ export default function ContactSection() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -223,7 +223,7 @@ export default function ContactSection() {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none"
                   placeholder="What's this about?"
                 />
               </div>
@@ -239,7 +239,7 @@ export default function ContactSection() {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all resize-none outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all resize-none outline-none"
                   placeholder="Your message..."
                 />
               </div>
@@ -247,7 +247,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 mt-2"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#17675e] to-[#36745f] hover:from-[#12574f] hover:to-[#2b624f] text-white rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(36,139,123,0.3)] hover:shadow-[0_0_30px_rgba(36,139,123,0.5)] disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 mt-2"
               >
                 {isSubmitting ? (
                   <>

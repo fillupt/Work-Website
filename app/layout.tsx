@@ -126,12 +126,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} font-sans antialiased flex flex-col min-h-screen bg-gray-50 text-gray-900 dark:bg-[#050505] dark:text-gray-100 transition-colors`}>
+      <body className={`${outfit.variable} font-sans antialiased flex flex-col min-h-screen bg-[#f7f8f2] text-gray-900 dark:bg-[#071916] dark:text-gray-100 transition-colors`}>
         <ThemeProvider>
           <DesignProvider>
             <div className="ambient-bg" aria-hidden="true"></div>
             <Header />
-            <main className="flex-1">
+            <main className="relative z-10 flex-1">
               {children}
             </main>
             <Footer />

@@ -5,7 +5,7 @@
 @custom-media --md (width >= 820px);
 
 :root {
-  --background: #ffffff;
+  --background: #f7f8f2;
   --foreground: #171717;
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -23,7 +23,7 @@
 }
 
 html.dark {
-  --background: #020617;
+  --background: #071916;
   --foreground: #f8fafc;
 }
 
@@ -44,7 +44,7 @@ a {
 }
 
 a:not(.no-hover-effect) {
-  @apply hover:text-blue-600 dark:hover:text-blue-400;
+  @apply hover:text-emerald-600 dark:hover:text-emerald-400;
 }
 
 /* Animation Keyframes */
@@ -144,25 +144,25 @@ a:not(.no-hover-effect) {
 
 @keyframes driftA {
   0% {
-    transform: translate3d(-4%, -3%, 0) scale(1);
+    transform: translate3d(-10%, -6%, 0) scale(1);
   }
   50% {
-    transform: translate3d(4%, 3%, 0) scale(1.06);
+    transform: translate3d(12%, 8%, 0) scale(1.12);
   }
   100% {
-    transform: translate3d(-4%, -3%, 0) scale(1);
+    transform: translate3d(-10%, -6%, 0) scale(1);
   }
 }
 
 @keyframes driftB {
   0% {
-    transform: translate3d(3%, 4%, 0) scale(1.05);
+    transform: translate3d(8%, 10%, 0) scale(1.05);
   }
   50% {
-    transform: translate3d(-3%, -4%, 0) scale(1);
+    transform: translate3d(-12%, -8%, 0) scale(1);
   }
   100% {
-    transform: translate3d(3%, 4%, 0) scale(1.05);
+    transform: translate3d(8%, 10%, 0) scale(1.05);
   }
 }
 
@@ -330,23 +330,23 @@ a:not(.no-hover-effect) {
 }
 
 .research-atmosphere__path--primary {
-  stroke: rgba(34, 211, 238, 0.58);
+  stroke: rgba(69, 182, 162, 0.58);
 }
 
 .research-atmosphere__path--secondary {
-  stroke: rgba(59, 130, 246, 0.42);
+  stroke: rgba(49, 124, 107, 0.42);
   animation-direction: reverse;
   animation-duration: 24s;
 }
 
 .research-atmosphere__path--arc {
-  stroke: rgba(168, 85, 247, 0.42);
+  stroke: rgba(184, 139, 72, 0.42);
   stroke-dasharray: 5 14;
   animation-duration: 28s;
 }
 
 .research-atmosphere__ring {
-  stroke: rgba(125, 211, 252, 0.28);
+  stroke: rgba(166, 216, 197, 0.28);
   stroke-width: 1.2;
   stroke-dasharray: 6 16;
   animation: researchDash 22s linear infinite reverse;
@@ -380,30 +380,30 @@ a:not(.no-hover-effect) {
   height: 75vmax;
   border-radius: 9999px;
   filter: blur(56px);
-  opacity: 0.24;
+  opacity: 0.48;
   will-change: transform;
 }
 
 .ambient-bg::before {
   left: -8vmax;
   top: -6vmax;
-  background: radial-gradient(circle, #22d3ee 0%, transparent 65%);
-  animation: driftA 24s ease-in-out infinite;
+  background: radial-gradient(ellipse at 35% 35%, #45b6a2 0%, #a6d8c5 28%, transparent 68%);
+  animation: driftA 30s ease-in-out infinite;
 }
 
 .ambient-bg::after {
   right: -10vmax;
   bottom: -9vmax;
-  background: radial-gradient(circle, #3b82f6 0%, transparent 65%);
-  animation: driftB 28s ease-in-out infinite;
+  background: radial-gradient(ellipse at 65% 65%, #d6bc8b 0%, #e6d8b9 24%, transparent 68%);
+  animation: driftB 38s ease-in-out infinite;
 }
 
 html.dark .ambient-bg::before {
-  opacity: 0.22;
+  opacity: 0.3;
 }
 
 html.dark .ambient-bg::after {
-  opacity: 0.2;
+  opacity: 0.28;
 }
 
 /* Scroll-triggered animations */
@@ -505,7 +505,7 @@ button, a[role="button"] {
 button:focus-visible, a[role="button"]:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(49, 124, 107, 0.5);
 }
 
 .dark button:focus-visible,
@@ -556,7 +556,7 @@ a:not(.no-hover-effect) {
 /* Phase 6: Visual Polish — Optional accent surfaces */
 
 /* Soft glass effect for CTA panels (degrades gracefully) */
-.bg-blue-50, .dark\:bg-blue-900\/30 {
+.bg-emerald-50, .dark\:bg-emerald-900\/30 {
   @supports (backdrop-filter: blur(4px)) {
     backdrop-filter: blur(4px);
   }
@@ -582,7 +582,7 @@ a.no-hover-effect {
 /* Ensure all interactive elements are keyboard accessible */
 button:focus,
 a:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #317c6b;
   outline-offset: 2px;
 }
 
@@ -659,4 +659,74 @@ button:disabled {
     animation: none;
     border-right-color: currentColor;
   }
+}
+/* Keep mobile compositing inexpensive while retaining ambient colour. */
+@media (max-width: 640px) {
+  .ambient-bg::before, .ambient-bg::after {
+    width: 100vmax;
+    height: 100vmax;
+    filter: none;
+    animation: none;
+    will-change: auto;
+    opacity: 0.22;
+  }
+}
+
+/* A peripheral reference grid; fade it away under the reading column. */
+.optical-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(28, 113, 101, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 113, 101, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(90deg, #000, transparent 28%, transparent 72%, #000);
+}
+.dark .optical-grid { opacity: 0.5; }
+@media (max-width: 640px) {
+  .optical-grid { display: none; }
+}
+
+/* Oversized lens contours frame the introduction without crossing its text. */
+.optical-arcs {
+  position: absolute;
+  inset: -4rem 0 -6rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+.optical-arc {
+  position: absolute;
+  width: clamp(36rem, 80vw, 80rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(28, 113, 101, 0.24);
+  box-shadow: 0 0 44px rgba(69, 182, 162, 0.07), inset 0 0 44px rgba(69, 182, 162, 0.07);
+  animation: opticalArcDrift 34s ease-in-out infinite alternate;
+}
+.optical-arc--sea { left: -42%; top: -22%; }
+.optical-arc--sand {
+  right: -48%;
+  top: 8%;
+  border-color: rgba(184, 139, 72, 0.18);
+  animation-delay: -17s;
+  animation-direction: alternate-reverse;
+}
+.dark .optical-arc { border-color: rgba(166, 216, 197, 0.22); }
+.dark .optical-arc--sand { border-color: rgba(220, 196, 155, 0.22); }
+@keyframes opticalArcDrift {
+  from { transform: translate3d(0, -1rem, 0) scale(0.98); }
+  to { transform: translate3d(2rem, 2rem, 0) scale(1.05); }
+}
+@media (max-width: 640px) {
+  .optical-arc { animation: none; box-shadow: none; opacity: 0.55; }
+  .optical-arc--sand { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .optical-arc { animation: none; }
+}
+
+/* Section headings align to the new, tighter spacing rhythm. */
+.optical-hero ~ div section h2:first-child {
+  margin-top: 0;
 }
