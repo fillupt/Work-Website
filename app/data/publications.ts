@@ -16,6 +16,32 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "id": "75",
+    "title": "Including eye health in Aotearoa New Zealand’s health budget: in sight at last?",
+    "authors": [
+      "Lucy Goodman",
+      "Pushkar Silwal",
+      "Philip Turnbull",
+      "Inhae Park",
+      "Joanna Black",
+      "Renata Watene",
+      "Jacqueline Ramke"
+    ],
+    "year": 2026,
+    "journal": "Public Health Expert Briefing",
+    "url": "https://www.phcc.org.nz/briefing/including-eye-health-aotearoa-new-zealands-health-budget-sight-last",
+    "summary": "This briefing proposes public funding for routine eye examinations and spectacles in Aotearoa New Zealand. It outlines how cost barriers delay care, particularly for Māori, Pacific peoples and low-income households, and argues that investment in community optometry could improve access and reduce preventable vision loss.",
+    "type": "report",
+    "keywords": [
+      "eye health",
+      "public health",
+      "equity",
+      "access to care",
+      "health funding",
+      "Aotearoa New Zealand"
+    ]
+  },
+  {
     "id": "73",
     "doi": "10.1080/08164622.2026.2751180",
     "title": "Causative factors and outcomes of pyogenic granulomas presenting to a hospital eye clinic",
@@ -159,7 +185,7 @@ export const publications: Publication[] = [
     ],
     "year": 2026,
     "journal": "Clinical and Experimental Optometry",
-    "pages": "1-5",
+    "pages": "1-15",
     "summary": "This narrative review synthesises multidisciplinary team-based care models that include optometrists across Australia and New Zealand. It highlights recurring implementation challenges around role clarity, referral pathways, funding settings, and interprofessional communication. The synthesis outlines system-level considerations for scaling collaborative care while maintaining quality and equitable access.",
     "type": "journal",
     "keywords": [
@@ -182,7 +208,7 @@ export const publications: Publication[] = [
     ],
     "year": 2026,
     "journal": "Brain Injury",
-    "pages": "1-5",
+    "pages": "717-721",
     "summary": "This case report tracks objective oculomotor outcomes across three timepoints in mild traumatic brain injury. Serial measurements show how eye-movement metrics can capture dynamic recovery patterns that may not be evident on routine assessment alone. The report supports the potential value of oculomotor markers as practical adjuncts for monitoring mTBI progression.",
     "type": "journal",
     "keywords": [
@@ -191,7 +217,8 @@ export const publications: Publication[] = [
       "brain injury",
       "eye movements",
       "case report"
-    ]
+    ],
+    "volume": "40(8)"
   },
   {
     "id": "1",
@@ -221,7 +248,7 @@ export const publications: Publication[] = [
   {
     "id": "2",
     "doi": "10.1080/08164622.2025.2460609",
-    "volume": "108",
+    "volume": "108(8)",
     "title": "The expanding scope of the Aotearoa New Zealand optometric workforce",
     "authors": [
       "Philip RK Turnbull",
@@ -230,7 +257,7 @@ export const publications: Publication[] = [
     ],
     "year": 2025,
     "journal": "Clinical and Experimental Optometry",
-    "pages": "1-3",
+    "pages": "1078-1080",
     "url": "https://scholar.google.com/scholar?q=The+expanding+scope+of+the+Aotearoa+New+Zealand+optometric+workforce",
     "summary": "An analysis of a decade of professional data reveals that NZ optometrists have safely issued over half a million prescriptions, primarily for glaucoma and dry eye. The report advocates for the further expansion of the optometric scope into intravitreal injections and laser procedures to improve national eye care equity and reduce hospital waitlists.",
     "type": "journal",
@@ -245,7 +272,7 @@ export const publications: Publication[] = [
   {
     "id": "3",
     "doi": "10.1080/08164622.2024.2433597",
-    "volume": "109",
+    "volume": "109(1)",
     "title": "A baseline audit of the population groups accessing optometry training clinics in Aotearoa New Zealand: looking towards equity in eye care",
     "authors": [
       "Lucy K Goodman",
@@ -259,7 +286,7 @@ export const publications: Publication[] = [
     ],
     "year": 2026,
     "journal": "Clinical and Experimental Optometry",
-    "pages": "1-7",
+    "pages": "95-101",
     "url": "https://scholar.google.com/scholar?q=A+baseline+audit+of+the+population+groups+accessing+optometry+training+clinics+in+Aotearoa+New+Zealand%3A+looking+towards+equity+in+eye+care",
     "summary": "This audit found that university-based training clinics are less accessible to people living in high-deprivation areas, who often travel the furthest for care. It recommends increasing funding for community outreach and mobile eye clinics to foster equity and provide diverse clinical training for future optometrists.",
     "type": "journal",
@@ -377,9 +404,9 @@ export const publications: Publication[] = [
       "Jacqueline Ramke",
       "Philip RK Turnbull"
     ],
-    "year": 2025,
+    "year": 2026,
     "journal": "Clinical and Experimental Optometry",
-    "pages": "1-9",
+    "pages": "1415-1423",
     "url": "https://scholar.google.com/scholar?q=Emerging+research+on+non-neovascular+age-related+macular+degeneration+treatments",
     "summary": "This scoping review of over 130 studies from the past decade identifies antioxidant and complement pathway inhibitors as the most promising avenues for treating geographic atrophy. It notes a 24% annual increase in research activity, signalling a significant shift towards effective atrophic AMD therapies.",
     "type": "journal",
@@ -389,7 +416,8 @@ export const publications: Publication[] = [
       "geographic atrophy",
       "retinal disease",
       "emerging therapies"
-    ]
+    ],
+    "volume": "109(7)"
   },
   {
     "id": "9",
@@ -1278,6 +1306,43 @@ export const publications: Publication[] = [
       "mfERG",
       "defocus",
       "accommodation"
+    ]
+  },
+  {
+    "id": "76",
+    "title": "Atropine – Efficacy & Possible Mechanisms for Myopia Control",
+    "authors": [
+      "Philip Turnbull",
+      "Safal Khanal"
+    ],
+    "year": 2017,
+    "journal": "mivision",
+    "url": "https://mivision.com.au/2017/11/atropine-efficacy-possible-mechanisms-for-myopia-control/",
+    "summary": "This article reviews evidence available in 2017 on atropine for myopia control, including concentration-dependent side effects and potential benefits of combining atropine with optical treatments. It discusses proposed retinal mechanisms while highlighting uncertainty about how atropine slows eye growth.",
+    "type": "journal",
+    "keywords": [
+      "myopia",
+      "myopia control",
+      "atropine",
+      "retinal defocus",
+      "eye growth"
+    ]
+  },
+  {
+    "id": "77",
+    "title": "Eyevolution: Looking Beyond Short-Sightedness",
+    "authors": [
+      "Philip Turnbull",
+      "Lucy Goodman",
+      "EJ Goodman"
+    ],
+    "year": 2017,
+    "summary": "This work considers short-sightedness within the broader study of vision and eye development.",
+    "type": "journal",
+    "keywords": [
+      "myopia",
+      "vision",
+      "eye development"
     ]
   },
   {
