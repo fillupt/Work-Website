@@ -40,6 +40,32 @@ export const publications: Publication[] = [
     ]
   },
   {
+    "id": "74",
+    "doi": "10.1080/02713683.2026.2727290",
+    "title": "Head vs Screen-Mounted Eye Trackers: Comparisons Across Ethnic Diversity",
+    "authors": [
+      "Alice Cade",
+      "Jasmine Zoest",
+      "Misaki Kameyama",
+      "Laura Dukes",
+      "Philip R K Turnbull"
+    ],
+    "year": 2026,
+    "journal": "Current Eye Research",
+    "pages": "1-9",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42708428/",
+    "summary": "This crossover study compared head-mounted and screen-mounted eye trackers in 40 healthy participants with varied iris colours and skin types. Device performance differed across these features: the screen-mounted tracker performed better with lighter skin and non-brown irises, while the head-mounted tracker performed better with darker skin and brown irises. The head-mounted device captured more usable data overall but had lower accuracy and precision. The findings highlight the need to validate eye tracking technology across diverse populations.",
+    "type": "journal",
+    "keywords": [
+      "eye movements",
+      "eye tracker",
+      "iris colour",
+      "skin type",
+      "inclusive science",
+      "equity"
+    ]
+  },
+  {
     "id": "72",
     "doi": "10.1152/function.046.2026",
     "title": "A clear view at altitude: layer-specific control of the choroidal circulation.",
