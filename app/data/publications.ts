@@ -62,7 +62,9 @@ export const publications: Publication[] = [
       "ocular trauma",
       "chalazia",
       "optometric management",
-      "topical steroids"
+      "topical steroids",
+      "optometry",
+      "public health"
     ]
   },
   {
@@ -111,7 +113,9 @@ export const publications: Publication[] = [
       "ocular circulation",
       "altitude",
       "oxygen delivery",
-      "eye physiology"
+      "eye physiology",
+      "retina",
+      "myopia"
     ]
   },
   {
