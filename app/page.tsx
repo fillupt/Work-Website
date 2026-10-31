@@ -39,7 +39,7 @@ export default function Home() {
           <span className="optical-arc optical-arc--violet" />
         </div>
         <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${bioClasses.animationClass}`}>
-          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
+          <div className="bg-white/65 dark:bg-gray-900/65 backdrop-blur-xl rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-[0_8px_32px_rgba(15,23,42,0.06)] border border-white/60 dark:border-gray-700/50">
             <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-start md:items-center">
               {/* Profile Image */}
               <div className="relative flex-shrink-0 md:flex-shrink animate-slideInLeft" style={{ animationDelay: '0ms' }}>
@@ -142,7 +142,7 @@ export default function Home() {
         {/* Research Section */}
         <section id="research" className="scroll-mt-16 w-full pt-10 sm:pt-14 pb-12 sm:pb-14">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14 animate-fadeInUp">
-            <div className="rounded-[2rem] border border-gray-200/50 dark:border-gray-800/50 bg-white/50 dark:bg-gray-950/20 backdrop-blur-md p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
+            <div className="rounded-[2rem] border border-gray-200/50 dark:border-gray-800/50 bg-white/35 dark:bg-gray-950/25 backdrop-blur-md p-6 sm:p-8 lg:p-10 shadow-[0_6px_24px_rgba(15,23,42,0.04)]">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
                 Research Areas
               </h2>
@@ -501,7 +501,7 @@ export default function Home() {
               </div>
 
               <div className="space-y-4 lg:sticky lg:top-24 self-start" style={{ animationDelay: getAnimationDelay(3, variant) }}>
-                <div className="rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-slate-900/40 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
+                <div className="rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-slate-900/40 shadow-[0_6px_24px_rgba(15,23,42,0.04)]">
                   <div className="relative aspect-[4/5]">
                     <Image
                       src={buildAssetUrl('/images/interactive_learning.png')}

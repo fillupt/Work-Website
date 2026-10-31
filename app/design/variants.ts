@@ -125,7 +125,7 @@ export function getPanelClasses(
   const style: React.CSSProperties = {
     background: tone === 'primary' ? tokens.gradients.panelPrimary : tokens.gradients.panelSecondary,
     borderColor: colors.border,
-    boxShadow: tokens.shadows.lg,
+    boxShadow: isDark ? '0 8px 28px rgba(0,0,0,0.16)' : '0 6px 24px rgba(15,23,42,0.04)',
   };
 
   if (tokens.patterns.opacity > 0) {
