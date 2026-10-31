@@ -33,7 +33,7 @@ export default function Home() {
       <div className="optical-grid" aria-hidden="true" />
 
       {/* Bio Section */}
-      <section className="optical-hero relative z-10 pt-3 pb-12 sm:pb-16">
+      <section className="optical-hero relative z-10 pt-5 pb-6 sm:pt-8 sm:pb-8">
         <div className="optical-arcs" aria-hidden="true">
           <span className="optical-arc optical-arc--cyan" />
           <span className="optical-arc optical-arc--violet" />
@@ -137,10 +137,10 @@ export default function Home() {
       </section>
 
       {/* Main Content Sections */}
-      <div className="relative z-10 pb-20">
+      <div className="relative z-10 pb-8">
 
         {/* Research Section */}
-        <section id="research" className="scroll-mt-16 w-full pt-10 sm:pt-14 pb-12 sm:pb-14">
+        <section id="research" className="scroll-mt-16 w-full pt-6 sm:pt-8 pb-8 sm:pb-10">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14 animate-fadeInUp">
             <div className="rounded-[2rem] border border-gray-200/50 dark:border-gray-800/50 bg-white/35 dark:bg-gray-950/25 backdrop-blur-md p-6 sm:p-8 lg:p-10 shadow-[0_6px_24px_rgba(15,23,42,0.04)]">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
@@ -411,7 +411,7 @@ export default function Home() {
       </div>
 
       {/* Teaching Section */}
-      <section id="teaching" className="relative scroll-mt-16 w-full pt-14 sm:pt-20 pb-20 sm:pb-24 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_3vw,100%_0,100%_calc(100%-3vw),0_100%)] z-10 my-6">
+      <section id="teaching" className="relative scroll-mt-16 w-full py-10 sm:py-14 bg-white/45 dark:bg-slate-900/45 border-y border-cyan-900/5 dark:border-cyan-100/5 z-10 my-2">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -533,7 +533,7 @@ export default function Home() {
       </section>
 
       {/* Advisory Section */}
-      <section id="advisory" className="scroll-mt-16 w-full pt-12 sm:pt-16 pb-16 sm:pb-20 relative z-0">
+      <section id="advisory" className="scroll-mt-16 w-full py-10 sm:py-14 relative z-0">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
             {/* Sticky Intro Column */}
@@ -693,7 +693,7 @@ export default function Home() {
       </section>
 
       {/* Publications Section */}
-      <section id="publications" className="relative scroll-mt-16 w-full pt-14 sm:pt-20 pb-20 sm:pb-24 bg-gray-200/50 dark:bg-slate-900/50 [clip-path:polygon(0_0,100%_3vw,100%_100%,0_calc(100%-3vw))] z-10 my-6">
+      <section id="publications" className="relative scroll-mt-16 w-full py-10 sm:py-14 bg-slate-50/90 dark:bg-slate-950/90 border-y border-slate-200/60 dark:border-slate-800/60 z-10 my-2">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -708,7 +708,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="scroll-mt-16 w-full pt-12 sm:pt-16 pb-16 sm:pb-20">
+      <section id="contact" className="scroll-mt-16 w-full py-10 sm:py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <ContactSection />
         </div>

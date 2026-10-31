@@ -725,3 +725,8 @@ button:disabled {
 @media (prefers-reduced-motion: reduce) {
   .optical-arc { animation: none; }
 }
+
+/* Section headings align to the new, tighter spacing rhythm. */
+.optical-hero ~ div section h2:first-child {
+  margin-top: 0;
+}
