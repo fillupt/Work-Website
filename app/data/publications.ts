@@ -16,6 +16,30 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "id": "73",
+    "doi": "10.1080/08164622.2026.2751180",
+    "title": "Causative factors and outcomes of pyogenic granulomas presenting to a hospital eye clinic",
+    "authors": [
+      "Richard Johnson",
+      "Megan Yi-Han Wang",
+      "Philip RK Turnbull"
+    ],
+    "year": 2026,
+    "journal": "Clinical and Experimental Optometry",
+    "url": "https://www.tandfonline.com/doi/full/10.1080/08164622.2026.2751180",
+    "summary": "This retrospective audit reviewed 49 cases of ocular pyogenic granuloma presenting to a hospital acute eye clinic between 2009 and 2024. Ruptured chalazia were the most common trigger, and most lesions resolved with topical medication, with a median time to resolution of one month. The findings support a community optometry pathway for first-line topical treatment with appropriate diagnostic assessment and intraocular pressure monitoring, reserving surgical referral for persistent lesions.",
+    "type": "journal",
+    "keywords": [
+      "pyogenic granuloma",
+      "conjunctival disorders",
+      "eyelid lesions",
+      "ocular trauma",
+      "chalazia",
+      "optometric management",
+      "topical steroids"
+    ]
+  },
+  {
     "id": "72",
     "doi": "10.1152/function.046.2026",
     "title": "A clear view at altitude: layer-specific control of the choroidal circulation.",
