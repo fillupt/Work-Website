@@ -33,8 +33,12 @@ export default function Home() {
       <div className="optical-grid" aria-hidden="true" />
 
       {/* Bio Section */}
-      <section className="relative z-10 pt-3 pb-12 sm:pb-16">
-        <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${bioClasses.animationClass}`}>
+      <section className="optical-hero relative z-10 pt-3 pb-12 sm:pb-16">
+        <div className="optical-arcs" aria-hidden="true">
+          <span className="optical-arc optical-arc--cyan" />
+          <span className="optical-arc optical-arc--violet" />
+        </div>
+        <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${bioClasses.animationClass}`}>
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
             <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-start md:items-center">
               {/* Profile Image */}
