@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <main className="relative isolate min-h-screen overflow-x-clip">
-      <div className="fixed inset-0 z-0 pointer-events-none" style={bioClasses.style}></div>
+      <div className="optical-grid" aria-hidden="true" />
 
       {/* Bio Section */}
       <section className="relative z-10 pt-3 pb-12 sm:pb-16">
