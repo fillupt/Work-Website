@@ -29,7 +29,7 @@ export default function Home() {
   const panelSecondary = getPanelClasses(variant, isDark, 'secondary');
 
   return (
-    <main className="relative isolate min-h-screen overflow-x-clip bg-gray-50 dark:bg-[#020617]">
+    <main className="relative isolate min-h-screen overflow-x-clip">
       <div className="fixed inset-0 z-0 pointer-events-none" style={bioClasses.style}></div>
 
       {/* Bio Section */}

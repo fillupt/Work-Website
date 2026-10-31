@@ -131,7 +131,7 @@ export default function RootLayout({
           <DesignProvider>
             <div className="ambient-bg" aria-hidden="true"></div>
             <Header />
-            <main className="flex-1">
+            <main className="relative z-10 flex-1">
               {children}
             </main>
             <Footer />
