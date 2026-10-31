@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
           <p>
             This policy may be updated when an app or its practices change. Questions about
             this policy can be sent to{' '}
-            <a className="text-blue-700 underline dark:text-blue-300" href="mailto:p.turnbull@auckland.ac.nz">
+            <a className="text-emerald-700 underline dark:text-emerald-300" href="mailto:p.turnbull@auckland.ac.nz">
               p.turnbull@auckland.ac.nz
             </a>.
           </p>

@@ -37,7 +37,7 @@ export default function Footer() {
             <Mail className="w-4 h-4" />
             <a 
               href="mailto:p.turnbull@auckland.ac.nz"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             >
               p.turnbull@auckland.ac.nz
             </a>

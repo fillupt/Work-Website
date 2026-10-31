@@ -81,7 +81,7 @@ export function getCardClasses(variant: DesignVariant, isDark: boolean): Variant
   };
 
   // Hover effects
-  const hoverClass = 'hover:shadow-lg hover:border-cyan-500/30 dark:hover:border-cyan-400/50';
+  const hoverClass = 'hover:shadow-lg hover:border-teal-500/30 dark:hover:border-teal-400/50';
 
   return {
     className: `${className} ${hoverClass}`,
@@ -103,8 +103,8 @@ export function getClickableCardClasses(variant: DesignVariant, isDark: boolean)
 
   // Extreme glowing hover effect for tech theme
   const hoverClass = isDark 
-    ? 'hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-400/50'
-    : 'hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(6,182,212,0.15)] hover:border-cyan-500/50';
+    ? 'hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(69,182,162,0.15)] hover:border-teal-400/50'
+    : 'hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(36,139,123,0.15)] hover:border-teal-500/50';
 
   return {
     className: `${className} ${hoverClass}`,

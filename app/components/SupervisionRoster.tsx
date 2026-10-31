@@ -25,15 +25,15 @@ const getCategoryStyles = (category: string) => {
   switch (category) {
     case 'Current PhD':
       return {
-        bg: 'bg-blue-50/50 dark:bg-blue-900/10',
-        border: 'border-blue-100/50 dark:border-blue-800/30',
-        borderHover: 'hover:border-blue-300 dark:hover:border-blue-700',
-        shadowHover: 'hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10',
-        iconBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400',
-        iconHoverBg: 'group-hover:bg-blue-200 dark:group-hover:bg-blue-900/60',
-        textHover: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
-        tabActive: 'bg-blue-600 text-white shadow-blue-500/30 dark:shadow-blue-900/30',
-        glow: 'from-blue-500/10 to-cyan-500/10 dark:from-blue-400/10 dark:to-cyan-400/10'
+        bg: 'bg-emerald-50/50 dark:bg-emerald-900/10',
+        border: 'border-emerald-100/50 dark:border-emerald-800/30',
+        borderHover: 'hover:border-emerald-300 dark:hover:border-emerald-700',
+        shadowHover: 'hover:shadow-emerald-500/10 dark:hover:shadow-emerald-400/10',
+        iconBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400',
+        iconHoverBg: 'group-hover:bg-emerald-200 dark:group-hover:bg-emerald-900/60',
+        textHover: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+        tabActive: 'bg-emerald-600 text-white shadow-emerald-500/30 dark:shadow-emerald-900/30',
+        glow: 'from-emerald-500/10 to-teal-500/10 dark:from-emerald-400/10 dark:to-teal-400/10'
       };
     case 'Current Masters':
       return {
@@ -49,15 +49,15 @@ const getCategoryStyles = (category: string) => {
       };
     case 'PhD Alumni':
       return {
-        bg: 'bg-purple-50/50 dark:bg-purple-900/10',
-        border: 'border-purple-100/50 dark:border-purple-800/30',
-        borderHover: 'hover:border-purple-300 dark:hover:border-purple-700',
-        shadowHover: 'hover:shadow-purple-500/10 dark:hover:shadow-purple-400/10',
-        iconBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400',
-        iconHoverBg: 'group-hover:bg-purple-200 dark:group-hover:bg-purple-900/60',
-        textHover: 'group-hover:text-purple-600 dark:group-hover:text-purple-400',
-        tabActive: 'bg-purple-600 text-white shadow-purple-500/30 dark:shadow-purple-900/30',
-        glow: 'from-purple-500/10 to-fuchsia-500/10 dark:from-purple-400/10 dark:to-fuchsia-400/10'
+        bg: 'bg-amber-50/50 dark:bg-amber-900/10',
+        border: 'border-amber-100/50 dark:border-amber-800/30',
+        borderHover: 'hover:border-amber-300 dark:hover:border-amber-700',
+        shadowHover: 'hover:shadow-amber-500/10 dark:hover:shadow-amber-400/10',
+        iconBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400',
+        iconHoverBg: 'group-hover:bg-amber-200 dark:group-hover:bg-amber-900/60',
+        textHover: 'group-hover:text-amber-600 dark:group-hover:text-amber-400',
+        tabActive: 'bg-amber-700 text-white shadow-amber-500/30 dark:shadow-amber-900/30',
+        glow: 'from-amber-500/10 to-orange-500/10 dark:from-amber-400/10 dark:to-orange-400/10'
       };
     case 'Masters Alumni':
       return {
@@ -68,7 +68,7 @@ const getCategoryStyles = (category: string) => {
         iconBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400',
         iconHoverBg: 'group-hover:bg-amber-200 dark:group-hover:bg-amber-900/60',
         textHover: 'group-hover:text-amber-600 dark:group-hover:text-amber-400',
-        tabActive: 'bg-amber-600 text-white shadow-amber-500/30 dark:shadow-amber-900/30',
+        tabActive: 'bg-amber-700 text-white shadow-amber-500/30 dark:shadow-amber-900/30',
         glow: 'from-amber-500/10 to-orange-500/10 dark:from-amber-400/10 dark:to-orange-400/10'
       };
     default:
@@ -137,14 +137,14 @@ export default function SupervisionRoster() {
         {/* Search */}
         <div className="relative w-full sm:w-auto group">
           <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-            <Search className="h-4 w-4 text-gray-400 dark:text-gray-500 group-focus-within:text-blue-500 transition-colors" />
+            <Search className="h-4 w-4 text-gray-400 dark:text-gray-500 group-focus-within:text-emerald-500 transition-colors" />
           </div>
           <input
             type="text"
             placeholder="Search students or topics..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full sm:w-72 pl-10 pr-4 py-2.5 bg-white/70 dark:bg-gray-800/70 border border-gray-200 dark:border-gray-700 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm"
+            className="w-full sm:w-72 pl-10 pr-4 py-2.5 bg-white/70 dark:bg-gray-800/70 border border-gray-200 dark:border-gray-700 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm"
           />
         </div>
       </div>
@@ -226,14 +226,14 @@ export default function SupervisionRoster() {
       <div className="pt-2">
         <Link
           href="#contact"
-          className="group flex flex-col sm:flex-row items-center justify-between p-5 rounded-2xl bg-gradient-to-r from-blue-50/50 to-cyan-50/50 dark:from-blue-900/10 dark:to-cyan-900/10 border border-blue-100/50 dark:border-blue-800/30 hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/10"
+          className="group flex flex-col sm:flex-row items-center justify-between p-5 rounded-2xl bg-gradient-to-r from-emerald-50/50 to-teal-50/50 dark:from-emerald-900/10 dark:to-teal-900/10 border border-emerald-100/50 dark:border-emerald-800/30 hover:border-emerald-300 dark:hover:border-emerald-700 transition-all duration-500 hover:shadow-lg hover:shadow-emerald-500/10"
         >
           <div className="flex items-center gap-4 text-center sm:text-left mb-4 sm:mb-0">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm mx-auto sm:mx-0">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm mx-auto sm:mx-0">
               <Mail className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-0.5">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-0.5">
                 Interested in joining the team?
               </h4>
               <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -241,7 +241,7 @@ export default function SupervisionRoster() {
               </p>
             </div>
           </div>
-          <span className="inline-flex items-center justify-center px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors shadow-sm group-hover:shadow-md">
+          <span className="inline-flex items-center justify-center px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-medium transition-colors shadow-sm group-hover:shadow-md">
             Get in touch
           </span>
         </Link>

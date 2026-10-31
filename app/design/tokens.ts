@@ -1,6 +1,6 @@
 /**
- * Design tokens for a "Tech-Forward" aesthetic 
- * Focuses on deep dark backgrounds, glassmorphism, and vibrant cyan/purple gradients.
+ * Design tokens for a coastal optical palette
+ * Focuses on deep dark backgrounds, glassmorphism, and sea-glass, deep teal, and warm sand gradients.
  */
 
 export type DesignVariant = 'flat' | 'depth-subtle' | 'depth-bold';
@@ -50,10 +50,10 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     light: {
       background: '#f8fafc',
       foreground: '#0f172a',
-      primary: '#06b6d4', // Cyan
-      primaryLight: '#22d3ee',
+      primary: '#248b7b', // Sea glass
+      primaryLight: '#45b6a2',
       secondary: '#ffffff',
-      accent: '#8b5cf6', // Violet
+      accent: '#b88b48', // Sand
       border: '#e2e8f0',
       shadow: '#0f172a',
       shadowOpacity: 0.05,
@@ -61,16 +61,16 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     dark: {
       background: '#030712',
       foreground: '#f8fafc',
-      primary: '#22d3ee',
-      primaryLight: '#67e8f9',
+      primary: '#45b6a2',
+      primaryLight: '#a6d8c5',
       secondary: '#0f172a',
-      accent: '#a78bfa',
+      accent: '#dcc49b',
       border: '#1e293b',
       shadow: '#000000',
       shadowOpacity: 0.5,
     },
     gradients: {
-      banner: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+      banner: 'linear-gradient(135deg, #248b7b 0%, #317c6b 100%)',
       bio: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
       card: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%)',
       panelPrimary: 'linear-gradient(135deg, #f0fdfa 0%, #eff6ff 100%)',
@@ -98,10 +98,10 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     light: {
       background: '#f8fafc',
       foreground: '#0f172a',
-      primary: '#06b6d4',
-      primaryLight: '#22d3ee',
+      primary: '#248b7b',
+      primaryLight: '#45b6a2',
       secondary: 'rgba(255, 255, 255, 0.7)',
-      accent: '#8b5cf6',
+      accent: '#b88b48',
       border: 'rgba(255, 255, 255, 0.5)',
       shadow: '#0ea5e9',
       shadowOpacity: 0.1,
@@ -109,16 +109,16 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     dark: {
       background: '#020617', // Very deep blue/black
       foreground: '#f1f5f9',
-      primary: '#22d3ee',
-      primaryLight: '#67e8f9',
+      primary: '#45b6a2',
+      primaryLight: '#a6d8c5',
       secondary: 'rgba(15, 23, 42, 0.6)', // Glassmorphic card bg
-      accent: '#a78bfa',
+      accent: '#dcc49b',
       border: 'rgba(255, 255, 255, 0.1)',
       shadow: '#000000',
       shadowOpacity: 0.5,
     },
     gradients: {
-      banner: 'linear-gradient(135deg, #0284c7 0%, #8b5cf6 50%, #d946ef 100%)',
+      banner: 'linear-gradient(135deg, #1c7165 0%, #b88b48 50%, #d6bc8b 100%)',
       bio: 'linear-gradient(to bottom, transparent 0%, rgba(15,23,42,0.8) 100%)',
       card: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 100%)',
       panelPrimary: 'linear-gradient(135deg, rgba(240,253,250,0.8) 0%, rgba(239,246,255,0.8) 100%)',
@@ -146,10 +146,10 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     light: {
       background: '#f1f5f9',
       foreground: '#020617',
-      primary: '#0891b2',
-      primaryLight: '#06b6d4',
+      primary: '#1c7165',
+      primaryLight: '#248b7b',
       secondary: 'rgba(255, 255, 255, 0.8)',
-      accent: '#7c3aed',
+      accent: '#94703d',
       border: 'rgba(255, 255, 255, 0.8)',
       shadow: '#38bdf8',
       shadowOpacity: 0.15,
@@ -157,19 +157,19 @@ const tokens: Record<DesignVariant, VariantConfig> = {
     dark: {
       background: '#000000', // Pure black
       foreground: '#f8fafc',
-      primary: '#22d3ee', // Cyan
-      primaryLight: '#67e8f9',
+      primary: '#45b6a2', // Sea glass
+      primaryLight: '#a6d8c5',
       secondary: 'rgba(15, 23, 42, 0.4)', // Heavy glass
-      accent: '#c084fc', // Purple
-      border: 'rgba(34, 211, 238, 0.2)', // Glowing border base
-      shadow: '#22d3ee', // Neon shadow
+      accent: '#dcc49b', // Sand
+      border: 'rgba(69, 182, 162, 0.2)', // Glowing border base
+      shadow: '#45b6a2', // Sea-glass shadow
       shadowOpacity: 0.15,
     },
     gradients: {
-      banner: 'linear-gradient(to right, #4f46e5, #06b6d4, #c084fc)',
-      bio: 'radial-gradient(circle at center, rgba(34,211,238,0.15) 0%, transparent 70%)',
+      banner: 'linear-gradient(to right, #174d48, #248b7b, #dcc49b)',
+      bio: 'radial-gradient(circle at center, rgba(69,182,162,0.15) 0%, transparent 70%)',
       card: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%)',
-      panelPrimary: 'linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(139,92,246,0.1) 100%)',
+      panelPrimary: 'linear-gradient(135deg, rgba(36,139,123,0.1) 0%, rgba(184,139,72,0.1) 100%)',
       panelSecondary: 'linear-gradient(135deg, rgba(30,41,59,0.5) 0%, rgba(15,23,42,0.8) 100%)',
     },
     patterns: {
@@ -177,9 +177,9 @@ const tokens: Record<DesignVariant, VariantConfig> = {
       opacity: 0.2,
     },
     shadows: {
-      sm: '0 0 10px rgba(34, 211, 238, 0.1), inset 0 1px 0 rgba(255,255,255,0.1)',
-      md: '0 0 20px rgba(34, 211, 238, 0.15), inset 0 1px 0 rgba(255,255,255,0.1)',
-      lg: '0 0 30px rgba(139, 92, 246, 0.2), inset 0 1px 0 rgba(255,255,255,0.2)',
+      sm: '0 0 10px rgba(69, 182, 162, 0.1), inset 0 1px 0 rgba(255,255,255,0.1)',
+      md: '0 0 20px rgba(69, 182, 162, 0.15), inset 0 1px 0 rgba(255,255,255,0.1)',
+      lg: '0 0 30px rgba(184, 139, 72, 0.2), inset 0 1px 0 rgba(255,255,255,0.2)',
     },
     animations: {
       fadeIn: '0.8s cubic-bezier(0.16, 1, 0.3, 1)',

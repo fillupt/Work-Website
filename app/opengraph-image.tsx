@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
           justifyContent: 'space-between',
           padding: '56px 64px',
           background:
-            'radial-gradient(circle at 20% 20%, #22d3ee 0%, #0f172a 42%, #020617 100%)',
+            'radial-gradient(circle at 20% 20%, #45b6a2 0%, #0f172a 42%, #020617 100%)',
           color: '#f8fafc',
           fontFamily: 'Outfit, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif',
         }}
@@ -31,8 +31,8 @@ export default function OpenGraphImage() {
               width: 14,
               height: 14,
               borderRadius: 999,
-              background: '#22d3ee',
-              boxShadow: '0 0 24px rgba(34, 211, 238, 0.8)',
+              background: '#45b6a2',
+              boxShadow: '0 0 24px rgba(69, 182, 162, 0.8)',
             }}
           />
           <div style={{ fontSize: 26, fontWeight: 600, letterSpacing: 0.2 }}>
@@ -52,7 +52,7 @@ export default function OpenGraphImage() {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ fontSize: 24, color: '#e2e8f0' }}>virtual patients, eye tracking, digital health</div>
-          <div style={{ fontSize: 24, color: '#67e8f9', fontWeight: 700 }}>philipturnbull.nz</div>
+          <div style={{ fontSize: 24, color: '#a6d8c5', fontWeight: 700 }}>philipturnbull.nz</div>
         </div>
       </div>
     ),
